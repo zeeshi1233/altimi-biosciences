@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 88" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B5ED7" />
+      <stop offset="100%" stop-color="#0E9F9A" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E9F9A" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Modern Bio-Cross / Helix Icon -->
+  <g transform="translate(10, 8)">
+    <!-- Rounded Background Glow -->
+    <rect x="0" y="0" width="72" height="72" rx="20" fill="url(#brandGrad)" fill-opacity="0.12" stroke="url(#brandGrad)" stroke-width="1.5" />
+    
+    <!-- Stylized Helix Nodes & Cross -->
+    <circle cx="36" cy="18" r="6.5" fill="url(#brandGrad)" />
+    <circle cx="36" cy="54" r="6.5" fill="url(#accentGrad)" />
+    <circle cx="18" cy="36" r="6.5" fill="url(#brandGrad)" />
+    <circle cx="54" cy="36" r="6.5" fill="url(#accentGrad)" />
+
+    <!-- Connecting Dynamic Flow Curves -->
+    <path d="M 36 18 C 50 24, 50 48, 36 54 C 22 48, 22 24, 36 18 Z" fill="none" stroke="url(#brandGrad)" stroke-width="3" stroke-linecap="round" />
+    <path d="M 18 36 C 24 50, 48 50, 54 36 C 48 22, 24 22, 18 36 Z" fill="none" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Center Core Spark -->
+    <circle cx="36" cy="36" r="4" fill="#FFFFFF" filter="url(#glow)" />
+    <circle cx="36" cy="36" r="2.5" fill="#0B5ED7" />
+  </g>
+
+  <!-- Brand Typography -->
+  <g transform="translate(98, 48)">
+    <text font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="#0A1B33" letter-spacing="-0.5">
+      ALTIMI
+    </text>
+    <text x="110" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="700" font-size="28" fill="url(#brandGrad)" letter-spacing="-0.5">
+      BIO
+    </text>
+    <text y="20" font-family="'Inter', system-ui, -apple-system, sans-serif" font-weight="600" font-size="11" fill="#0E9F9A" letter-spacing="3.8">
+      SCIENCES • PAKISTAN
+    </text>
+  </g>
+</svg>
+
