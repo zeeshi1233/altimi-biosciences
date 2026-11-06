@@ -32,7 +32,22 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
-  }, [pathname]);
+  }, [pathname, setMobileMenuOpen, setActiveDropdown]);
+
+  // Lock body scroll and pause Lenis when mobile menu is open to enable mobile drawer scrolling
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      (window as any).__lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      (window as any).__lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = "";
+      (window as any).__lenis?.start();
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -196,7 +211,7 @@ export const Navbar: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.97 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed left-1/2 -translate-x-1/2 top-[68px] w-[92vw] max-w-5xl z-50"
+                        className="fixed left-[230px] -translate-x-1/2 top-[100px] w-[92vw] max-w-5xl z-50"
                       >
                         <div className="glass-panel p-6 rounded-3xl shadow-2xl border border-slate-200/90 bg-white/95 backdrop-blur-2xl">
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -382,7 +397,10 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-0 top-[60px] bg-white z-50 lg:hidden flex flex-col justify-between overflow-y-auto px-6 py-8"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+            className="fixed inset-0 top-[60px] bg-white z-50 lg:hidden flex flex-col justify-between overflow-y-auto overscroll-contain touch-pan-y px-6 py-8"
           >
             <div className="space-y-4">
               <div className="pb-3 border-b border-slate-100">
@@ -394,6 +412,7 @@ export const Navbar: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <Link
                   href="/"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
                 >
                   Home
@@ -407,12 +426,14 @@ export const Navbar: React.FC = () => {
                   <div className="pl-4 space-y-2">
                     <Link
                       href="/about/leadership"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block text-sm text-muted hover:text-primary py-1"
                     >
                       • Executive Leadership
                     </Link>
                     <Link
                       href="/about/distribution"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="block text-sm text-muted hover:text-primary py-1"
                     >
                       • Nationwide Distribution
@@ -420,65 +441,40 @@ export const Navbar: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Products Accordion */}
-                <div className="py-2 border-b border-slate-50">
-                  <div className="font-heading font-bold text-lg text-ink mb-2">
-                    Products
-                  </div>
-                  <div className="pl-4 space-y-2">
-                    <Link
-                      href="/products"
-                      className="block text-sm font-semibold text-primary py-1"
-                    >
-                      • View All Products
-                    </Link>
-                    <Link
-                      href="/products/clinical-chemistry-analyzer/rx-modena"
-                      className="block text-sm text-muted hover:text-primary py-1"
-                    >
-                      • Randox RX Modena
-                    </Link>
-                    <Link
-                      href="/products/clinical-chemistry-analyzer/rx-imola"
-                      className="block text-sm text-muted hover:text-primary py-1"
-                    >
-                      • Randox RX Imola
-                    </Link>
-                    <Link
-                      href="/products/clinical-chemistry-analyzer/point-of-care-testing"
-                      className="block text-sm text-muted hover:text-primary py-1"
-                    >
-                      • Point of Care Testing
-                    </Link>
-                    <Link
-                      href="/products/medical-consumables/latex-gloves"
-                      className="block text-sm text-muted hover:text-primary py-1"
-                    >
-                      • Medical Consumables
-                    </Link>
-                  </div>
-                </div>
+                {/* Products - Direct Clickable Navigation Link on Mobile */}
+                <Link
+                  href="/products"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50 flex items-center justify-between group"
+                >
+                  <span>Products</span>
+                  <ArrowRight className="w-4 h-4 text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </Link>
 
                 <Link
                   href="/brochures"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
                 >
                   Brochures
                 </Link>
                 <Link
                   href="/media"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
                 >
                   Media
                 </Link>
                 <Link
                   href="/events"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
                 >
                   Events
                 </Link>
                 <Link
                   href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
                 >
                   Contact
@@ -491,6 +487,7 @@ export const Navbar: React.FC = () => {
                 href="/contact?type=quote"
                 variant="primary"
                 size="lg"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full justify-center"
               >
                 Get a Quote

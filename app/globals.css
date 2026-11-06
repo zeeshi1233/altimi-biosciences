@@ -34,7 +34,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-plus-jakarta), sans-serif;
     letter-spacing: -0.02em;
     color: inherit;
@@ -42,7 +47,8 @@
 }
 
 /* Lenis smooth scrolling rules */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -64,7 +70,7 @@ html.lenis, html.lenis body {
 
 /* Glassmorphism utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.85);
@@ -95,7 +101,7 @@ html.lenis, html.lenis body {
 /* Subtle medical grid & DNA dot background */
 .bg-grid-pattern {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(11, 94, 215, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(11, 94, 215, 0.05) 1px, transparent 1px);
 }
@@ -141,11 +147,13 @@ html.lenis, html.lenis body {
 
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-

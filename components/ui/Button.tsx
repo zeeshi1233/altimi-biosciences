@@ -30,6 +30,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       className,
       disabled,
+      target,
+      rel,
       ...props
     },
     ref
@@ -110,7 +112,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (href) {
       const linkElem = (
-        <Link href={href} className={baseClass}>
+        <Link
+          href={href}
+          target={target}
+          rel={rel}
+          onClick={props.onClick as any}
+          className={baseClass}
+        >
           {content}
         </Link>
       );
