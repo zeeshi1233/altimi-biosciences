@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Phone, Headphones, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Headphones, ShieldCheck, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -34,9 +34,9 @@ export const CtaBanner: React.FC = () => {
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <Reveal direction="up">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-secondary border border-white/15 backdrop-blur-md">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/15">
               <Headphones className="w-4 h-4 text-secondary" />
-              World Class Customer Support
+              Dedicated Clinical Support
             </span>
           </Reveal>
 
@@ -83,7 +83,7 @@ export const CtaBanner: React.FC = () => {
                 <span>DRAP Registered Supplies</span>
               </div>
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-secondary" />
+                <Wrench className="w-4 h-4 text-secondary" />
                 <span>On-Site Engineer Dispatch</span>
               </div>
               <div className="flex items-center gap-2">

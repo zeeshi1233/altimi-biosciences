@@ -46,7 +46,7 @@ export const ProductsShowcase: React.FC = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 focus:outline-none ${
+                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-150 focus:outline-none ${
                     isActive
                       ? "bg-primary text-white shadow-md shadow-primary/25"
                       : "bg-surface text-slate-700 hover:bg-slate-200/80 border border-slate-200"
@@ -120,7 +120,7 @@ export const ProductsShowcase: React.FC = () => {
             {/* Details & Specs */}
             <div className="space-y-4">
               <div>
-                <span className="text-[11px] font-bold text-secondary-dark uppercase tracking-wider">
+                <span className="text-xs font-medium text-secondary-dark">
                   {quickViewProduct.categoryName}
                 </span>
                 <h4 className="text-xl font-bold font-heading text-ink mt-1">
@@ -133,7 +133,7 @@ export const ProductsShowcase: React.FC = () => {
 
               {/* Key Features */}
               <div>
-                <h5 className="text-xs font-bold uppercase tracking-wider text-ink mb-2">
+                <h5 className="text-xs font-semibold text-ink mb-2">
                   Key Capabilities
                 </h5>
                 <ul className="space-y-1.5 text-xs text-slate-700">
@@ -148,7 +148,7 @@ export const ProductsShowcase: React.FC = () => {
 
               {/* Specifications preview */}
               <div className="pt-2 border-t border-slate-100">
-                <h5 className="text-xs font-bold uppercase tracking-wider text-ink mb-2">
+                <h5 className="text-xs font-semibold text-ink mb-2">
                   Specifications
                 </h5>
                 <div className="grid grid-cols-2 gap-2 text-xs">
@@ -179,9 +179,10 @@ export const ProductsShowcase: React.FC = () => {
                       ? `/products/medical-consumables/${quickViewProduct.slug}`
                       : `/products/${quickViewProduct.slug}`
                   }
-                  className="px-4 py-2 text-xs font-bold text-ink hover:text-primary transition-colors"
+                  className="px-4 py-2 text-xs font-semibold text-ink hover:text-primary transition-colors inline-flex items-center gap-1"
                 >
-                  Full Page →
+                  <span>View Details</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

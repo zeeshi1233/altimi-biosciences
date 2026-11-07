@@ -83,13 +83,13 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             {/* Card 1: Direct Hotline */}
             <Reveal direction="left" delay={0.1}>
-              <div className="p-8 rounded-3xl bg-surface border border-slate-200/80 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+              <div className="p-8 rounded-3xl bg-surface border border-slate-200/80 shadow-md hover:shadow-lg transition-shadow duration-200 relative overflow-hidden group">
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <Phone className="w-7 h-7" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-secondary-dark uppercase tracking-wider">
+                    <span className="text-xs font-medium text-secondary-dark">
                       Direct Support
                     </span>
                     <h3 className="text-xl font-bold font-heading text-ink mt-0.5 mb-1">
@@ -111,17 +111,17 @@ export const ContactSection: React.FC = () => {
 
             {/* Card 2: WhatsApp Chat */}
             <Reveal direction="left" delay={0.2}>
-              <div className="p-8 rounded-3xl bg-surface border border-slate-200/80 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group">
+              <div className="p-8 rounded-3xl bg-surface border border-slate-200/80 shadow-md hover:shadow-lg transition-shadow duration-200 relative overflow-hidden group">
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-secondary/15 text-secondary-dark flex items-center justify-center shrink-0 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                     <MessageCircle className="w-7 h-7" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-secondary-dark uppercase tracking-wider">
+                    <span className="text-xs font-medium text-secondary-dark">
                       Instant WhatsApp
                     </span>
                     <h3 className="text-xl font-bold font-heading text-ink mt-0.5 mb-1">
-                      Online Chat – Live Chat Now
+                      Live Chat Assistance
                     </h3>
                     <p className="text-xs text-muted mb-4">
                       Make an effective chat with us. Contact us on the given number for rapid quotes and urgent consumable dispatches.
@@ -149,7 +149,7 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>Monday to Saturday:</span>
-                  <span className="font-semibold text-ink">10:00 – 17:00</span>
+                  <span className="font-semibold text-ink">10:00 to 17:00</span>
                 </div>
                 <div className="flex justify-between text-muted">
                   <span>Sunday:</span>
@@ -204,14 +204,14 @@ export const ContactSection: React.FC = () => {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Full Name */}
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
+                          <label className="block text-xs font-semibold text-ink mb-1.5">
                             Full Name *
                           </label>
                           <input
                             type="text"
                             placeholder="Dr. Tariq Mahmood"
                             {...register("fullName")}
-                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
                           />
                           {errors.fullName && (
                             <p className="text-xs text-rose-500 mt-1">
@@ -222,14 +222,14 @@ export const ContactSection: React.FC = () => {
 
                         {/* Email Address */}
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
+                          <label className="block text-xs font-semibold text-ink mb-1.5">
                             Email Address *
                           </label>
                           <input
                             type="email"
                             placeholder="tariq@hospital.com.pk"
                             {...register("email")}
-                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
                           />
                           {errors.email && (
                             <p className="text-xs text-rose-500 mt-1">
@@ -242,14 +242,14 @@ export const ContactSection: React.FC = () => {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Phone */}
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
+                          <label className="block text-xs font-semibold text-ink mb-1.5">
                             Phone Number *
                           </label>
                           <input
                             type="tel"
                             placeholder="+92 300 1234567"
                             {...register("phone")}
-                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
                           />
                           {errors.phone && (
                             <p className="text-xs text-rose-500 mt-1">
@@ -260,14 +260,14 @@ export const ContactSection: React.FC = () => {
 
                         {/* Subject */}
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
+                          <label className="block text-xs font-semibold text-ink mb-1.5">
                             Subject / Product of Interest *
                           </label>
                           <input
                             type="text"
                             placeholder="e.g. Randox RX Modena Quotation"
                             {...register("subject")}
-                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                            className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
                           />
                           {errors.subject && (
                             <p className="text-xs text-rose-500 mt-1">
@@ -279,14 +279,14 @@ export const ContactSection: React.FC = () => {
 
                       {/* Message */}
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-ink mb-1.5">
+                        <label className="block text-xs font-semibold text-ink mb-1.5">
                           Inquiry Details / Tender Specs *
                         </label>
                         <textarea
                           rows={4}
                           placeholder="Please provide details about your institution, estimated test volume, and any specific requirements..."
                           {...register("message")}
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all resize-none"
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors resize-none"
                         />
                         {errors.message && (
                           <p className="text-xs text-rose-500 mt-1">

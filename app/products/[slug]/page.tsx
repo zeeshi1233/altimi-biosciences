@@ -13,7 +13,6 @@ import {
   ArrowRight,
   Boxes,
   Phone,
-  Sparkles,
   Award,
   Truck,
   Building2,
@@ -182,7 +181,7 @@ export default function GenericProductDetailPage({ params }: Props) {
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-ink flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <ShieldCheck className="w-4 h-4 text-primary" />
                   Key Clinical & Technical Features
                 </h3>
                 <span className="text-xs text-muted font-medium">Quality Assurance</span>

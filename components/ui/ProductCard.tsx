@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Eye, Sparkles, Check } from "lucide-react";
+import { ArrowRight, Eye, ShieldCheck, Check } from "lucide-react";
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/Button";
 
@@ -25,20 +25,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       : `/products/${product.slug}`;
 
   return (
-    <div className="group rounded-3xl bg-white border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+    <div className="group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-lg hover:border-slate-300 transition-[box-shadow,border-color] duration-200 flex flex-col justify-between overflow-hidden">
       <div>
         {/* Image Container with Hover Zoom & Quick View Action */}
         <div className="relative aspect-[4/3] w-full bg-slate-50/80 p-6 flex items-center justify-center overflow-hidden border-b border-slate-100">
           {product.badge && (
             <div className="absolute top-3.5 left-3.5 z-10">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
-                <Sparkles className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <ShieldCheck className="w-3 h-3" />
                 {product.badge}
               </span>
             </div>
           )}
 
-          <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
+          <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-102">
             <Image
               src={product.image}
               alt={product.name}
@@ -49,11 +49,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Quick View Floating Button on Hover */}
           {onQuickView && (
-            <div className="absolute inset-0 bg-ink/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 p-4">
+            <div className="absolute inset-0 bg-ink/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
               <button
                 type="button"
                 onClick={() => onQuickView(product)}
-                className="px-4 py-2 rounded-xl bg-white text-ink text-xs font-bold shadow-lg hover:bg-primary hover:text-white transition-all flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                className="px-4 py-2 rounded-xl bg-white text-ink text-xs font-bold shadow-lg hover:bg-primary hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary/40"
               >
                 <Eye className="w-3.5 h-3.5" />
                 <span>Quick View</span>
@@ -64,7 +64,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Content Details */}
         <div className="p-6">
-          <div className="text-[11px] font-bold text-secondary-dark uppercase tracking-wider mb-1">
+          <div className="text-xs font-medium text-primary mb-1">
             {product.categoryName}
           </div>
           <h3 className="text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors line-clamp-1">

@@ -92,14 +92,14 @@ export const TestimonialsSection: React.FC = () => {
                   <button
                     onClick={prev}
                     aria-label="Previous testimonial"
-                    className="p-3 rounded-2xl border border-slate-200 bg-white hover:bg-primary hover:text-white transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="p-3 rounded-2xl border border-slate-200 bg-white hover:bg-primary hover:text-white transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={next}
                     aria-label="Next testimonial"
-                    className="p-3 rounded-2xl border border-slate-200 bg-white hover:bg-primary hover:text-white transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="p-3 rounded-2xl border border-slate-200 bg-white hover:bg-primary hover:text-white transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
@@ -115,7 +115,7 @@ export const TestimonialsSection: React.FC = () => {
                 key={i}
                 onClick={() => setCurrent(i)}
                 aria-label={`View testimonial ${i + 1}`}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-colors duration-200 rounded-full ${
                   current === i ? "w-8 h-2.5 bg-primary" : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
                 }`}
               />

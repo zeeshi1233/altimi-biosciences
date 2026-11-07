@@ -12,7 +12,7 @@ import {
   Eye,
   Target,
   ArrowRight,
-  Sparkles,
+  Award,
   CheckCircle2,
   Stethoscope,
   Briefcase,
@@ -106,7 +106,7 @@ export default function LeadershipPage() {
         <Reveal direction="up">
           <SectionHeading
             badge="Executive Leadership"
-            badgeIcon={<Sparkles className="w-3.5 h-3.5" />}
+            badgeIcon={<Award className="w-3.5 h-3.5" />}
             title="Leadership Behind Altimi Biosciences"
             subtitle="Guided by visionary healthcare administrators, medical doctors, and public health strategists with over three decades of institutional leadership."
             align="center"

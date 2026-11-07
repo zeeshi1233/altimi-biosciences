@@ -10,7 +10,6 @@ import {
   VolumeX,
   X,
   Send,
-  Sparkles,
   Bot,
   User,
   Wrench,
@@ -565,7 +564,7 @@ export const VoiceAssistant: React.FC = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white shrink-0 shadow-md">
-                  <Sparkles className="w-6 h-6 animate-pulse" />
+                  <Bot className="w-6 h-6 animate-pulse" />
                 </div>
                 <div className="space-y-1.5 flex-1">
                   <div className="flex items-center justify-between">
@@ -960,7 +959,7 @@ export const VoiceAssistant: React.FC = () => {
             ) : agentState === "speaking" ? (
               <Volume2 className="w-6 h-6" />
             ) : agentState === "thinking" ? (
-              <Sparkles className="w-6 h-6 animate-spin" />
+              <RefreshCw className="w-6 h-6 animate-spin" />
             ) : (
               <Mic className="w-6 h-6" />
             )}

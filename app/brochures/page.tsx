@@ -10,7 +10,6 @@ import {
   Eye,
   ExternalLink,
   X,
-  Sparkles,
   Layers,
   FileCheck,
   CheckCircle2,

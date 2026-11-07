@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, CheckCircle2, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, CheckCircle2, ArrowRight, ShieldCheck, Activity } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 interface HeroSlide {
@@ -194,30 +194,12 @@ export const HeroSlider: React.FC = () => {
   return (
     <section
       aria-label="Featured Medical Equipment & Supplies"
-      className="relative min-h-[90vh] lg:min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-surface via-white to-surface pt-4 pb-12"
+      className="relative min-h-[90dvh] lg:min-h-[92dvh] flex items-center overflow-hidden bg-gradient-to-b from-surface via-white to-surface pt-4 pb-12"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Dynamic Background Elements: DNA / Molecule Glows */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 20, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, -30, 0],
-          y: [0, 30, 0],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 -right-20 w-[450px] h-[450px] bg-secondary/15 rounded-full blur-3xl pointer-events-none"
-      />
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 py-6">
         <AnimatePresence mode="wait">
@@ -238,25 +220,25 @@ export const HeroSlider: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="flex flex-wrap items-center gap-2.5"
               >
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold text-primary uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary">
+                  <Activity className="w-3.5 h-3.5 text-primary" />
                   {slide.category}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-xs font-bold text-secondary-dark uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-xs font-semibold text-secondary-dark">
                   <ShieldCheck className="w-3.5 h-3.5 text-secondary" />
                   {slide.badge}
                 </span>
               </motion.div>
 
-              {/* Slide Heading with Split Reveal */}
+              {/* Slide Heading */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black font-heading text-ink tracking-tight leading-[1.15]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black font-heading text-ink tracking-tight leading-[1.12]">
                   <span>{slide.title}</span>{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary-light">
+                  <span className="text-primary font-black">
                     {slide.highlight}
                   </span>
                 </h1>
@@ -369,8 +351,8 @@ export const HeroSlider: React.FC = () => {
           {/* Progress Bar */}
           <div className="w-full sm:w-1/3 bg-slate-200 h-1.5 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-75 ease-linear rounded-full"
-              style={{ width: `${progress}%` }}
+              className="h-full bg-primary rounded-full"
+              style={{ width: `${progress}%`, transition: "width 75ms linear" }}
             />
           </div>
 
@@ -384,7 +366,7 @@ export const HeroSlider: React.FC = () => {
                   setProgress(0);
                 }}
                 aria-label={`Go to slide ${idx + 1}`}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-colors duration-200 rounded-full ${
                   current === idx
                     ? "w-8 h-2.5 bg-primary"
                     : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
@@ -398,14 +380,14 @@ export const HeroSlider: React.FC = () => {
             <button
               onClick={prevSlide}
               aria-label="Previous slide"
-              className="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-primary hover:text-white hover:border-primary text-ink transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-primary hover:text-white hover:border-primary text-ink transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next slide"
-              className="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-primary hover:text-white hover:border-primary text-ink transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-primary hover:text-white hover:border-primary text-ink transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

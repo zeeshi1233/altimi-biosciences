@@ -35,7 +35,7 @@ export const PartnersMarquee: React.FC = () => {
           {duplicatedPartners.map((partner, idx) => (
             <div
               key={`${partner.id}-${idx}`}
-              className="relative w-40 h-24  transition-all duration-300  group/item shrink-0"
+              className="relative w-40 h-24 transition-opacity duration-200 group/item shrink-0"
             >
 
               <div className="relative w-full h-full transition-transform duration-300 group-hover/item:scale-105">

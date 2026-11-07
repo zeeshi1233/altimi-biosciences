@@ -26,13 +26,13 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const sizeStyles = {
     sm: "text-[11px] px-2.5 py-0.5 rounded-full font-medium",
-    md: "text-xs px-3 py-1 rounded-full font-semibold",
+    md: "text-xs px-3 py-1 rounded-full font-medium",
   };
 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 border tracking-wide uppercase",
+        "inline-flex items-center gap-1.5 border transition-colors",
         variantStyles[variant],
         sizeStyles[size],
         className

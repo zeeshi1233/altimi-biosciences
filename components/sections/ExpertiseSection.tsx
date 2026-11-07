@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Syringe, Package, Cpu, FlaskConical, Pill, ArrowRight, Sparkles } from "lucide-react";
+import { Syringe, Package, Cpu, FlaskConical, Pill, ArrowRight, Activity } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/animations/TiltCard";
@@ -112,7 +112,7 @@ export const ExpertiseSection: React.FC = () => {
         <Reveal direction="up">
           <SectionHeading
             badge="Our Core Expertise"
-            badgeIcon={<Sparkles className="w-3.5 h-3.5" />}
+            badgeIcon={<Activity className="w-3.5 h-3.5 text-primary" />}
             title="Comprehensive Healthcare & Diagnostic Solutions"
             subtitle="We provide end-to-end distribution, scientific validation, and equipment lifecycle support across 5 key medical domains."
             align="center"
@@ -127,24 +127,19 @@ export const ExpertiseSection: React.FC = () => {
             return (
               <Reveal key={item.id} direction="up" delay={idx * 0.1}>
                 <TiltCard className="h-full">
-                  <div className="h-full flex flex-col justify-between p-7 rounded-3xl bg-white border border-slate-200/80 shadow-lg shadow-primary/5 hover:border-secondary/40 transition-all duration-300 relative overflow-hidden group">
-                    {/* Top gradient glow */}
-                    <div
-                      className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${item.gradient} rounded-bl-full pointer-events-none transition-transform duration-500 group-hover:scale-125`}
-                    />
-
+                  <div className="h-full flex flex-col justify-between p-7 rounded-3xl bg-white border border-slate-200/80 shadow-md shadow-primary/5 hover:border-secondary/50 transition-colors duration-200 relative overflow-hidden group">
                     <div>
                       {/* Icon & Badge */}
                       <div className="flex items-center justify-between mb-5">
-                        <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-sm">
-                          <Icon className="w-7 h-7" />
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-colors duration-200 group-hover:bg-primary group-hover:text-white shadow-sm">
+                          <Icon className="w-6 h-6" />
                         </div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-secondary-dark bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/20">
+                        <span className="text-xs font-medium text-secondary-dark bg-secondary/10 px-2.5 py-0.5 rounded-full border border-secondary/20">
                           {item.badge}
                         </span>
                       </div>
 
-                      <span className="text-xs font-semibold text-muted uppercase tracking-wider">
+                      <span className="text-xs font-medium text-primary">
                         {item.categoryName}
                       </span>
                       <h3 className="text-xl font-bold font-heading text-ink mt-1 mb-3 group-hover:text-primary transition-colors">
@@ -190,22 +185,18 @@ export const ExpertiseSection: React.FC = () => {
             return (
               <Reveal key={item.id} direction="up" delay={0.3 + idx * 0.1}>
                 <TiltCard className="h-full">
-                  <div className="h-full flex flex-col justify-between p-7 rounded-3xl bg-white border border-slate-200/80 shadow-lg shadow-primary/5 hover:border-secondary/40 transition-all duration-300 relative overflow-hidden group">
-                    <div
-                      className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${item.gradient} rounded-bl-full pointer-events-none transition-transform duration-500 group-hover:scale-125`}
-                    />
-
+                  <div className="h-full flex flex-col justify-between p-7 rounded-3xl bg-white border border-slate-200/80 shadow-md shadow-primary/5 hover:border-secondary/50 transition-colors duration-200 relative overflow-hidden group">
                     <div>
                       <div className="flex items-center justify-between mb-5">
-                        <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-sm">
-                          <Icon className="w-7 h-7" />
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-colors duration-200 group-hover:bg-primary group-hover:text-white shadow-sm">
+                          <Icon className="w-6 h-6" />
                         </div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-secondary-dark bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/20">
+                        <span className="text-xs font-medium text-secondary-dark bg-secondary/10 px-2.5 py-0.5 rounded-full border border-secondary/20">
                           {item.badge}
                         </span>
                       </div>
 
-                      <span className="text-xs font-semibold text-muted uppercase tracking-wider">
+                      <span className="text-xs font-medium text-primary">
                         {item.categoryName}
                       </span>
                       <h3 className="text-xl font-bold font-heading text-ink mt-1 mb-3 group-hover:text-primary transition-colors">

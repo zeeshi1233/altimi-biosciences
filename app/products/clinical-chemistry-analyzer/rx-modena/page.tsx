@@ -12,7 +12,6 @@ import {
   ArrowRight,
   Phone,
   Clock,
-  Sparkles,
   ThermometerSnowflake,
   Activity,
   Award,
@@ -215,7 +214,7 @@ export default function RxModenaPage() {
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-ink flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <Activity className="w-4 h-4 text-primary" />
                   Key Clinical & Workflow Advantages
                 </h3>
                 <span className="text-xs text-muted font-medium">Randox RX Series</span>

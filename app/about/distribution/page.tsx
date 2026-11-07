@@ -19,7 +19,6 @@ import {
   RefreshCw,
   GitBranch,
   ArrowRight,
-  Sparkles,
   Phone,
   Clock,
   Warehouse,
@@ -80,7 +79,7 @@ export default function DistributionPage() {
               <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-xl space-y-6">
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 mb-3">
-                    <Sparkles className="w-3 h-3 text-primary" />
+                    <Activity className="w-3 h-3 text-primary" />
                     Core Healthcare Mission
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black font-heading text-ink leading-snug">

@@ -34,11 +34,11 @@ export const ContactMapCommandCenter: React.FC = () => {
       <div className="bg-slate-900/95 backdrop-blur-md px-6 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
           </span>
           <div>
-            <span className="text-xs font-bold text-white tracking-wide uppercase">
+            <span className="text-xs font-semibold text-white">
               Headquarters & Central Logistics
             </span>
             <span className="hidden sm:inline-block text-[11px] text-slate-400 ml-2">
@@ -51,7 +51,7 @@ export const ContactMapCommandCenter: React.FC = () => {
           <button
             type="button"
             onClick={handleCopyAddress}
-            className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition-all focus:outline-none"
+            className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition-colors focus:outline-none"
           >
             {copied ? (
               <>
@@ -69,7 +69,7 @@ export const ContactMapCommandCenter: React.FC = () => {
             href="https://maps.google.com/?q=Altimi+Biosciences+Private+Limited+Karachi"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 rounded-xl bg-primary hover:bg-primary-dark text-xs font-bold text-white flex items-center gap-1.5 shadow-md shadow-primary/25 transition-all"
+            className="px-3.5 py-1.5 rounded-xl bg-primary hover:bg-primary-dark text-xs font-semibold text-white flex items-center gap-1.5 shadow-md shadow-primary/25 transition-colors"
           >
             <span>Directions</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -82,7 +82,7 @@ export const ContactMapCommandCenter: React.FC = () => {
         {/* Left Column: HQ Details */}
         <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800 space-y-6">
           <div>
-            <span className="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">
+            <span className="text-xs font-medium text-secondary block mb-2">
               Official Headquarters
             </span>
             <h3 className="text-2xl sm:text-3xl font-black font-heading !text-white text-white leading-tight">
@@ -133,7 +133,7 @@ export const ContactMapCommandCenter: React.FC = () => {
               <Warehouse className="w-4 h-4 text-secondary" />
               <span className="font-semibold text-white">450 m² DRAP Certified</span>
             </div>
-            <span className="text-[11px] text-emerald-400 font-bold uppercase">
+            <span className="text-xs text-emerald-400 font-semibold">
               ★ 5.0 Rating
             </span>
           </div>
@@ -156,7 +156,7 @@ export const ContactMapCommandCenter: React.FC = () => {
           {/* Floating Glass Badge over map */}
           <div className="absolute top-4 left-4 z-10 hidden sm:block max-w-xs">
             <div className="p-3.5 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-white shadow-xl">
-              <div className="flex items-center justify-between text-[10px] font-bold text-emerald-400 uppercase tracking-wider mb-1">
+              <div className="flex items-center justify-between text-xs font-semibold text-emerald-400 mb-1">
                 <span>Altimi Biosciences</span>
                 <span>★ 5.0 (3 Reviews)</span>
               </div>

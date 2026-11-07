@@ -20,10 +20,6 @@ const stats = [
 export const AboutSection: React.FC = () => {
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden bg-white">
-      {/* Background decoration */}
-      <div className="absolute top-1/2 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 -left-40 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
-
       <Container>
         {/* Section Heading */}
         <Reveal direction="up">
@@ -48,13 +44,13 @@ export const AboutSection: React.FC = () => {
 
             <Reveal direction="up" delay={0.2}>
               <p className="text-muted text-base sm:text-lg leading-relaxed">
-                At <strong className="text-ink font-semibold">Altimi Biosciences</strong>, we redefine excellence in diagnostic solutions. Our cutting-edge technology and innovative platforms, such as the <span className="text-primary font-semibold">RX imola</span> and <span className="text-primary font-semibold">RX modena</span>, empower laboratories to deliver precise, efficient and comprehensive testing.
+                At <strong className="text-ink font-semibold">Altimi Biosciences</strong>, we supply verified diagnostic systems and hospital consumables. Our automated chemistry platforms, including the <span className="text-primary font-semibold">RX imola</span> and <span className="text-primary font-semibold">RX modena</span>, support institutional laboratories with reliable, continuous testing.
               </p>
             </Reveal>
 
             <Reveal direction="up" delay={0.3}>
               <p className="text-muted text-base leading-relaxed">
-                From routine chemistries and HbA1c testing to advanced diagnostics like therapeutic drugs, antioxidants and veterinary assays, we cater to diverse testing needs with unmatched accuracy and speed. With intuitive, user-friendly interfaces and modern design, our solutions streamline laboratory workflows while maintaining the highest standards of performance.
+                From routine chemistries and direct HbA1c assays to specialized cardiac monitoring, consumables, and safety catheters, we support healthcare workflows across Pakistan with calibrated accuracy and prompt technical assistance.
               </p>
             </Reveal>
 
@@ -105,19 +101,19 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Card 1: Lab Machines */}
             <Reveal direction="left" delay={0.2}>
-              <div className="group relative rounded-3xl overflow-hidden glass-card border border-slate-200/90 shadow-xl transition-all duration-500 hover:shadow-2xl bg-slate-50">
+              <div className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Image
                     src="/images/about/lab-machines.png"
                     alt="Lab Machines – Advanced laboratory equipment"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover"
                   />
-                  {/* Dedicated Frosted Glass Card Behind Text */}
-                  <div className="absolute inset-x-3.5 bottom-3.5 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-2xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-primary/10">
+                  {/* Dedicated Card Behind Text */}
+                  <div className="absolute inset-x-3.5 bottom-3.5 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl transition-colors duration-300 group-hover:border-primary/40">
                     <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary/15 text-secondary-dark border border-secondary/25">
-                        <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary/15 text-secondary-dark border border-secondary/25">
+                        <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
                         Clinical Technology
                       </span>
                     </div>
@@ -134,19 +130,19 @@ export const AboutSection: React.FC = () => {
 
             {/* Card 2: Research Center */}
             <Reveal direction="right" delay={0.3}>
-              <div className="group relative rounded-3xl overflow-hidden glass-card border border-slate-200/90 shadow-xl transition-all duration-500 hover:shadow-2xl sm:translate-y-8 bg-slate-50">
+              <div className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-lg hover:shadow-xl transition-shadow duration-300 sm:translate-y-8">
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Image
                     src="/images/about/research-center.png"
                     alt="Research Center – Precision testing equipment"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover"
                   />
-                  {/* Dedicated Frosted Glass Card Behind Text */}
-                  <div className="absolute inset-x-3.5 bottom-3.5 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-2xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-primary/10">
+                  {/* Dedicated Card Behind Text */}
+                  <div className="absolute inset-x-3.5 bottom-3.5 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl transition-colors duration-300 group-hover:border-primary/40">
                     <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                         Biomedical Infrastructure
                       </span>
                     </div>
@@ -171,7 +167,7 @@ export const AboutSection: React.FC = () => {
               return (
                 <div
                   key={i}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-surface hover:bg-white hover:shadow-md transition-all border border-slate-100"
+                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-surface hover:bg-white hover:shadow-md transition-colors duration-200 border border-slate-100"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
                     <Icon className="w-6 h-6" />
@@ -179,7 +175,7 @@ export const AboutSection: React.FC = () => {
                   <div className="text-3xl sm:text-4xl font-black font-heading text-ink">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <p className="text-xs sm:text-sm font-semibold text-muted mt-1 uppercase tracking-wide">
+                  <p className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
                     {stat.label}
                   </p>
                 </div>

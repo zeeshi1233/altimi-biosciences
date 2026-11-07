@@ -72,24 +72,24 @@ export const WhyChooseUs: React.FC = () => {
             const Icon = pillar.icon;
             return (
               <Reveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="h-full glass-card p-6 sm:p-7 rounded-3xl bg-white/90 border border-slate-200/90 shadow-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group">
+                <div className="h-full p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-md flex flex-col justify-between transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-secondary/50 hover:shadow-lg group">
                   <div>
                     {/* Top Icon & Metric */}
                     <div className="flex items-center justify-between mb-5">
-                      <div className="w-13 h-13 w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200 shadow-sm">
                         <Icon className="w-6 h-6" />
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-black font-heading text-ink">
                           {pillar.stats}
                         </div>
-                        <div className="text-[10px] uppercase font-bold text-muted">
+                        <div className="text-xs font-medium text-muted">
                           {pillar.statLabel}
                         </div>
                       </div>
                     </div>
 
-                    <div className="text-[11px] font-bold text-secondary-dark uppercase tracking-wider">
+                    <div className="text-xs font-medium text-primary">
                       {pillar.subtitle}
                     </div>
                     <h3 className="text-lg font-bold font-heading text-ink mt-1 mb-2.5 group-hover:text-primary transition-colors">
