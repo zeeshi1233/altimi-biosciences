@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Newspaper, Calendar, ArrowRight, ExternalLink } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
 
@@ -59,18 +58,26 @@ const articles = [
 
 export default function MediaPage() {
   return (
-    <div className="py-12 lg:py-20 bg-surface min-h-screen">
+    <div className="pt-6 pb-16 lg:pt-8 lg:pb-20 bg-surface min-h-screen">
       <Container>
-        <Reveal direction="up">
-          <SectionHeading
-            badge="News & Press"
-            badgeIcon={<Newspaper className="w-3.5 h-3.5" />}
-            title="Media Room & Clinical Announcements"
-            subtitle="Stay informed with corporate updates, clinical breakthrough deployments, and health sector partnerships across Pakistan."
-            align="center"
-            className="mb-16"
-          />
-        </Reveal>
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-2 text-xs font-medium text-muted mb-3.5">
+          <Link href="/" className="hover:text-primary transition-colors">
+            Home
+          </Link>
+          <span className="text-slate-400">/</span>
+          <span className="text-primary font-semibold">Media Room</span>
+        </nav>
+
+        {/* Left-Aligned Header */}
+        <div className="mb-8 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-[1.15]">
+            Media Room &amp; Clinical Announcements
+          </h1>
+          <p className="text-sm sm:text-base text-muted leading-relaxed mt-3.5">
+            Stay informed with corporate updates, clinical breakthrough deployments, and health sector partnerships across Pakistan.
+          </p>
+        </div>
 
         {/* Featured Top News */}
         <div className="mb-16">

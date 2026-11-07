@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Calendar, MapPin, Building2, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
 import { events } from "@/data/events";
@@ -20,17 +19,26 @@ export default function EventsPage() {
   const pastEvents = events.filter((e) => e.status === "Completed");
 
   return (
-    <div className="py-12 lg:py-20 bg-surface min-h-screen">
+    <div className="pt-6 pb-16 lg:pt-8 lg:pb-20 bg-surface min-h-screen">
       <Container>
-        <Reveal direction="up">
-          <SectionHeading
-            badge="Medical Conferences"
-            title="Expos, Symposiums & Clinical Workshops"
-            subtitle="Meet our biomedical specialists in person at medical conventions and hands-on clinical instrumentation seminars across Pakistan."
-            align="center"
-            className="mb-16"
-          />
-        </Reveal>
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-2 text-xs font-medium text-muted mb-3.5">
+          <Link href="/" className="hover:text-primary transition-colors">
+            Home
+          </Link>
+          <span className="text-slate-400">/</span>
+          <span className="text-primary font-semibold">Events &amp; Expos</span>
+        </nav>
+
+        {/* Left-Aligned Header */}
+        <div className="mb-8 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-[1.15]">
+            Expos, Symposiums &amp; Clinical Workshops
+          </h1>
+          <p className="text-sm sm:text-base text-muted leading-relaxed mt-3.5">
+            Meet our biomedical specialists in person at medical conventions and hands-on clinical instrumentation seminars across Pakistan.
+          </p>
+        </div>
 
         {/* Upcoming Events Section */}
         <div className="mb-16">

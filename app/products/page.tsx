@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Filter, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Search, X, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
@@ -16,6 +16,9 @@ export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+
+  const prefersReduced = useReducedMotion();
+  const tabListRef = useRef<HTMLDivElement>(null);
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
@@ -30,20 +33,54 @@ export default function ProductsPage() {
     });
   }, [selectedCategory, searchQuery]);
 
-  return (
-    <div className="py-12 lg:py-20 bg-surface min-h-screen">
-      <Container>
-        {/* Header */}
-        <SectionHeading
-          badge="Product Directory"
-          title="Complete Medical & Diagnostics Portfolio"
-          subtitle="Explore our comprehensive line of automated clinical chemistry analyzers, medical devices, and hospital consumables distributed across Pakistan."
-          align="center"
-          className="mb-12"
-        />
+  const activeIndex = productCategories.findIndex((c) => c.id === selectedCategory);
 
-        {/* Filter & Search Bar */}
-        <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-md mb-10 space-y-4">
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+      e.preventDefault();
+      const len = productCategories.length;
+      let next = activeIndex;
+      if (e.key === "ArrowRight") next = (activeIndex + 1) % len;
+      if (e.key === "ArrowLeft") next = (activeIndex - 1 + len) % len;
+      if (e.key === "Home") next = 0;
+      if (e.key === "End") next = len - 1;
+      setSelectedCategory(productCategories[next].id);
+      const tabEl = tabListRef.current?.querySelectorAll("[role=tab]")[next] as HTMLElement | undefined;
+      tabEl?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    },
+    [activeIndex]
+  );
+
+  useEffect(() => {
+    const tabEl = tabListRef.current?.querySelectorAll("[role=tab]")[activeIndex] as HTMLElement | undefined;
+    tabEl?.scrollIntoView({ block: "nearest", inline: "center", behavior: prefersReduced ? "auto" : "smooth" });
+  }, [activeIndex, prefersReduced]);
+
+  return (
+    <div className="pt-6 pb-16 lg:pt-8 lg:pb-20 bg-surface min-h-screen">
+      <Container>
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-2 text-xs font-medium text-muted mb-3.5">
+          <Link href="/" className="hover:text-primary transition-colors">
+            Home
+          </Link>
+          <span className="text-slate-400">/</span>
+          <span className="text-primary font-semibold">Products</span>
+        </nav>
+
+        {/* Left-Aligned Header */}
+        <div className="mb-8 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-[1.15]">
+            Medical Diagnostics &amp; Supplies Catalog
+          </h1>
+          <p className="text-sm sm:text-base text-muted leading-relaxed mt-3.5">
+            Explore our comprehensive inventory of Randox automated chemistry systems, Bittium wearable biosensors, Greiner safety catheters, and hospital consumables.
+          </p>
+        </div>
+
+        {/* Sticky Filter & Search Bar */}
+        <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-slate-200/90 shadow-md mb-10 space-y-4">
           <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
             {/* Search Input */}
             <div className="relative w-full md:w-96">
@@ -53,36 +90,102 @@ export default function ProductsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by product, brand, or code..."
-                className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-[border-color,box-shadow]"
+                className="w-full pl-11 pr-10 py-2.5 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-[border-color,box-shadow]"
               />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-ink focus:outline-none"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
             </div>
 
             {/* Results counter */}
-            <div className="text-xs font-semibold text-muted">
+            <div className="text-xs font-semibold text-muted shrink-0">
               Showing <span className="text-ink font-bold">{filteredProducts.length}</span> of{" "}
               {products.length} products
             </div>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100">
-            {productCategories.map((cat) => {
-              const isActive = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-2 rounded-xl text-xs font-semibold transition-[background-color,color,border-color,box-shadow] duration-150 ${
-                    isActive
-                      ? "bg-primary text-white shadow-sm"
-                      : "bg-surface text-slate-700 hover:bg-slate-200/80 border border-slate-200"
-                  }`}
-                >
-                  {cat.name} ({cat.count})
-                </button>
-              );
-            })}
+          {/* Category Tabs in ONE row with sliding active indicator & smooth touch scroll */}
+          <div className="relative flex items-center overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-2 border-t border-slate-100">
+            <div
+              ref={tabListRef}
+              role="tablist"
+              aria-label="Filter products by category"
+              onKeyDown={handleKeyDown}
+              className="flex items-center gap-1.5 flex-nowrap min-w-0 flex-1 py-1"
+            >
+              {productCategories.map((cat) => {
+                const isActive = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    role="tab"
+                    type="button"
+                    aria-selected={isActive}
+                    tabIndex={isActive ? 0 : -1}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={`relative flex items-center gap-2 shrink-0 snap-start px-4 py-2 rounded-xl text-xs font-semibold select-none transition-[color,box-shadow,transform] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-primary/40 ${
+                      isActive
+                        ? "text-white [box-shadow:var(--shadow-tab-active)] hover:brightness-105"
+                        : "text-slate-700 hover:text-primary hover:bg-slate-100/80"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="products-sticky-tab-indicator"
+                        className="absolute inset-0 rounded-xl bg-gradient-to-b from-primary-light to-primary"
+                        transition={
+                          prefersReduced
+                            ? { duration: 0 }
+                            : { type: "spring", stiffness: 380, damping: 32 }
+                        }
+                        aria-hidden="true"
+                      />
+                    )}
+                    <span className="relative z-10 whitespace-nowrap">{cat.name}</span>
+                    <span
+                      className={`relative z-10 inline-flex items-center justify-center min-w-[20px] h-4 px-1 rounded-full text-[10px] font-bold leading-none ${
+                        isActive
+                          ? "bg-white/20 text-white"
+                          : "bg-slate-200/90 text-slate-600"
+                      }`}
+                    >
+                      {cat.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
+
+          {/* Reset Action if active filters */}
+          {(selectedCategory !== "all" || searchQuery !== "") && (
+            <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
+              <span className="text-muted">
+                Active:{" "}
+                <strong className="text-ink">
+                  {selectedCategory !== "all" ? productCategories.find((c) => c.id === selectedCategory)?.name : "All Categories"}
+                  {searchQuery ? ` • "${searchQuery}"` : ""}
+                </strong>
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory("all");
+                  setSearchQuery("");
+                }}
+                className="font-bold text-primary hover:underline"
+              >
+                Clear all filters
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Products Grid */}
@@ -95,11 +198,12 @@ export default function ProductsPage() {
               Try adjusting your search terms or category selection.
             </p>
             <button
+              type="button"
               onClick={() => {
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
-              className="mt-4 px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold"
+              className="mt-4 px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-dark transition-colors"
             >
               Reset Filters
             </button>
@@ -205,4 +309,3 @@ export default function ProductsPage() {
     </div>
   );
 }
-

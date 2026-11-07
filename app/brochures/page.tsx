@@ -15,7 +15,6 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 import { brochures } from "@/data/brochures";
@@ -45,28 +44,26 @@ export default function BrochuresPage() {
   });
 
   return (
-    <div className="py-12 lg:py-20 bg-surface min-h-screen">
+    <div className="pt-6 pb-16 lg:pt-8 lg:pb-20 bg-surface min-h-screen">
       <Container>
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs font-semibold text-muted mb-8">
+        <nav className="flex items-center gap-2 text-xs font-medium text-muted mb-3.5">
           <Link href="/" className="hover:text-primary transition-colors">
             Home
           </Link>
-          <span>/</span>
-          <span className="text-primary font-bold">Brochures & Datasheets</span>
+          <span className="text-slate-400">/</span>
+          <span className="text-primary font-semibold">Brochures &amp; Datasheets</span>
         </nav>
 
-        {/* Section Heading */}
-        <Reveal direction="up">
-          <SectionHeading
-            badge="Technical Library"
-            badgeIcon={<FileCheck className="w-3.5 h-3.5" />}
-            title="Product Brochures & Technical Documentation"
-            subtitle="Browse and preview official datasheets, diagnostic brochures, and medical equipment specifications distributed by Altimi Biosciences."
-            align="center"
-            className="mb-12"
-          />
-        </Reveal>
+        {/* Left-Aligned Header */}
+        <div className="mb-8 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-[1.15]">
+            Product Brochures &amp; Technical Documentation
+          </h1>
+          <p className="text-sm sm:text-base text-muted leading-relaxed mt-3.5">
+            Browse and preview official datasheets, diagnostic brochures, and medical equipment specifications distributed by Altimi Biosciences.
+          </p>
+        </div>
 
         {/* Filter and Search Bar - Full Container Width matching Products Page */}
         <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-md mb-10 space-y-4">
