@@ -43,7 +43,7 @@ const pillars = [
     title: "24/7 Biomedical Support",
     subtitle: "Factory Trained Engineers",
     description:
-      "Dedicated certified field engineers in Karachi, Lahore, and Islamabad ensuring < 4-hour breakdown turnaround and continuous uptime.",
+      "Dedicated certified field engineers based at our Karachi headquarters ensuring rapid breakdown turnaround and continuous laboratory uptime.",
     stats: "< 4h",
     statLabel: "Rapid Response SLA",
     highlights: ["Local genuine spare parts", "Annual Maintenance Contracts", "Onsite lab training"],

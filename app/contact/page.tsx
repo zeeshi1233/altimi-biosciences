@@ -52,7 +52,7 @@ export default function ContactPage() {
             Connect With Our Diagnostic Specialists
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-            Headquartered in Karachi with regional representation across Lahore, Islamabad, and nationwide medical hubs.
+            Headquartered in Karachi, serving hospitals, diagnostic laboratories, and healthcare networks across Pakistan.
           </p>
         </Container>
       </div>
@@ -63,7 +63,7 @@ export default function ContactPage() {
       {/* Departments Directory & Physical Location */}
       <div className="py-16 bg-white border-t border-slate-200">
         <Container>
-          <div className="max-w-2xl mb-12">
+          {/* <div className="max-w-2xl mb-12">
             <span className="text-xs font-bold text-secondary-dark uppercase tracking-wider">
               Departmental Routing
             </span>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Interactive Map Command Center */}
           <ContactMapCommandCenter />

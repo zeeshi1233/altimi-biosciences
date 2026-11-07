@@ -39,7 +39,7 @@ export const SITE_ROUTES: RouteInfo[] = [
   {
     path: "/about/distribution",
     title: "Nationwide Distribution",
-    description: "Cold-chain infrastructure, Karachi Central Logistics, regional hubs across Punjab, Sindh, KPK, and Balochistan, tender bidding, and DRAP compliance.",
+    description: "Cold-chain infrastructure, Karachi Central Logistics Hub, nationwide hospital distribution, tender bidding, and DRAP compliance.",
   },
   {
     path: "/products",

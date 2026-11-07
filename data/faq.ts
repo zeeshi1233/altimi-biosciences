@@ -13,7 +13,7 @@ export const faqs: FAQItem[] = [
   {
     category: "General",
     question: "Where is the Altimi Biosciences headquarters located?",
-    answer: "Our head office and central warehousing facility are located in Karachi, Pakistan. We also maintain representative distribution hubs and certified biomedical engineering response units across Lahore, Islamabad, Multan, and Peshawar."
+    answer: "Our head office and central warehousing logistics complex are strictly located in Karachi, Pakistan, from where we manage centralized healthcare dispatches, imports, and biomedical technical support nationwide."
   },
   {
     category: "Distribution & Logistics",
@@ -23,7 +23,7 @@ export const faqs: FAQItem[] = [
   {
     category: "Distribution & Logistics",
     question: "What is your standard delivery timeframe for hospital consumables in Karachi and upcountry?",
-    answer: "For major tertiary facilities in Karachi, we offer same-day or next-morning dispatch for standing consumable orders. Deliveries to Lahore, Rawalpindi/Islamabad, and other regional medical centers typically take 24 to 48 hours via dedicated pharmaceutical couriers."
+    answer: "For major tertiary facilities in Karachi, we offer same-day or next-morning dispatch for standing consumable orders. Upcountry dispatches across Pakistan typically take 24 to 48 hours via dedicated pharmaceutical cold-chain couriers."
   },
   {
     category: "Technical Support",

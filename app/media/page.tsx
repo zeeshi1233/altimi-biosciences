@@ -51,7 +51,7 @@ const articles = [
     category: "Regulatory & Quality",
     date: "June 10, 2026",
     summary:
-      "Independent cold-chain verification confirms 99.98% thermal integrity across all trans-provincial reagent routes connecting Karachi, Lahore, Rawalpindi, and Peshawar.",
+      "Independent cold-chain verification confirms 99.98% thermal integrity across all reagent routes dispatched from our Karachi Central Warehousing Complex to hospitals across Pakistan.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=600&auto=format&fit=crop",
     readTime: "4 min read",
   },
