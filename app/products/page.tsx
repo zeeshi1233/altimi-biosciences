@@ -53,7 +53,7 @@ export default function ProductsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by product, brand, or code..."
-                className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-[border-color,box-shadow]"
               />
             </div>
 
@@ -72,7 +72,7 @@ export default function ProductsPage() {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                  className={`px-4 py-2 rounded-xl text-xs font-semibold transition-[background-color,color,border-color,box-shadow] duration-150 ${
                     isActive
                       ? "bg-primary text-white shadow-sm"
                       : "bg-surface text-slate-700 hover:bg-slate-200/80 border border-slate-200"
@@ -137,7 +137,7 @@ export default function ProductsPage() {
 
             <div className="space-y-4">
               <div>
-                <span className="text-[11px] font-bold text-secondary-dark uppercase tracking-wider">
+                <span className="text-xs font-semibold text-secondary-dark">
                   {quickViewProduct.categoryName}
                 </span>
                 <h4 className="text-xl font-bold font-heading text-ink mt-1">
@@ -149,7 +149,7 @@ export default function ProductsPage() {
               </div>
 
               <div>
-                <h5 className="text-xs font-bold uppercase tracking-wider text-ink mb-2">
+                <h5 className="text-xs font-bold text-ink mb-2">
                   Key Capabilities
                 </h5>
                 <ul className="space-y-1.5 text-xs text-slate-700">
@@ -163,7 +163,7 @@ export default function ProductsPage() {
               </div>
 
               <div className="pt-2 border-t border-slate-100">
-                <h5 className="text-xs font-bold uppercase tracking-wider text-ink mb-2">
+                <h5 className="text-xs font-bold text-ink mb-2">
                   Specifications
                 </h5>
                 <div className="grid grid-cols-2 gap-2 text-xs">
@@ -195,7 +195,7 @@ export default function ProductsPage() {
                   }
                   className="px-4 py-2 text-xs font-bold text-ink hover:text-primary transition-colors"
                 >
-                  Full Page →
+                  View Product Page
                 </Link>
               </div>
             </div>

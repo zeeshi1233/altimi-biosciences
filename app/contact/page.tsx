@@ -45,7 +45,7 @@ export default function ContactPage() {
       <div className="bg-ink text-white py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <Container className="relative z-10 text-center">
-          <span className="text-xs font-bold text-secondary uppercase tracking-widest">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/10 mb-3">
             Altimi Biosciences Pakistan
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-heading mt-2 mb-4">

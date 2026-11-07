@@ -85,7 +85,7 @@ export default function MediaPage() {
             </div>
             <div className="lg:col-span-6 p-8 sm:p-12 space-y-4">
               <div className="flex items-center gap-3 text-xs">
-                <span className="px-3 py-1 rounded-full font-bold uppercase tracking-wider bg-primary/10 text-primary">
+                <span className="px-3 py-1 rounded-full font-semibold bg-primary/10 text-primary">
                   {articles[0].category}
                 </span>
                 <span className="text-muted flex items-center gap-1">
@@ -100,7 +100,12 @@ export default function MediaPage() {
                 {articles[0].summary}
               </p>
               <div className="pt-2">
-                <Button href="/contact?type=media" variant="primary" size="md">
+                <Button
+                  href="/contact?type=media"
+                  variant="primary"
+                  size="md"
+                  className="focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none"
+                >
                   Media Contact & Press Kit
                 </Button>
               </div>
@@ -113,7 +118,7 @@ export default function MediaPage() {
           {articles.slice(1).map((article, idx) => (
             <div
               key={article.id}
-              className="glass-card rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="glass-card rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl transition-[box-shadow,border-color] duration-200 flex flex-col justify-between group"
             >
               <div>
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
@@ -121,7 +126,7 @@ export default function MediaPage() {
                     src={article.image}
                     alt={article.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6 space-y-2.5">

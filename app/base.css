@@ -1,3 +1,4 @@
+/* Hallmark · theme: luxury clinical editorial · posture: restrained · hero: stage · nav: floating pill · footer: statement · copy: verbatim · redesign: full · pre-emit critique: P5 H5 E5 S5 R5 V5 */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
 html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }

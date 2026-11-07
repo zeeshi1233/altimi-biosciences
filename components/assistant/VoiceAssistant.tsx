@@ -560,16 +560,14 @@ export const VoiceAssistant: React.FC = () => {
             className="fixed bottom-6 right-6 z-50 max-w-sm sm:max-w-md w-[calc(100vw-3rem)]"
           >
             <div className="glass-panel p-6 rounded-3xl bg-white/95 backdrop-blur-2xl shadow-2xl border border-primary/20 relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
-
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-white shrink-0 shadow-md">
                   <Bot className="w-6 h-6 animate-pulse" />
                 </div>
                 <div className="space-y-1.5 flex-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-secondary-dark">
-                      Altimi AI Assistant
+                    <span className="text-xs font-bold text-secondary-dark">
+                      Altimi Assistant
                     </span>
                     <button
                       onClick={() => setHasStarted(true)}
@@ -596,7 +594,7 @@ export const VoiceAssistant: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleStartAssistant}
-                  className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white text-xs font-bold shadow-md shadow-primary/30 flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                  className="px-5 py-2.5 rounded-2xl bg-primary hover:bg-primary-dark text-white text-xs font-bold shadow-md shadow-primary/20 flex items-center gap-2 transition-[background-color,transform] duration-200 motion-safe:hover:scale-105 active:scale-95"
                 >
                   <Mic className="w-4 h-4" />
                   <span>Talk to Assistant</span>
@@ -735,12 +733,12 @@ export const VoiceAssistant: React.FC = () => {
                       msg.sender === "user"
                         ? "bg-primary text-white rounded-br-sm shadow-md"
                         : msg.sender === "system"
-                        ? "bg-slate-100 text-slate-700 border border-slate-200/80 rounded-bl-sm font-mono text-[11px]"
+                        ? "bg-slate-100 text-slate-700 border border-slate-200/80 rounded-bl-sm text-xs"
                         : "bg-surface text-ink border border-slate-200/80 rounded-bl-sm shadow-sm"
                     }`}
                   >
                     {msg.toolCall && (
-                      <div className="flex items-center gap-1.5 text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">
+                      <div className="flex items-center gap-1.5 text-[11px] font-semibold text-secondary mb-1">
                         <Wrench className="w-3 h-3" />
                         <span>Action: {msg.toolCall.name}</span>
                       </div>
@@ -807,7 +805,7 @@ export const VoiceAssistant: React.FC = () => {
 
             {/* Quick Suggestions Chips */}
             <div className="px-4 py-2 bg-slate-50/80 border-t border-slate-100 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-              <span className="text-[10px] font-bold text-muted uppercase shrink-0">
+              <span className="text-[11px] font-semibold text-muted shrink-0">
                 Suggestions:
               </span>
               {QUICK_SUGGESTIONS.map((suggestion) => (
@@ -850,7 +848,7 @@ export const VoiceAssistant: React.FC = () => {
                 <button
                   type="button"
                   onClick={toggleListening}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-[background-color,color] duration-150 flex items-center gap-1.5 shadow-sm ${
                     isListeningActive
                       ? "bg-rose-500 hover:bg-rose-600 text-white"
                       : "bg-primary hover:bg-primary-dark text-white"
@@ -939,7 +937,7 @@ export const VoiceAssistant: React.FC = () => {
           <button
             type="button"
             onClick={toggleOpen}
-            className={`relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${getMicButtonClasses()}`}
+            className={`relative w-14 h-14 rounded-2xl flex items-center justify-center transition-[background-color,box-shadow,transform] duration-200 motion-safe:hover:scale-105 active:scale-95 ${getMicButtonClasses()}`}
             aria-label="Toggle voice assistant"
           >
             {/* Ripple rings when listening */}

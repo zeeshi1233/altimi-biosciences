@@ -66,7 +66,7 @@ export const Preloader: React.FC = () => {
               />
             </div>
 
-            <p className="mt-4 text-xs font-semibold text-slate-400 tracking-widest uppercase">
+            <p className="mt-4 text-xs font-medium text-slate-500">
               Advancing Medical Excellence
             </p>
           </motion.div>

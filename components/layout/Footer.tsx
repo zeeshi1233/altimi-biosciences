@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
           {/* Brand & Contact Info Column */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3.5 group">
-              <div className="relative w-14 h-14 transition-transform duration-300 group-hover:scale-105 shrink-0 bg-white/5 p-1.5 rounded-2xl border border-white/10">
+              <div className="relative w-14 h-14 transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0 bg-white/5 p-1.5 rounded-2xl border border-white/10">
                 <Image
                   src="/logo-white.png"
                   alt="Altimi Biosciences (Pvt) Ltd."
@@ -31,17 +31,17 @@ export const Footer: React.FC = () => {
                 <span className="font-heading font-black text-xl tracking-tight text-white leading-none">
                   ALTIMI
                 </span>
-                <span className="text-xs font-bold text-secondary tracking-widest uppercase mt-1 leading-none">
-                  BIOSCIENCES
+                <span className="text-xs font-bold text-secondary mt-1 leading-none">
+                  Biosciences
                 </span>
-                <span className="text-[9px] font-semibold text-slate-400 tracking-wider uppercase leading-tight mt-0.5">
-                  (PVT) LTD. • PAKISTAN
+                <span className="text-[9px] font-medium text-slate-400 leading-tight mt-0.5">
+                  (Pvt) Ltd. • Pakistan
                 </span>
               </div>
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Altimi Biosciences is a premier distributor of cutting-edge clinical diagnostics, high-throughput chemistry analyzers, medical devices, and hospital supplies across Pakistan.
+              Altimi Biosciences is a premier distributor of advanced clinical diagnostics, high-throughput chemistry analyzers, medical devices, and hospital supplies across Pakistan.
             </p>
 
             <div className="space-y-3 text-sm">
@@ -246,7 +246,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar: Copyright & Socials */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© 2026 Altimi Biosciences. All rights reserved.</p>
+          <p>© 2026 Altimi Biosciences (Pvt) Ltd. Karachi, Pakistan.</p>
 
           <div className="flex items-center gap-4">
             <a

@@ -101,58 +101,52 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Card 1: Lab Machines */}
             <Reveal direction="left" delay={0.2}>
-              <div className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <div className="group rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
                   <Image
                     src="/images/about/lab-machines.png"
                     alt="Lab Machines – Advanced laboratory equipment"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-103"
                   />
-                  {/* Dedicated Card Behind Text */}
-                  <div className="absolute inset-x-3.5 bottom-3.5 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl transition-colors duration-300 group-hover:border-primary/40">
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary/15 text-secondary-dark border border-secondary/25">
-                        <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                        Clinical Technology
-                      </span>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors">
-                      Lab Machines
-                    </h4>
-                    <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                      Advanced laboratory equipment engineered for ultra-high throughput and continuous automated chemistry testing.
-                    </p>
-                  </div>
+                </div>
+                <div className="p-5 sm:p-6 space-y-2">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary/15 text-secondary-dark border border-secondary/25">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    Clinical Technology
+                  </span>
+                  <h4 className="text-base sm:text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors">
+                    Lab Machines
+                  </h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Advanced laboratory equipment engineered for ultra-high throughput and continuous automated chemistry testing.
+                  </p>
                 </div>
               </div>
             </Reveal>
 
             {/* Card 2: Research Center */}
             <Reveal direction="right" delay={0.3}>
-              <div className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-lg hover:shadow-xl transition-shadow duration-300 sm:translate-y-8">
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <div className="group rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between sm:translate-y-8">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
                   <Image
                     src="/images/about/research-center.png"
                     alt="Research Center – Precision testing equipment"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-103"
                   />
-                  {/* Dedicated Card Behind Text */}
-                  <div className="absolute inset-x-3.5 bottom-3.5 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl transition-colors duration-300 group-hover:border-primary/40">
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        Biomedical Infrastructure
-                      </span>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors">
-                      Research Center
-                    </h4>
-                    <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                      Precision testing equipment, calibration facilities, and biomedical quality assurance operations.
-                    </p>
-                  </div>
+                </div>
+                <div className="p-5 sm:p-6 space-y-2">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Biomedical Infrastructure
+                  </span>
+                  <h4 className="text-base sm:text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors">
+                    Research Center
+                  </h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Precision testing equipment, calibration facilities, and biomedical quality assurance operations.
+                  </p>
                 </div>
               </div>
             </Reveal>

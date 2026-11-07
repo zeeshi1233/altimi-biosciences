@@ -84,7 +84,7 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full transition-all duration-300",
+        "sticky top-0 z-40 w-full transition-[background-color,padding,border-color,box-shadow] duration-200",
         isScrolled
           ? "bg-white/85 backdrop-blur-xl shadow-lg shadow-primary/5 border-b border-slate-200/80 py-2.5"
           : "bg-transparent py-4"
@@ -93,7 +93,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
-          <div className="relative w-11 h-11 sm:w-13 sm:h-13 transition-transform duration-300 group-hover:scale-105 shrink-0">
+          <div className="relative w-11 h-11 sm:w-13 sm:h-13 transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
             <Image
               src="/logo.png"
               alt="Altimi Biosciences (Pvt) Ltd."
@@ -107,11 +107,11 @@ export const Navbar: React.FC = () => {
             <span className="font-heading font-black text-base sm:text-lg tracking-tight text-ink group-hover:text-primary transition-colors leading-none">
               ALTIMI
             </span>
-            <span className="text-[10px] sm:text-[11px] font-bold text-accent tracking-widest uppercase mt-0.5 leading-none">
-              BIOSCIENCES
+            <span className="text-[10px] sm:text-[11px] font-bold text-accent mt-0.5 leading-none">
+              Biosciences
             </span>
-            <span className="text-[8px] font-semibold text-muted tracking-wider uppercase leading-tight mt-0.5">
-              (PVT) LTD. • PAKISTAN
+            <span className="text-[9px] font-medium text-muted leading-tight mt-0.5">
+              (Pvt) Ltd. • Pakistan
             </span>
           </div>
         </Link>
@@ -165,7 +165,7 @@ export const Navbar: React.FC = () => {
                             >
                               <div className="font-heading font-bold text-sm text-ink group-hover:text-primary flex items-center justify-between">
                                 <span>{sub.label}</span>
-                                <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
+                                <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-150 text-primary" />
                               </div>
                               <p className="text-xs text-muted mt-1 leading-snug">
                                 {sub.description}
@@ -217,7 +217,7 @@ export const Navbar: React.FC = () => {
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {/* Column 1: Clinical Chemistry */}
                             <div className="space-y-3">
-                              <div className="flex items-center gap-2 text-primary font-heading font-bold text-sm uppercase tracking-wider pb-2 border-b border-slate-100">
+                              <div className="flex items-center gap-2 text-primary font-heading font-bold text-sm pb-2 border-b border-slate-100">
                                 <Activity className="w-4 h-4 text-primary" />
                                 <span>Clinical Chemistry</span>
                               </div>
@@ -260,7 +260,7 @@ export const Navbar: React.FC = () => {
 
                             {/* Column 2: Medical Consumables */}
                             <div className="space-y-3">
-                              <div className="flex items-center gap-2 text-secondary-dark font-heading font-bold text-sm uppercase tracking-wider pb-2 border-b border-slate-100">
+                              <div className="flex items-center gap-2 text-secondary-dark font-heading font-bold text-sm pb-2 border-b border-slate-100">
                                 <ShieldCheck className="w-4 h-4 text-secondary" />
                                 <span>Disposables & Consumables</span>
                               </div>
@@ -315,7 +315,7 @@ export const Navbar: React.FC = () => {
                             {/* Column 3: Featured highlight banner */}
                             <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-surface rounded-2xl p-5 border border-primary/15 flex flex-col justify-between">
                               <div>
-                                <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary text-white mb-2.5">
+                                <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary text-white mb-2.5">
                                   Catalog 2026
                                 </span>
                                 <h4 className="font-heading font-extrabold text-base text-ink">
@@ -404,8 +404,8 @@ export const Navbar: React.FC = () => {
           >
             <div className="space-y-4">
               <div className="pb-3 border-b border-slate-100">
-                <p className="text-xs font-semibold text-secondary-dark uppercase tracking-wider">
-                  Menu
+                <p className="text-xs font-semibold text-secondary-dark">
+                  Navigation
                 </p>
               </div>
 
@@ -448,7 +448,7 @@ export const Navbar: React.FC = () => {
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50 flex items-center justify-between group"
                 >
                   <span>Products</span>
-                  <ArrowRight className="w-4 h-4 text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-muted group-hover:text-primary motion-safe:group-hover:translate-x-1 transition-[color,transform] duration-150" />
                 </Link>
 
                 <Link

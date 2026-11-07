@@ -35,7 +35,7 @@ export default function EventsPage() {
         {/* Upcoming Events Section */}
         <div className="mb-16">
           <div className="flex items-center gap-2 mb-8">
-            <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-3 h-3 rounded-full bg-emerald-500 motion-safe:animate-pulse" />
             <h2 className="text-xl sm:text-2xl font-bold font-heading text-ink">
               Upcoming Medical Conferences & Expos
             </h2>
@@ -45,7 +45,7 @@ export default function EventsPage() {
             {upcomingEvents.map((evt) => (
               <div
                 key={evt.id}
-                className="glass-card rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="glass-card rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-lg hover:shadow-xl transition-[box-shadow,border-color] duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
@@ -56,13 +56,13 @@ export default function EventsPage() {
                       className="object-cover"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary text-white uppercase tracking-wider">
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white">
                         {evt.category}
                       </span>
                     </div>
                     {evt.booth && (
                       <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-ink text-white uppercase tracking-wider">
+                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-ink text-white">
                           {evt.booth}
                         </span>
                       </div>
@@ -104,6 +104,7 @@ export default function EventsPage() {
                     href={`/contact?event=${encodeURIComponent(evt.title)}`}
                     variant="primary"
                     size="sm"
+                    className="focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none"
                   >
                     Book Booth Meeting
                   </Button>

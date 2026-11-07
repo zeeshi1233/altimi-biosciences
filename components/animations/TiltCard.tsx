@@ -58,7 +58,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
         rotateX,
         rotateY,
       }}
-      className={cn("relative transition-all duration-300", className)}
+      className={cn("relative", className)}
     >
       <div
         style={{

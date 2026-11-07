@@ -78,8 +78,8 @@ export default function DistributionPage() {
             <Reveal direction="left" delay={0.1}>
               <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-xl space-y-6">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 mb-3">
-                    <Activity className="w-3 h-3 text-primary" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-3">
+                    <Activity className="w-3.5 h-3.5 text-primary" />
                     Core Healthcare Mission
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black font-heading text-ink leading-snug">
@@ -96,8 +96,8 @@ export default function DistributionPage() {
                 </div>
 
                 <div className="pt-5 border-t border-slate-100">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-secondary/15 text-secondary-dark border border-secondary/25 mb-3">
-                    <Warehouse className="w-3 h-3 text-secondary" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary-dark border border-secondary/25 mb-3">
+                    <Warehouse className="w-3.5 h-3.5 text-secondary" />
                     Storage & Compliance
                   </div>
                   <h4 className="text-lg font-bold font-heading text-ink">
@@ -142,11 +142,11 @@ export default function DistributionPage() {
                 <div className="bg-slate-900/95 backdrop-blur-md px-5 py-3.5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 z-20">
                   <div className="flex items-center gap-2.5">
                     <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
                     </span>
                     <div>
-                      <span className="text-xs font-bold text-white tracking-wide uppercase">
+                      <span className="text-xs font-semibold text-white">
                         Active Logistics Facility
                       </span>
                       <span className="hidden sm:inline-block text-[11px] text-slate-400 ml-2">
@@ -159,7 +159,7 @@ export default function DistributionPage() {
                     <button
                       type="button"
                       onClick={handleCopyAddress}
-                      className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition-all focus:outline-none"
+                      className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1.5 transition-colors duration-150 focus:outline-none"
                     >
                       {copied ? (
                         <>
@@ -177,7 +177,7 @@ export default function DistributionPage() {
                       href="https://maps.google.com/?q=Altimi+Biosciences+Private+Limited+Karachi"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-xl bg-primary hover:bg-primary-dark text-xs font-bold text-white flex items-center gap-1.5 shadow-md shadow-primary/25 transition-all"
+                      className="px-3 py-1.5 rounded-xl bg-primary hover:bg-primary-dark text-xs font-bold text-white flex items-center gap-1.5 shadow-md shadow-primary/25 transition-colors duration-150"
                     >
                       <span>Directions</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -203,7 +203,7 @@ export default function DistributionPage() {
                   <div className="absolute top-4 left-4 z-10 max-w-xs">
                     <div className="p-4 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-700/80 shadow-2xl text-white">
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1">
+                        <span className="text-[11px] font-semibold text-emerald-400 flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                           Central Office & Depot
                         </span>
@@ -242,7 +242,7 @@ export default function DistributionPage() {
         <div className="mt-10 mb-20">
           <Reveal direction="up">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-secondary/15 text-secondary-dark border border-secondary/25 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary-dark border border-secondary/25 mb-3">
                 <GitBranch className="w-3.5 h-3.5 text-secondary" />
                 Operational Architecture
               </span>
@@ -265,7 +265,7 @@ export default function DistributionPage() {
 
                   {/* Flowchart Filter Tabs */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-8 pb-4 border-b border-slate-100">
-                    <div className="text-xs font-bold text-ink uppercase tracking-wider">
+                    <div className="text-xs font-semibold text-ink">
                       Interactive Supply Channels:
                     </div>
                     <div className="flex items-center gap-1.5">
@@ -279,7 +279,7 @@ export default function DistributionPage() {
                           key={tab.id}
                           type="button"
                           onClick={() => setActiveChannel(tab.id as any)}
-                          className={`px-3 py-1 rounded-xl text-[11px] font-bold transition-all focus:outline-none ${activeChannel === tab.id
+                          className={`px-3 py-1 rounded-xl text-[11px] font-semibold transition-[background-color,color] duration-150 focus:outline-none ${activeChannel === tab.id
                             ? "bg-primary text-white shadow-sm"
                             : "bg-surface text-slate-600 hover:bg-slate-200/70"
                             }`}
@@ -295,7 +295,7 @@ export default function DistributionPage() {
                     {/* Level 1: Central Command Node */}
                     <div className="text-center">
                       <div className="inline-block p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-primary via-primary-dark to-ink text-white shadow-xl shadow-primary/20 border border-primary-light/30 max-w-md w-full">
-                        <div className="text-[10px] uppercase font-bold tracking-widest text-secondary-light flex items-center justify-center gap-1 mb-1">
+                        <div className="text-[11px] font-semibold text-secondary-light flex items-center justify-center gap-1 mb-1">
                           <Building2 className="w-3.5 h-3.5" />
                           Central Origin & Regulatory Holder
                         </div>
@@ -312,19 +312,19 @@ export default function DistributionPage() {
                     <div className="grid grid-cols-3 text-center py-1">
                       <div className="flex flex-col items-center">
                         <div className="h-6 w-0.5 bg-gradient-to-b from-primary to-secondary" />
-                        <span className="text-[9px] font-bold uppercase tracking-wider text-muted">
+                        <span className="text-[10px] font-medium text-muted">
                           Channel A
                         </span>
                       </div>
                       <div className="flex flex-col items-center">
                         <div className="h-6 w-0.5 bg-gradient-to-b from-primary to-primary" />
-                        <span className="text-[9px] font-bold uppercase tracking-wider text-muted">
+                        <span className="text-[10px] font-medium text-muted">
                           Channel B
                         </span>
                       </div>
                       <div className="flex flex-col items-center">
                         <div className="h-6 w-0.5 bg-gradient-to-b from-primary to-secondary-dark" />
-                        <span className="text-[9px] font-bold uppercase tracking-wider text-muted">
+                        <span className="text-[10px] font-medium text-muted">
                           Channel C
                         </span>
                       </div>
@@ -334,14 +334,14 @@ export default function DistributionPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {/* Channel 1: Commercial / Wholesale Route */}
                       <div
-                        className={`p-4 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${activeChannel === "all" || activeChannel === "distributors"
+                        className={`p-4 rounded-2xl border transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between ${activeChannel === "all" || activeChannel === "distributors"
                           ? "bg-slate-50 border-secondary/40 shadow-md ring-1 ring-secondary/20"
                           : "bg-slate-50/50 border-slate-200 opacity-50"
                           }`}
                       >
                         <div className="space-y-2">
                           <div className="p-2.5 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-                            <span className="text-[11px] font-bold text-ink uppercase tracking-wider">
+                            <span className="text-xs font-semibold text-ink">
                               Distributors
                             </span>
                           </div>
@@ -349,7 +349,7 @@ export default function DistributionPage() {
                             <ArrowRight className="w-3 h-3 rotate-90" />
                           </div>
                           <div className="p-2.5 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-                            <span className="text-[11px] font-bold text-ink uppercase tracking-wider">
+                            <span className="text-xs font-semibold text-ink">
                               Wholesellers
                             </span>
                           </div>
@@ -357,7 +357,7 @@ export default function DistributionPage() {
                             <ArrowRight className="w-3 h-3 rotate-90" />
                           </div>
                           <div className="p-2.5 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
-                            <span className="text-[11px] font-bold text-ink uppercase tracking-wider">
+                            <span className="text-xs font-semibold text-ink">
                               Medical Stores
                             </span>
                           </div>
@@ -369,7 +369,7 @@ export default function DistributionPage() {
 
                       {/* Channel 2: Direct Hospital Pharmacies Route */}
                       <div
-                        className={`p-4 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${activeChannel === "all" || activeChannel === "pharmacies"
+                        className={`p-4 rounded-2xl border transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between ${activeChannel === "all" || activeChannel === "pharmacies"
                           ? "bg-slate-50 border-primary/40 shadow-md ring-1 ring-primary/20"
                           : "bg-slate-50/50 border-slate-200 opacity-50"
                           }`}
@@ -377,7 +377,7 @@ export default function DistributionPage() {
                         <div className="my-auto space-y-3">
                           <div className="p-4 rounded-xl bg-white border border-primary/20 text-center shadow-xs">
                             <Boxes className="w-5 h-5 text-primary mx-auto mb-1.5" />
-                            <span className="text-xs font-bold text-ink uppercase tracking-wider block">
+                            <span className="text-xs font-bold text-ink block">
                               Hospital Pharmacies
                             </span>
                             <span className="text-[10px] text-muted">Direct Clinical Supplies</span>
@@ -390,7 +390,7 @@ export default function DistributionPage() {
 
                       {/* Channel 3: Tender Bidders Route */}
                       <div
-                        className={`p-4 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${activeChannel === "all" || activeChannel === "tenders"
+                        className={`p-4 rounded-2xl border transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between ${activeChannel === "all" || activeChannel === "tenders"
                           ? "bg-slate-50 border-secondary-dark/40 shadow-md ring-1 ring-secondary-dark/20"
                           : "bg-slate-50/50 border-slate-200 opacity-50"
                           }`}
@@ -398,7 +398,7 @@ export default function DistributionPage() {
                         <div className="my-auto space-y-3">
                           <div className="p-4 rounded-xl bg-white border border-secondary/20 text-center shadow-xs">
                             <ShieldCheck className="w-5 h-5 text-secondary-dark mx-auto mb-1.5" />
-                            <span className="text-xs font-bold text-ink uppercase tracking-wider block">
+                            <span className="text-xs font-bold text-ink block">
                               Tender Bidders
                             </span>
                             <span className="text-[10px] text-muted">Public Procurement</span>
@@ -418,7 +418,7 @@ export default function DistributionPage() {
                     {/* Level 3: Final Destination Node */}
                     <div className="text-center">
                       <div className="inline-block p-4 sm:p-5 rounded-2xl text-white bg-gradient-to-r from-ink via-slate-900 to-ink shadow-xl border border-slate-700 max-w-lg w-full">
-                        <div className="text-[10px] uppercase font-bold tracking-widest text-emerald-400 flex items-center justify-center gap-1.5 mb-1">
+                        <div className="text-[11px] font-semibold text-emerald-400 flex items-center justify-center gap-1.5 mb-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                           Final End-User Healthcare Providers
                         </div>
@@ -440,7 +440,7 @@ export default function DistributionPage() {
                           Direct consumption feedback returns to ABL for proactive restocking.
                         </span>
                       </div>
-                      <span className="text-[10px] font-bold text-primary uppercase tracking-wider shrink-0">
+                      <span className="text-[10px] font-semibold text-primary shrink-0">
                         Loop Back ↺
                       </span>
                     </div>
@@ -455,8 +455,8 @@ export default function DistributionPage() {
                 <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-xl space-y-6">
                   {/* Public & Private Relations */}
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-secondary/15 text-secondary-dark border border-secondary/25 mb-3">
-                      <Users2 className="w-3 h-3 text-secondary" />
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary-dark border border-secondary/25 mb-3">
+                      <Users2 className="w-3.5 h-3.5 text-secondary" />
                       Sector Relationships
                     </div>
                     <h3 className="text-xl font-bold font-heading text-ink">
@@ -472,8 +472,8 @@ export default function DistributionPage() {
 
                   {/* Skilled Manpower & Value Proposition */}
                   <div className="pt-5 border-t border-slate-100">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 mb-3">
-                      <Target className="w-3 h-3 text-primary" />
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-3">
+                      <Target className="w-3.5 h-3.5 text-primary" />
                       Marketing & Sales Objectives
                     </div>
                     <h4 className="text-lg font-bold font-heading text-ink">
@@ -492,8 +492,8 @@ export default function DistributionPage() {
 
                   {/* Two Different Modules */}
                   <div className="pt-5 border-t border-slate-100">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200 mb-3">
-                      <Layers className="w-3 h-3 text-primary" />
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200 mb-3">
+                      <Layers className="w-3.5 h-3.5 text-primary" />
                       Operational Framework
                     </div>
                     <h4 className="text-lg font-bold font-heading text-ink">
@@ -508,7 +508,7 @@ export default function DistributionPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                       <div className="p-3.5 rounded-2xl bg-surface border border-slate-200/80">
-                        <div className="text-xs font-bold text-primary uppercase tracking-wide">
+                        <div className="text-xs font-semibold text-primary">
                           Module 1
                         </div>
                         <div className="text-sm font-bold text-ink mt-0.5">Product Marketing</div>
@@ -517,7 +517,7 @@ export default function DistributionPage() {
                         </div>
                       </div>
                       <div className="p-3.5 rounded-2xl bg-surface border border-slate-200/80">
-                        <div className="text-xs font-bold text-secondary-dark uppercase tracking-wide">
+                        <div className="text-xs font-semibold text-secondary-dark">
                           Module 2
                         </div>
                         <div className="text-sm font-bold text-ink mt-0.5">Sales Management</div>
@@ -586,7 +586,7 @@ export default function DistributionPage() {
 
           {/* Left Text Column */}
           <div className="relative z-10 space-y-3 max-w-2xl">
-            <span className="text-xs font-bold text-secondary uppercase tracking-widest flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/10 mb-2">
               <ShieldCheck className="w-4 h-4 text-secondary" />
               Partner with Altimi Biosciences
             </span>

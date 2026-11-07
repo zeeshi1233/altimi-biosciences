@@ -52,7 +52,7 @@ export const ScrollProgress: React.FC = () => {
         <button
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="relative w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-ink hover:text-primary transition-all duration-300 hover:scale-105 group border border-slate-200"
+          className="relative w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-ink hover:text-primary transition-[color,transform] duration-200 motion-safe:hover:scale-105 active:scale-95 group border border-slate-200"
         >
           {/* SVG Ring */}
           <svg className="w-12 h-12 -rotate-90 absolute inset-0" viewBox="0 0 48 48">
@@ -69,7 +69,7 @@ export const ScrollProgress: React.FC = () => {
               cx="24"
               cy="24"
               r={circleRadius}
-              className="text-primary transition-all duration-150"
+              className="text-primary transition-[stroke-dashoffset] duration-150"
               strokeWidth="3"
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}

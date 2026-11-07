@@ -68,18 +68,18 @@ export default function BrochuresPage() {
           />
         </Reveal>
 
-        {/* Filter and Search Bar */}
-        <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-md mb-12 space-y-4 max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-between">
+        {/* Filter and Search Bar - Full Container Width matching Products Page */}
+        <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-md mb-10 space-y-4">
+          <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
             {/* Search Input */}
-            <div className="relative w-full sm:w-80">
+            <div className="relative w-full md:w-96">
               <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by instrument, brand, or code..."
-                className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-surface border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-[border-color,box-shadow]"
               />
             </div>
 
@@ -97,7 +97,7 @@ export default function BrochuresPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition-[background-color,color,border-color,box-shadow] duration-150 ${
                   selectedCategory === cat
                     ? "bg-primary text-white shadow-sm"
                     : "bg-surface text-slate-700 hover:bg-slate-200/80 border border-slate-200"
@@ -113,7 +113,7 @@ export default function BrochuresPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {filteredBrochures.map((brochure, idx) => (
             <Reveal key={brochure.id} direction="up" delay={idx * 0.04}>
-              <div className="glass-card rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden group h-full">
+              <div className="glass-card rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl transition-[box-shadow,border-color] duration-200 flex flex-col justify-between overflow-hidden group h-full">
                 <div>
                   {/* Brochure Cover Image with A4 Portrait Ratio and Hover Overlay */}
                   <div className="relative aspect-[1/1.4] w-full bg-slate-50 overflow-hidden border-b border-slate-100 cursor-pointer"
@@ -123,12 +123,12 @@ export default function BrochuresPage() {
                       alt={brochure.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-105"
                     />
 
                     {/* Corner Badge */}
                     <div className="absolute top-3 left-3 z-10">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/95 text-ink shadow-sm border border-slate-200">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/95 text-ink shadow-sm border border-slate-200">
                         {brochure.brand}
                       </span>
                     </div>
@@ -141,7 +141,7 @@ export default function BrochuresPage() {
                           e.stopPropagation();
                           setPreviewPdf(brochure);
                         }}
-                        className="w-full py-2.5 px-4 rounded-xl bg-white text-ink text-xs font-bold shadow-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 focus:outline-none"
+                        className="w-full py-2.5 px-4 rounded-xl bg-white text-ink text-xs font-bold shadow-lg hover:bg-primary hover:text-white transition-colors duration-150 flex items-center justify-center gap-2 focus:outline-none"
                       >
                         <Eye className="w-4 h-4 text-primary group-hover:text-white" />
                         <span>Preview PDF</span>
@@ -151,7 +151,7 @@ export default function BrochuresPage() {
                         href={brochure.downloadUrl}
                         download
                         onClick={(e) => e.stopPropagation()}
-                        className="w-full py-2.5 px-4 rounded-xl bg-secondary text-white text-xs font-bold shadow-lg hover:bg-secondary-dark transition-all flex items-center justify-center gap-2 text-center"
+                        className="w-full py-2.5 px-4 rounded-xl bg-secondary text-white text-xs font-bold shadow-lg hover:bg-secondary-dark transition-colors duration-150 flex items-center justify-center gap-2 text-center"
                       >
                         <Download className="w-4 h-4" />
                         <span>Download PDF</span>
@@ -161,7 +161,7 @@ export default function BrochuresPage() {
 
                   {/* Brochure Content */}
                   <div className="p-5">
-                    <div className="flex items-center justify-between text-[11px] font-semibold text-secondary-dark uppercase tracking-wider mb-1.5">
+                    <div className="flex items-center justify-between text-xs font-semibold text-secondary-dark mb-1.5">
                       <span>{brochure.category}</span>
                       <span className="text-slate-400 font-normal">
                         {brochure.size}
@@ -206,7 +206,7 @@ export default function BrochuresPage() {
         {/* Regulatory & Hospital Tender Assistance */}
         <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-ink text-white flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-xl">
-            <span className="text-xs font-bold text-secondary uppercase tracking-widest">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/10 mb-2">
               Institutional Documentation
             </span>
             <h3 className="text-xl sm:text-2xl font-bold font-heading">

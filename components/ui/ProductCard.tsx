@@ -38,7 +38,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           )}
 
-          <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-102">
+          <div className="relative w-full h-full transition-transform duration-300 motion-safe:group-hover:scale-102">
             <Image
               src={product.image}
               alt={product.name}

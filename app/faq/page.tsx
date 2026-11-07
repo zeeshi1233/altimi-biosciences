@@ -48,7 +48,7 @@ export default function FAQPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search frequently asked questions..."
-              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all shadow-sm"
+              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-[border-color,box-shadow] shadow-sm"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default function FAQPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-[background-color,color,border-color,box-shadow] duration-150 ${
                   activeCategory === cat
                     ? "bg-primary text-white shadow-sm"
                     : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
@@ -76,7 +76,7 @@ export default function FAQPage() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden transition-all duration-200"
+                className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden transition-[box-shadow,border-color] duration-200"
               >
                 <button
                   type="button"
@@ -87,8 +87,8 @@ export default function FAQPage() {
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
+                    className={`w-5 h-5 text-primary shrink-0 transition-transform duration-200 motion-safe:transition-transform ${
+                      isOpen ? "motion-safe:rotate-180" : ""
                     }`}
                   />
                 </button>
@@ -103,7 +103,7 @@ export default function FAQPage() {
                       className="overflow-hidden"
                     >
                       <div className="p-5 sm:p-6 pt-0 text-xs sm:text-sm text-muted leading-relaxed border-t border-slate-100">
-                        <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-secondary-dark mb-2">
+                        <span className="inline-block text-xs font-semibold text-secondary-dark mb-2">
                           Category: {faq.category}
                         </span>
                         <p>{faq.answer}</p>

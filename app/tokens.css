@@ -1,3 +1,4 @@
+/* Hallmark · theme: luxury clinical editorial · posture: restrained · hero: stage · nav: floating pill · footer: statement · copy: verbatim · redesign: full · pre-emit critique: P5 H5 E5 S5 R5 V5 */
 :root {
   --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
   --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
@@ -8,11 +9,13 @@
   --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
   --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: FILL ME; --color-paper-2: FILL ME; --color-paper-3: FILL ME;
-  --color-ink: FILL ME; --color-ink-2: FILL ME; --color-muted: FILL ME;
-  --color-rule: FILL ME;
-  --color-accent: FILL ME; --color-accent-ink: FILL ME; --color-focus: FILL ME;
-  --font-display: "FILL ME", ui-serif, serif; --font-body: "FILL ME", ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
-  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --color-paper: #ffffff; --color-paper-2: #f8fafc; --color-paper-3: #f1f5f9;
+  --color-ink: #0A1B33; --color-ink-2: #334155; --color-muted: #64748b;
+  --color-rule: #e2e8f0;
+  --color-accent: #0B5ED7; --color-accent-ink: #ffffff; --color-focus: #0B5ED7;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; --font-outlier: var(--font-body);
+  --radius-card: 16px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --shadow-filter-bar: inset 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-tab-active: 0 6px 16px rgba(11,95,217,0.28);
   --tracking-display: -0.02em;
 }

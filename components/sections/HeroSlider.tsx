@@ -302,35 +302,36 @@ export const HeroSlider: React.FC = () => {
             {/* Right Product Image Column (5 cols) */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                initial={{ opacity: 0, scale: 0.92, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full aspect-[4/3] max-w-lg"
+                exit={{ opacity: 0, scale: 0.95, y: -15 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="relative w-full aspect-[4/3] max-w-lg group/hardware flex items-center justify-center"
               >
-                {/* Floating Halo Ring */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-2xl transform scale-95" />
+                {/* Soft ambient clinical pedestal reflection */}
+                <div className="absolute bottom-2 inset-x-8 h-12 bg-slate-900/10 rounded-full blur-xl transform scale-90 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-secondary/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-                {/* Glass Container */}
-                <div className="relative w-full h-full glass-card rounded-3xl p-6 sm:p-8 flex items-center justify-center overflow-hidden border border-white/80 shadow-2xl">
-                  {/* Subtle corner badge */}
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-white/90 text-ink shadow-sm border border-slate-200">
-                      Slide {current + 1} / {total}
+                {/* Direct High-Fidelity Hardware Presentation */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* Subtle technical indicator badge */}
+                  <div className="absolute top-2 right-2 z-20">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/90 text-ink shadow-sm border border-slate-200 num">
+                      {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                     </span>
                   </div>
 
-                  {/* Parallax Floating Image */}
+                  {/* Hardware Image with smooth 3D floating and hover lift */}
                   <motion.div
                     animate={{
-                      y: [0, -10, 0],
+                      y: [0, -8, 0],
                     }}
                     transition={{
                       repeat: Infinity,
-                      duration: 5,
+                      duration: 6,
                       ease: "easeInOut",
                     }}
-                    className="relative w-full h-full"
+                    className="relative w-full h-full p-4 transition-transform duration-300 group-hover/hardware:scale-105"
                   >
                     <Image
                       src={slide.image}
@@ -339,6 +340,14 @@ export const HeroSlider: React.FC = () => {
                       priority
                       className="object-contain drop-shadow-2xl"
                     />
+
+                    {/* Interactive Technical Spec Hotspot */}
+                    <div className="absolute bottom-6 left-6 z-20 hidden sm:block">
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg text-xs font-medium text-slate-800">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span>{slide.badge}</span>
+                      </div>
+                    </div>
                   </motion.div>
                 </div>
               </motion.div>

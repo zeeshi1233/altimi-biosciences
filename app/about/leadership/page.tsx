@@ -124,14 +124,14 @@ export default function LeadershipPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Photo Column (4 cols) */}
               <div className="lg:col-span-4 flex flex-col items-center text-center">
-                <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
+                <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
                     src="/images/leadership/dr-fazlullah-pechuho.jpg"
                     alt="Dr. Fazlullah Pechuho"
                     fill
                     priority
                     sizes="(max-width: 768px) 280px, 320px"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top"
                   />
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function LeadershipPage() {
               {/* Bio Details Column (8 cols) */}
               <div className="lg:col-span-8 space-y-5">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-secondary-dark">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-2">
                     Altimi Biosciences (Private) Limited
                   </span>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-ink mt-1">
@@ -159,7 +159,7 @@ export default function LeadershipPage() {
                 </p>
 
                 <div className="p-5 rounded-2xl bg-surface border border-slate-200/80 space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-ink flex items-center gap-2">
+                  <h4 className="text-xs font-bold text-ink flex items-center gap-2">
                     <Briefcase className="w-4 h-4 text-primary" />
                     <span>Distinguished Public Service & Executive Portfolio</span>
                   </h4>
@@ -212,7 +212,7 @@ export default function LeadershipPage() {
               {/* Bio Details Column (8 cols) */}
               <div className="lg:col-span-8 space-y-5 order-2 lg:order-1">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-secondary-dark">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary-dark border border-secondary/20 mb-2">
                     Global Health & Public Policy
                   </span>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-ink mt-1">
@@ -257,14 +257,14 @@ export default function LeadershipPage() {
 
               {/* Photo Column (4 cols) */}
               <div className="lg:col-span-4 flex flex-col items-center text-center order-1 lg:order-2">
-                <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
+                <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
                     src="/images/leadership/dr-khalil-memon.jpg"
                     alt="Dr. Khalil Memon"
                     fill
                     priority
                     sizes="(max-width: 768px) 280px, 320px"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top"
                   />
                 </div>
               </div>
@@ -278,7 +278,7 @@ export default function LeadershipPage() {
         <div className="mb-20">
           <Reveal direction="up">
             <div className="max-w-3xl mb-10">
-              <span className="text-xs font-bold uppercase tracking-wider text-secondary-dark">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary-dark border border-secondary/20 mb-2">
                 Public Health Track Record
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold font-heading text-ink mt-1">
@@ -295,13 +295,13 @@ export default function LeadershipPage() {
               const Icon = item.icon;
               return (
                 <Reveal key={idx} direction="up" delay={idx * 0.05}>
-                  <div className="glass-card p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between group">
+                  <div className="glass-card p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl hover:border-primary/40 transition-[box-shadow,border-color] duration-200 h-full flex flex-col justify-between group">
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200 shadow-sm">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-secondary-dark bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/20">
+                        <span className="text-[10px] font-semibold text-secondary-dark bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/20">
                           {item.badge}
                         </span>
                       </div>
@@ -315,7 +315,7 @@ export default function LeadershipPage() {
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                    <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-slate-500">
                       {item.agency}
                     </div>
                   </div>
@@ -332,15 +332,13 @@ export default function LeadershipPage() {
           {/* Vision Card */}
           <Reveal direction="left" delay={0.1}>
             <div className="glass-card p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl h-full flex flex-col justify-between relative overflow-hidden group">
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
-
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center shadow-md shadow-primary/25">
                     <Eye className="w-7 h-7" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary">
+                    <span className="text-xs font-bold text-primary">
                       Our Guiding Light
                     </span>
                     <h3 className="text-2xl font-black font-heading text-ink">
@@ -350,7 +348,7 @@ export default function LeadershipPage() {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  ALTIMI also envisage that the <strong className="text-ink">pulmonary diseases</strong> have acquired significance in Pakistan and are accelerating due to lack of world-class inhalation and respiratory therapies causing aggravation and more complications.
+                  ALTIMI also envisage that the <strong className="text-ink">pulmonary diseases</strong> have acquired significance in Pakistan and are accelerating due to lack of advanced inhalation and respiratory therapies causing aggravation and more complications.
                 </p>
 
                 <p className="text-sm sm:text-base text-muted leading-relaxed mt-4">
@@ -368,15 +366,13 @@ export default function LeadershipPage() {
           {/* Mission Card */}
           <Reveal direction="right" delay={0.2}>
             <div className="glass-card p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl h-full flex flex-col justify-between relative overflow-hidden group">
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-secondary/15 rounded-full blur-2xl pointer-events-none" />
-
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-14 h-14 rounded-2xl bg-secondary text-white flex items-center justify-center shadow-md shadow-secondary/25">
                     <Target className="w-7 h-7" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-secondary-dark">
+                    <span className="text-xs font-bold text-secondary-dark">
                       Our Core Purpose
                     </span>
                     <h3 className="text-2xl font-black font-heading text-ink">
@@ -416,7 +412,7 @@ export default function LeadershipPage() {
         {/* Bottom Contact / Inquiries Banner */}
         <div className="p-8 sm:p-12 rounded-3xl bg-ink text-white flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="space-y-2 max-w-xl">
-            <span className="text-xs font-bold text-secondary uppercase tracking-widest">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/10 mb-2">
               Executive Office Inquiries
             </span>
             <h3 className="text-2xl font-bold font-heading">
@@ -428,10 +424,20 @@ export default function LeadershipPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <Button href="/contact" variant="primary" size="md">
+            <Button
+              href="/contact"
+              variant="primary"
+              size="md"
+              className="focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none"
+            >
               Contact Leadership Office
             </Button>
-            <Button href="/about/distribution" variant="glass" size="md">
+            <Button
+              href="/about/distribution"
+              variant="glass"
+              size="md"
+              className="focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+            >
               Distribution Network
             </Button>
           </div>

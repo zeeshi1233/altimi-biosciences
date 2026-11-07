@@ -91,7 +91,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     const baseClass = cn(
-      "inline-flex items-center justify-center font-heading transition-all duration-300 relative overflow-hidden select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed group",
+      "inline-flex items-center justify-center font-heading transition-[color,background-color,border-color,box-shadow,transform] duration-200 active:scale-[0.98] relative overflow-hidden select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed group",
       variantStyles[variant],
       sizeStyles[size],
       className

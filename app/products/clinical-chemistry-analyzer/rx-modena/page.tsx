@@ -84,10 +84,10 @@ export default function RxModenaPage() {
 
               {/* Badges in corners */}
               <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
-                <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-primary text-white shadow-md uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white shadow-md">
                   {product.badge}
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-secondary/15 text-secondary-dark border border-secondary/25 uppercase tracking-wider">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary/15 text-secondary-dark border border-secondary/25">
                   DRAP Registered
                 </span>
               </div>
@@ -99,7 +99,7 @@ export default function RxModenaPage() {
               </div>
 
               {/* Product Image */}
-              <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-full h-full transition-transform duration-500 motion-safe:group-hover:scale-105">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -171,7 +171,7 @@ export default function RxModenaPage() {
           <div className="lg:col-span-7 space-y-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-secondary/15 text-secondary-dark border border-secondary/25">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary-dark border border-secondary/25">
                   {product.brand}
                 </span>
                 <span className="text-xs font-semibold text-muted">
@@ -193,7 +193,7 @@ export default function RxModenaPage() {
                   key={idx}
                   className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-sm"
                 >
-                  <div className="text-[10px] uppercase font-bold text-muted tracking-wider">
+                  <div className="text-[11px] font-semibold text-muted">
                     {kpi.label}
                   </div>
                   <div className="text-lg font-black font-heading text-ink mt-0.5">
@@ -213,7 +213,7 @@ export default function RxModenaPage() {
             {/* Core Capability Checklist */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-ink flex items-center gap-2">
+                <h3 className="text-sm font-bold text-ink flex items-center gap-2">
                   <Activity className="w-4 h-4 text-primary" />
                   Key Clinical & Workflow Advantages
                 </h3>
@@ -260,7 +260,7 @@ export default function RxModenaPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all focus:outline-none ${
+                className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-[background-color,color,border-color,box-shadow] duration-150 focus:outline-none ${
                   activeTab === tab.id
                     ? "bg-primary text-white shadow-md shadow-primary/20"
                     : "bg-surface text-slate-600 hover:bg-slate-200/80 border border-slate-200"
@@ -388,7 +388,7 @@ export default function RxModenaPage() {
         <div className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <span className="text-xs font-bold text-secondary-dark uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary-dark border border-secondary/20 mb-2">
                 Complementary Portfolio
               </span>
               <h2 className="text-2xl sm:text-3xl font-black font-heading text-ink mt-1">
@@ -410,7 +410,7 @@ export default function RxModenaPage() {
         {/* INSTITUTIONAL CONSULTATION BANNER */}
         <div className="rounded-3xl bg-gradient-to-r from-ink via-slate-900 to-primary-dark text-white p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="space-y-2 max-w-xl">
-            <span className="text-xs font-bold text-secondary uppercase tracking-widest flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/10 mb-2">
               <Building2 className="w-4 h-4 text-secondary" />
               Hospital Workflow Consultation
             </span>
