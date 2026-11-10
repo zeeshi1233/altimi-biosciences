@@ -34,6 +34,21 @@ const slides: HeroSlide[] = [
     image: "/images/products/bittium-360-180.png",
     exploreUrl: "/products/medical-devices",
   },
+  {
+    id: "quikread-go",
+    category: "Point Of Care Testing",
+    title: "QuikRead go®",
+    highlight: "– Instrument by Aidian",
+    badge: "Portable POCT Analyzer",
+    bullets: [
+      "Compact, portable point-of-care (POCT) analyzer engineered by Aidian.",
+      "Combines photometric and turbidimetric measurement technologies for rapid diagnostic testing.",
+      "Intuitive touchscreen interface with automated test processing.",
+      "Broad assay portfolio enabling efficient testing in primary healthcare settings, clinics, and clinical laboratories.",
+    ],
+    image: "/images/products/quikread-go.webp",
+    exploreUrl: "/products/clinical-chemistry-analyzer/point-of-care-testing",
+  },
   // {
   //   id: "faros-360",
   //   category: "Medical Devices & Telecardiology",
