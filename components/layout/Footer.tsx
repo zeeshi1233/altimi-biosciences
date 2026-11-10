@@ -17,17 +17,17 @@ export const Footer: React.FC = () => {
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           {/* Brand & Contact Info Column */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 -mt-16 ">
             <Link href="/" className="flex items-center gap-3.5 group">
-              <div className="relative w-14 h-14 transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0 bg-white/5 p-1.5 rounded-2xl border border-white/10">
-                <Image
+              <div className="relative w-[100px] h-[20px] mb-20  transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
+                <img
                   src="/logo-white.png"
                   alt="Altimi Biosciences (Pvt) Ltd."
-                  fill
+                  // fill                  
                   className="object-contain p-0.5"
                 />
               </div>
-              <div className="flex flex-col">
+              {/* <div className="flex flex-col">
                 <span className="font-heading font-black text-xl tracking-tight text-white leading-none">
                   ALTIMI
                 </span>
@@ -37,9 +37,8 @@ export const Footer: React.FC = () => {
                 <span className="text-[9px] font-medium text-slate-400 leading-tight mt-0.5">
                   (Pvt) Ltd. • Pakistan
                 </span>
-              </div>
+              </div> */}
             </Link>
-
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
               Altimi Biosciences is a premier distributor of advanced clinical diagnostics, high-throughput chemistry analyzers, medical devices, and hospital supplies across Pakistan.
             </p>

@@ -590,7 +590,7 @@ export const VoiceAssistant: React.FC = () => {
                 <span className="text-[11px] text-muted flex items-center gap-1.5">
                   <Globe className="w-3.5 h-3.5 text-primary" />
                   English & Urdu Voice
-                </span>
+                </span>   
                 <button
                   type="button"
                   onClick={handleStartAssistant}
@@ -613,7 +613,7 @@ export const VoiceAssistant: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 25, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-4 sm:right-6 w-[94vw] max-w-sm sm:max-w-md bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-200/90 z-50 flex flex-col overflow-hidden max-h-[580px]"
+            className="fixed bottom-[150px] right-4 sm:right-6 w-[94vw] max-w-sm sm:max-w-md bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-200/90 z-50 flex flex-col overflow-hidden max-h-[450px]"
           >
             {/* Header */}
             <div className="p-4 sm:p-4.5 bg-gradient-to-r from-surface to-white border-b border-slate-100 flex items-center justify-between">
@@ -709,7 +709,7 @@ export const VoiceAssistant: React.FC = () => {
             {/* Chat Messages Body */}
             <div
               ref={chatScrollRef}
-              className="flex-1 overflow-y-auto p-4 space-y-3.5 max-h-[340px] text-xs"
+              className="flex-1 overflow-y-auto p-4 space-y-3.5 max-h-[360px] text-xs"
             >
               {messages.map((msg) => (
                 <div
@@ -905,7 +905,7 @@ export const VoiceAssistant: React.FC = () => {
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3"
+          className="fixed bottom-20 right-6 z-50 flex items-center gap-3"
         >
           {/* Quick status pill when drawer closed */}
           {!isOpen && (

@@ -118,7 +118,7 @@ export default function DistributionPage() {
                     establish more adequately equipped outlets in all major cities are under progress.
                   </p>
                 </div>
-
+                
                 {/* Key Spec Badges */}
                 <div className="grid grid-cols-2 gap-3 pt-3">
                   <div className="p-3.5 rounded-2xl bg-surface border border-slate-200/80">

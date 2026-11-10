@@ -78,6 +78,7 @@ export const Navbar: React.FC = () => {
     { label: "Brochures", href: "/brochures" },
     { label: "Media", href: "/media" },
     { label: "Events", href: "/events" },
+    { label: "Partners", href: "/partners" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -93,17 +94,14 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
-          <div className="relative w-11 h-11 sm:w-13 sm:h-13 transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
-            <Image
-              src="/logo.png"
+          <div className="relative w-[150px] h-[90px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
+            <img
+              src="/navbarlogo.png"
               alt="Altimi Biosciences (Pvt) Ltd."
-              fill
-              priority
-              sizes="(max-width: 768px) 44px, 52px"
-              className="object-contain"
+              className="object-contain w-full h-full"
             />
           </div>
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <span className="font-heading font-black text-base sm:text-lg tracking-tight text-ink group-hover:text-primary transition-colors leading-none">
               ALTIMI
             </span>
@@ -113,7 +111,7 @@ export const Navbar: React.FC = () => {
             <span className="text-[9px] font-medium text-muted leading-tight mt-0.5">
               (Pvt) Ltd. • Pakistan
             </span>
-          </div>
+          </div> */}
         </Link>
 
         {/* Desktop Navigation Links */}

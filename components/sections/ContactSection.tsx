@@ -171,7 +171,7 @@ export const ContactSection: React.FC = () => {
                   Send Us A Message
                 </h3>
                 <p className="text-xs sm:text-sm text-muted mb-8">
-                  Fill in your details below and our hospital account director will respond with pricing, specs, or tender requirements.
+                  Fill in your details below and our technical and support will respond with pricing, specs, or tender requirements.
                 </p>
 
                 <AnimatePresence>

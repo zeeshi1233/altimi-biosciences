@@ -1,6 +1,6 @@
 "use client";
-
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -8,9 +8,7 @@ import {
   ExternalLink,
   Copy,
   Check,
-  Building2,
   Warehouse,
-  ShieldCheck,
   Mail,
 } from "lucide-react";
 
@@ -29,7 +27,7 @@ export const ContactMapCommandCenter: React.FC = () => {
   };
 
   return (
-    <div className="rounded-3xl bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden">
+    <div className="rounded-3xl h-[700px] bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden">
       {/* Top Command Bar */}
       <div className="bg-slate-900/95 backdrop-blur-md px-6 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
@@ -78,10 +76,22 @@ export const ContactMapCommandCenter: React.FC = () => {
       </div>
 
       {/* Main Grid: Info Details on Left + Google Maps on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch h-full">
         {/* Left Column: HQ Details */}
-        <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800 space-y-6">
-          <div>
+        <div className="lg:col-span-5 relative overflow-hidden p-8 sm:p-10 flex flex-col justify- border-b lg:border-b-0 lg:border-r border-slate-800 space-y-6">
+          {/* Background Office Building Image + Dark Transparent Shade Overlay */}
+          <div aria-hidden="true" className="absolute inset-0 z-0 pointer-events-none">
+            <Image
+              src="/office-building.png"
+              alt="Altimi Biosciences Headquarters Building"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 42vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/65 via-slate-900/55 to-slate-900/60" />
+          </div>
+
+          <div className="relative z-10">
             <span className="text-xs font-medium text-secondary block mb-2">
               Official Headquarters
             </span>
@@ -93,7 +103,7 @@ export const ContactMapCommandCenter: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-3.5 text-xs text-slate-300 pt-4 border-t border-slate-800">
+          <div className="relative z-10 space-y-3.5 text-xs text-slate-300 pt-4 border-t border-white">
             <div className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
               <span>
@@ -128,7 +138,7 @@ export const ContactMapCommandCenter: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-center justify-between text-xs">
+          <div className="relative z-10 p-4 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-center justify-between text-xs">
             <div className="flex items-center gap-2">
               <Warehouse className="w-4 h-4 text-secondary" />
               <span className="font-semibold text-white">450 m² DRAP Certified</span>

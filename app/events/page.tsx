@@ -2,9 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { Calendar, MapPin, Building2, Clock, CheckCircle2, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, Building2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
 import { events } from "@/data/events";
 
