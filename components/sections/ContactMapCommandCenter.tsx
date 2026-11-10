@@ -27,7 +27,7 @@ export const ContactMapCommandCenter: React.FC = () => {
   };
 
   return (
-    <div className="rounded-3xl h-[700px] bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden">
+    <div className="rounded-3xl h-[1000px] bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden">
       {/* Top Command Bar */}
       <div className="bg-slate-900/95 backdrop-blur-md px-6 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
@@ -82,7 +82,7 @@ export const ContactMapCommandCenter: React.FC = () => {
           {/* Background Office Building Image + Dark Transparent Shade Overlay */}
           <div aria-hidden="true" className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src="/office-building.png"
+              src="/office-building.jpeg"
               alt="Altimi Biosciences Headquarters Building"
               fill
               className="object-cover object-center"

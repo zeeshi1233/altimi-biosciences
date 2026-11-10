@@ -126,7 +126,7 @@ export default function LeadershipPage() {
               <div className="lg:col-span-4 flex flex-col items-center text-center">
                 <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
-                    src="/images/leadership/dr-fazlullah-pechuho.jpg"
+                    src="/images/leadership/dr-fazlullah-pechuho.jpeg"
                     alt="Dr. Fazlullah Pechuho"
                     fill
                     priority
@@ -259,7 +259,7 @@ export default function LeadershipPage() {
               <div className="lg:col-span-4 flex flex-col items-center text-center order-1 lg:order-2">
                 <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
-                    src="/images/leadership/dr-khalil-memon.jpg"
+                    src="/images/leadership/dr-khalil-memon.jpeg"
                     alt="Dr. Khalil Memon"
                     fill
                     priority
