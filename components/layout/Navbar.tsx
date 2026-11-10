@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
     { label: "Brochures", href: "/brochures" },
     { label: "Media", href: "/media" },
     { label: "Events", href: "/events" },
-    { label: "Partners", href: "/partners" },
+    { label: "Partners", href: "#" },
     { label: "Contact", href: "/contact" },
   ];
 
