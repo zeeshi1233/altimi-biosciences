@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, Layers, FileDown, CheckCircle2, PhoneCall, FlaskConical, ShieldCheck, Activity, Pill, X } from "lucide-react";
+import { ArrowRight, Layers, CheckCircle2, FlaskConical, ShieldCheck, Activity, Pill, HeartPulse, Microscope, Droplet, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/ui/ProductCard";
@@ -25,35 +25,29 @@ export const ProductsShowcase: React.FC = () => {
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
-  const displayedCount = Math.min(filteredProducts.length, 6);
+  const displayedCount = filteredProducts.length;
 
-  const categoryTabs = [
-    { id: "all", name: "All Products", count: products.length, icon: Layers },
-    {
-      id: "clinical-chemistry-analyzer",
-      name: "Clinical Chemistry",
-      count: products.filter((p) => p.category === "clinical-chemistry-analyzer").length,
-      icon: FlaskConical,
-    },
-    {
-      id: "medical-consumables",
-      name: "Medical Consumables",
-      count: products.filter((p) => p.category === "medical-consumables").length,
-      icon: ShieldCheck,
-    },
-    {
-      id: "medical-devices",
-      name: "Medical Devices",
-      count: products.filter((p) => p.category === "medical-devices").length,
-      icon: Activity,
-    },
-    {
-      id: "medicine-drugs",
-      name: "Medicine & Drugs",
-      count: products.filter((p) => p.category === "medicine-drugs").length,
-      icon: Pill,
-    },
-  ];
+  const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+    all: Layers,
+    "chemistry-analyzer": FlaskConical,
+    "molecular-analyzer": Microscope,
+    "diagnostic-kits": Activity,
+    "cardiac-monitors": HeartPulse,
+    "remote-cardiac-monitoring": HeartPulse,
+    "cardiac-monitoring": HeartPulse,
+    "automatic-blood-pressure-monitor": Activity,
+    "biosimilar-drugs": Pill,
+    "alcohol-pads": Droplet,
+    "dignity-underpads": ShieldCheck,
+    "surgical-gloves": ShieldCheck,
+  };
+
+  const categoryTabs = productCategories.map((c) => ({
+    id: c.id,
+    name: c.name,
+    count: c.count,
+    icon: categoryIcons[c.id] || Layers,
+  }));
 
   const activeIndex = categoryTabs.findIndex((t) => t.id === selectedCategory);
 
@@ -203,7 +197,7 @@ export const ProductsShowcase: React.FC = () => {
               <div className="hidden sm:block h-6 w-px bg-primary/10 shrink-0" aria-hidden="true" />
 
               {/* Results counter — right-aligned, vertically centred in the same row */}
-              <div className="hidden sm:flex items-center gap-1.5 shrink-0 pr-1 text-[13px] text-muted whitespace-nowrap dark:text-slate-400">
+              {/* <div className="hidden sm:flex items-center gap-1.5 shrink-0 pr-1 text-[13px] text-muted whitespace-nowrap dark:text-slate-400">
                 <span>Showing</span>
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -218,7 +212,7 @@ export const ProductsShowcase: React.FC = () => {
                   </motion.span>
                 </AnimatePresence>
                 <span>of {filteredProducts.length} systems</span>
-              </div>
+              </div> */}
             </div>
 
             {/* Mobile-only results counter + Reset button — shown below the scrollable row */}
@@ -265,7 +259,7 @@ export const ProductsShowcase: React.FC = () => {
             transition={{ duration: 0.15 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
-            {filteredProducts.slice(0, 6).map((product, i) => (
+            {filteredProducts.map((product, i) => (
               <motion.div
                 key={product.id}
                 initial={prefersReduced ? {} : { opacity: 0, y: 14 }}
@@ -275,7 +269,7 @@ export const ProductsShowcase: React.FC = () => {
                   delay: prefersReduced ? 0 : i * 0.055,
                   ease: "easeOut",
                 }}
-              >
+              >   
                 <ProductCard
                   product={product}
                   onQuickView={(p) => setQuickViewProduct(p)}
@@ -374,16 +368,10 @@ export const ProductsShowcase: React.FC = () => {
                   Request Official Quote
                 </Button>
                 <Link
-                  href={
-                    quickViewProduct.category === "clinical-chemistry-analyzer"
-                      ? `/products/clinical-chemistry-analyzer/${quickViewProduct.slug}`
-                      : quickViewProduct.category === "medical-consumables"
-                      ? `/products/medical-consumables/${quickViewProduct.slug}`
-                      : `/products/${quickViewProduct.slug}`
-                  }
+                  href={`/products/${quickViewProduct.slug}`}
                   className="px-4 py-2 text-xs font-semibold text-ink hover:text-primary transition-colors inline-flex items-center gap-1"
                 >
-                  <span>View Details</span>
+                  <span>View Details{quickViewProduct.models?.length ? ` (${quickViewProduct.models.length} Models)` : ""}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

@@ -75,7 +75,7 @@ export default function ProductsPage() {
             Medical Diagnostics &amp; Supplies Catalog
           </h1>
           <p className="text-sm sm:text-base text-muted leading-relaxed mt-3.5">
-            Explore our comprehensive inventory of Randox automated chemistry systems, Bittium wearable biosensors, Greiner safety catheters, and hospital consumables.
+            Explore our registered inventory of Randox chemistry analyzers, Bosch Vivalytic molecular systems, Aidian QuikRead go® POCT diagnostics, Bittium cardiac monitors, A&amp;D blood pressure systems, biosimilars, and hospital supplies.
           </p>
         </div>
 
@@ -290,16 +290,10 @@ export default function ProductsPage() {
                   Request Official Quote
                 </Button>
                 <Link
-                  href={
-                    quickViewProduct.category === "clinical-chemistry-analyzer"
-                      ? `/products/clinical-chemistry-analyzer/${quickViewProduct.slug}`
-                      : quickViewProduct.category === "medical-consumables"
-                      ? `/products/medical-consumables/${quickViewProduct.slug}`
-                      : `/products/${quickViewProduct.slug}`
-                  }
+                  href={`/products/${quickViewProduct.slug}`}
                   className="px-4 py-2 text-xs font-bold text-ink hover:text-primary transition-colors"
                 >
-                  View Product Page
+                  View Product Page{quickViewProduct.models?.length ? ` (${quickViewProduct.models.length} Models)` : ""}
                 </Link>
               </div>
             </div>

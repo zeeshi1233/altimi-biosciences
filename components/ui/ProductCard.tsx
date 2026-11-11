@@ -16,13 +16,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onQuickView,
 }) => {
-  // Determine canonical link
-  const productHref =
-    product.category === "clinical-chemistry-analyzer"
-      ? `/products/clinical-chemistry-analyzer/${product.slug}`
-      : product.category === "medical-consumables"
-      ? `/products/medical-consumables/${product.slug}`
-      : `/products/${product.slug}`;
+  // Canonical detail route supporting multi-model product inspection
+  const productHref = `/products/${product.slug}`;
 
   return (
     <div className="group rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-lg hover:border-slate-300 transition-[box-shadow,border-color] duration-200 flex flex-col justify-between overflow-hidden">

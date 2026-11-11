@@ -35,9 +35,44 @@ export default function GenericProductDetailPage({ params }: Props) {
 
   if (!product) notFound();
 
+  const parentMatch = products.find((p) => p.slug === params.slug || p.id === params.slug);
+  const initialModelIdx = parentMatch
+    ? 0
+    : product.models?.findIndex((m) => m.slug === params.slug || m.id === params.slug) ?? 0;
+
+  const [selectedModelIndex, setSelectedModelIndex] = useState<number>(
+    initialModelIdx >= 0 ? initialModelIdx : 0
+  );
+  const [selectedGalleryIndex, setSelectedGalleryIndex] = useState<number>(0);
+
+  const handleSelectModel = (idx: number) => {
+    setSelectedModelIndex(idx);
+    setSelectedGalleryIndex(0);
+  };
+
+  const hasModels = Boolean(product.models && product.models.length > 0);
+  const activeModel = hasModels ? product.models![selectedModelIndex] || product.models![0] : null;
+  const activeGallery =
+    activeModel?.gallery && activeModel.gallery.length > 0
+      ? activeModel.gallery
+      : activeModel
+      ? [activeModel.image]
+      : [product.image];
+
+  const displayName = activeModel ? activeModel.name : product.name;
+  const displayImage = activeGallery[selectedGalleryIndex] || activeGallery[0];
+  const displayBadge = activeModel?.badge || product.badge;
+  const displayModelCode = activeModel?.modelCode || product.modelCode;
+  const displayDescription = activeModel ? activeModel.shortDescription : product.fullDescription;
+  const displayFeatures = activeModel?.features && activeModel.features.length > 0 ? activeModel.features : product.features;
+  const displaySpecifications =
+    activeModel?.specifications && activeModel.specifications.length > 0
+      ? activeModel.specifications
+      : product.specifications;
+
   // Find other related products
   const relatedProducts = products
-    .filter((p) => p.slug !== params.slug)
+    .filter((p) => p.slug !== params.slug && p.id !== product.id)
     .slice(0, 3);
 
   return (
@@ -64,16 +99,16 @@ export default function GenericProductDetailPage({ params }: Props) {
         </nav>
 
         {/* HERO PRODUCT SHOWCASE SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-16">
+        <div id="product-viewer" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-16 scroll-mt-24">
           {/* Left Column: Visual Showcase Card (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="relative aspect-[4/3] rounded-3xl bg-gradient-to-tr from-white via-surface to-white border border-slate-200/90 p-8 sm:p-10 shadow-2xl flex items-center justify-center overflow-hidden group">
               <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-2xl group-hover:bg-primary/10 transition-colors pointer-events-none" />
 
               <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
-                {product.badge && (
+                {displayBadge && (
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-secondary-dark text-white shadow-md">
-                    {product.badge}
+                    {displayBadge}
                   </span>
                 )}
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
@@ -83,14 +118,14 @@ export default function GenericProductDetailPage({ params }: Props) {
 
               <div className="absolute top-4 right-4 z-10">
                 <span className="px-2.5 py-1 rounded-xl text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                  {product.modelCode}
+                  {displayModelCode}
                 </span>
               </div>
 
-              <div className="relative w-full h-full transition-transform duration-500 motion-safe:group-hover:scale-105">
+              <div className="relative w-full h-full">
                 <Image
-                  src={product.image}
-                  alt={product.name}
+                  src={displayImage}
+                  alt={displayName}
                   fill
                   priority
                   className="object-contain drop-shadow-xl"
@@ -98,11 +133,39 @@ export default function GenericProductDetailPage({ params }: Props) {
               </div>
             </div>
 
+            {/* Gallery Switcher (for models with multiple views like Cardiac Navigator) */}
+            {activeGallery.length > 1 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {activeGallery.map((imgSrc, gIdx) => {
+                  const isCurrentImg = selectedGalleryIndex === gIdx;
+                  return (
+                    <button
+                      key={imgSrc}
+                      type="button"
+                      onClick={() => setSelectedGalleryIndex(gIdx)}
+                      className={`relative aspect-[16/10] rounded-2xl bg-white border p-1.5 overflow-hidden transition-[border-color,box-shadow] duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+                        isCurrentImg
+                          ? "border-primary shadow-md ring-1 ring-primary/30"
+                          : "border-slate-200 hover:border-slate-300"
+                      }`}
+                    >
+                      <Image
+                        src={imgSrc}
+                        alt={`${displayName} view ${gIdx + 1}`}
+                        fill
+                        className="object-contain p-1"
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
             {/* Quick Action CTAs */}
             <div className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Button
-                  href={`/contact?product=${encodeURIComponent(product.name)}&type=quote`}
+                  href={`/contact?product=${encodeURIComponent(displayName)}&type=quote`}
                   variant="primary"
                   size="lg"
                   className="w-full justify-center shadow-lg shadow-primary/25"
@@ -154,27 +217,64 @@ export default function GenericProductDetailPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Right Column: Key Details & Value Props (7 cols) */}
+          {/* Right Column: Key Details & Model Switcher (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className="px-3 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary-dark border border-secondary/25">
                   {product.brand}
                 </span>
                 <span className="text-xs font-semibold text-muted">
                   • {product.categoryName}
                 </span>
+                {product.country && (
+                  <span className="text-xs font-medium text-slate-500">
+                    • {product.country}
+                  </span>
+                )}
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight">
-                {product.name}
+                {displayName}
               </h1>
               <p className="text-base sm:text-lg font-medium text-primary mt-2">
                 {product.subtitle}
               </p>
             </div>
 
+            {/* Interactive Model Switcher (only shown when parent product has multiple models) */}
+            {hasModels && (
+              <div className="p-4 rounded-2xl bg-white border border-primary/20 shadow-xs space-y-2.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-ink flex items-center gap-1.5">
+                    <Layers className="w-4 h-4 text-primary" />
+                    Select Product Model ({product.models!.length} Variants)
+                  </span>
+                  <span className="text-muted">Click a model to inspect specs</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {product.models!.map((m, idx) => {
+                    const isSelected = selectedModelIndex === idx;
+                    return (
+                      <button
+                        key={m.id}
+                        type="button"
+                        onClick={() => handleSelectModel(idx)}
+                        className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-[background-color,color,border-color,box-shadow] duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+                          isSelected
+                            ? "bg-primary text-white shadow-sm"
+                            : "bg-surface text-slate-700 hover:bg-slate-200/80 border border-slate-200"
+                        }`}
+                      >
+                        {m.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              {product.fullDescription}
+              {displayDescription}
             </p>
 
             {/* Key Clinical & Technical Checklist */}
@@ -187,7 +287,7 @@ export default function GenericProductDetailPage({ params }: Props) {
                 <span className="text-xs text-muted font-medium">Quality Assurance</span>
               </div>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {product.features.map((feature, idx) => (
+                {displayFeatures.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
                     <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="leading-snug">{feature}</span>
@@ -213,6 +313,116 @@ export default function GenericProductDetailPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* AVAILABLE MODELS & VARIANTS SHOWCASE SECTION */}
+        {hasModels && (
+          <div className="mb-16">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-2">
+                  <Layers className="w-3.5 h-3.5 text-primary" />
+                  Product Family Models
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-black font-heading text-ink">
+                  Available Models in {product.categoryName}
+                </h2>
+              </div>
+              <p className="text-xs sm:text-sm text-muted max-w-md">
+                Compare and preview every registered configuration under this category. Click any model to view it in the main showcase above.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {product.models!.map((model, idx) => {
+                const isSelected = selectedModelIndex === idx;
+                return (
+                  <div
+                    key={model.id}
+                    className={`rounded-3xl bg-white border transition-[border-color,box-shadow] duration-200 overflow-hidden flex flex-col justify-between ${
+                      isSelected
+                        ? "border-primary shadow-lg ring-1 ring-primary/25"
+                        : "border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300"
+                    }`}
+                  >
+                    <div>
+                      <div className="relative aspect-[4/3] bg-slate-50/80 p-6 border-b border-slate-100 flex items-center justify-center">
+                        {model.badge && (
+                          <span className="absolute top-3 left-3 z-10 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-primary/10 text-primary border border-primary/20">
+                            {model.badge}
+                          </span>
+                        )}
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={model.image}
+                            alt={model.name}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="p-6 space-y-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-xs font-semibold text-primary">
+                            {model.modelCode || product.brand}
+                          </span>
+                          {isSelected && (
+                            <span className="text-[11px] font-bold text-secondary-dark bg-secondary/10 px-2 py-0.5 rounded-full">
+                              Viewing Now
+                            </span>
+                          )}
+                        </div>
+                        <h3 className="text-lg font-bold font-heading text-ink">
+                          {model.name}
+                        </h3>
+                        <p className="text-xs text-muted leading-relaxed">
+                          {model.shortDescription}
+                        </p>
+
+                        {model.specifications && model.specifications.length > 0 && (
+                          <div className="pt-3 border-t border-slate-100 space-y-1.5">
+                            {model.specifications.slice(0, 3).map((s, si) => (
+                              <div key={si} className="flex items-center justify-between text-xs">
+                                <span className="text-slate-500">{s.label}</span>
+                                <span className="font-semibold text-ink">{s.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="px-6 pb-6 flex items-center gap-2.5">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleSelectModel(idx);
+                          document
+                            .getElementById("product-viewer")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition-colors ${
+                          isSelected
+                            ? "bg-secondary text-white"
+                            : "bg-primary text-white hover:bg-primary-dark"
+                        }`}
+                      >
+                        {isSelected ? "Selected in Viewer" : "View Model Details"}
+                      </button>
+                      <Button
+                        href={`/contact?product=${encodeURIComponent(model.name)}&type=quote`}
+                        variant="outline"
+                        size="sm"
+                      >
+                        Quote
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* INTERACTIVE DETAIL TABS SECTION */}
         <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xl mb-16">
@@ -249,7 +459,7 @@ export default function GenericProductDetailPage({ params }: Props) {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {product.specifications.map((spec, idx) => (
+                {displaySpecifications.map((spec, idx) => (
                   <div
                     key={idx}
                     className="p-4 rounded-2xl bg-surface border border-slate-200/80 flex items-center justify-between"
@@ -379,7 +589,7 @@ export default function GenericProductDetailPage({ params }: Props) {
           </div>
 
           <Button
-            href={`/contact?product=${encodeURIComponent(product.name)}&type=quote`}
+            href={`/contact?product=${encodeURIComponent(displayName)}&type=quote`}
             variant="primary"
             size="lg"
             className="shrink-0 shadow-xl shadow-primary/25"

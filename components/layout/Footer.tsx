@@ -144,42 +144,42 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/products/clinical-chemistry-analyzer/rx-modena"
+                  href="/products/randox-rx-series"
                   className="hover:text-white transition-colors"
                 >
-                  Randox RX Modena
+                  Randox RX Series (4900 / 9000)
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products/clinical-chemistry-analyzer/rx-imola"
+                  href="/products/bosch-vivalytic"
                   className="hover:text-white transition-colors"
                 >
-                  Randox RX Imola
+                  Bosch Vivalytic Molecular
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products/clinical-chemistry-analyzer/point-of-care-testing"
+                  href="/products/point-of-care-testing"
                   className="hover:text-white transition-colors"
                 >
-                  Point of Care Testing
+                  QuikRead go® (POCT)
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products/medical-consumables/latex-gloves"
+                  href="/products/sterile-surgical-gloves"
                   className="hover:text-white transition-colors"
                 >
-                  Medical Examination Gloves
+                  Sterile Latex Surgical Gloves
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products/medical-consumables/ultimate-prep-pads"
+                  href="/products/ultimate-prep-pads"
                   className="hover:text-white transition-colors"
                 >
-                  Ultimate Prep Pads
+                  Hongde Alcohol Pads
                 </Link>
               </li>
               <li>

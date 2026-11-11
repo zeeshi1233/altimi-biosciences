@@ -36,11 +36,11 @@ const articles = [
   },
   {
     id: "news-3",
-    title: "Enhancing Operating Room Safety with Greiner Bio-One CLiP Neo Passive IV Catheters",
-    category: "Healthcare Safety",
+    title: "Introducing All-in-One Molecular PCR Testing with Bosch Vivalytic & Aidian QuikRead go®",
+    category: "Diagnostic Innovation",
     date: "July 22, 2026",
     summary:
-      "Leading nursing federations in Karachi endorse the automatic passive safety needle mechanism of the Greiner CLiP Neo, drastically cutting occupational needlestick incident rates.",
+      "Primary care clinics and reference centers adopt Bosch Vivalytic molecular cartridges alongside Aidian QuikRead go easy CRP and HbA1c rapid diagnostic kits across Pakistan.",
     image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600&auto=format&fit=crop",
     readTime: "3 min read",
   },

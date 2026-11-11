@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronDown, Menu, X, ArrowRight, Activity, ShieldCheck, FileText } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,7 @@ import { useUIStore } from "@/stores/uiStore";
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
+  const prefersReduced = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const {
     activeDropdown,
@@ -20,10 +21,14 @@ export const Navbar: React.FC = () => {
     setMobileMenuOpen,
   } = useUIStore();
 
+  const isHome = pathname === "/";
+  const isDarkGlass = isHome && !isScrolled;
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 40);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -85,20 +90,35 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full transition-[background-color,padding,border-color,box-shadow] duration-200",
-        isScrolled
-          ? "bg-white/85 backdrop-blur-xl shadow-lg shadow-primary/5 border-b border-slate-200/80 py-2.5"
-          : "bg-transparent py-4"
+        "z-50 w-full px-3 sm:px-6",
+        isHome
+          ? cn("fixed left-0 right-0", isScrolled ? "top-2.5" : "top-2.5 md:top-11")
+          : "sticky top-2.5 py-2"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <motion.div
+        initial={prefersReduced ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between rounded-2xl"
+      >
+        {/* Frosted glassmorphism layer kept separate so fixed mega-menu keeps viewport positioning */}
+        <div
+          aria-hidden="true"
+          className={cn(
+            "absolute inset-0 -z-10 rounded-2xl backdrop-blur-lg border transition-[background-color,border-color,box-shadow] duration-300",
+            isDarkGlass
+              ? "bg-white/10 border-white/20 shadow-lg shadow-primary-900/20"
+              : "bg-white/75 border-slate-200/80 shadow-lg shadow-primary/10"
+          )}
+        />
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
-          <div className="relative w-[150px] h-[90px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
+          <div className="relative w-[130px] h-[52px] sm:w-[145px] sm:h-[58px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
             <img
-              src="/navbarlogo.png"
+              src={isDarkGlass ? "/logo-white.png" : "/navbarlogo.png"}
               alt="Altimi Biosciences (Pvt) Ltd."
-              className="object-contain w-full h-full"
+              className="object-contain w-full h-full transition-opacity duration-200"
             />
           </div>
           {/* <div className="flex flex-col">
@@ -133,14 +153,21 @@ export const Navbar: React.FC = () => {
                   <button
                     className={cn(
                       "flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-xl transition-colors focus:outline-none",
-                      isActive ? "text-primary" : "text-ink hover:text-primary"
+                      isDarkGlass
+                        ? isActive
+                          ? "text-sky-300"
+                          : "text-white/90 hover:text-white"
+                        : isActive
+                        ? "text-primary"
+                        : "text-ink hover:text-primary"
                     )}
                   >
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
-                        activeDropdown === "about" && "rotate-180 text-primary"
+                        activeDropdown === "about" &&
+                          (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
                       )}
                     />
                   </button>
@@ -190,14 +217,21 @@ export const Navbar: React.FC = () => {
                     href={link.href}
                     className={cn(
                       "flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-xl transition-colors focus:outline-none",
-                      isActive ? "text-primary" : "text-ink hover:text-primary"
+                      isDarkGlass
+                        ? isActive
+                          ? "text-sky-300"
+                          : "text-white/90 hover:text-white"
+                        : isActive
+                        ? "text-primary"
+                        : "text-ink hover:text-primary"
                     )}
                   >
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
-                        activeDropdown === "products" && "rotate-180 text-primary"
+                        activeDropdown === "products" &&
+                          (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
                       )}
                     />
                   </Link>
@@ -209,7 +243,10 @@ export const Navbar: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.97 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed left-[230px] -translate-x-1/2 top-[100px] w-[92vw] max-w-5xl z-50"
+                        className={cn(
+                          "fixed left-1/2 -translate-x-1/2 pt-2 w-[92vw] max-w-5xl z-50",
+                          isDarkGlass ? "top-[114px]" : "top-[82px]"
+                        )}
                       >
                         <div className="glass-panel p-6 rounded-3xl shadow-2xl border border-slate-200/90 bg-white/95 backdrop-blur-2xl">
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -221,90 +258,90 @@ export const Navbar: React.FC = () => {
                               </div>
                               <div className="space-y-1">
                                 <Link
-                                  href="/products/clinical-chemistry-analyzer/rx-modena"
+                                  href="/products/randox-rx-series"
                                   className="block p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-primary">
-                                    Randox RX Modena
+                                    Randox RX Series (4900 / 9000)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    Up to 1,200 tests/hr & direct HbA1c testing
+                                    Automated Chemistry Analyzers (400–1,200 tests/hr)
                                   </div>
                                 </Link>
                                 <Link
-                                  href="/products/clinical-chemistry-analyzer/rx-imola"
+                                  href="/products/bosch-vivalytic"
                                   className="block p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-primary">
-                                    Randox RX Imola
+                                    Bosch Vivalytic Molecular Analyzer
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    400 photometric & 560 tests/hr with ISE
+                                    All-in-One Closed Cartridge PCR Molecular Solution
                                   </div>
                                 </Link>
                                 <Link
-                                  href="/products/clinical-chemistry-analyzer/point-of-care-testing"
+                                  href="/products/point-of-care-testing"
                                   className="block p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-primary">
-                                    Point of Care Testing
+                                    QuikRead go® (Point Of Care Testing)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    Rapid bedside critical diagnostics suite
+                                    Aidian POCT Analyzer, easy CRP &amp; HbA1c Rapid Kits
                                   </div>
                                 </Link>
                               </div>
                             </div>
 
-                            {/* Column 2: Medical Consumables */}
+                            {/* Column 2: Medical Devices & Hospital Supplies */}
                             <div className="space-y-3">
                               <div className="flex items-center gap-2 text-secondary-dark font-heading font-bold text-sm pb-2 border-b border-slate-100">
                                 <ShieldCheck className="w-4 h-4 text-secondary" />
-                                <span>Disposables & Consumables</span>
+                                <span>Devices &amp; Supplies</span>
                               </div>
                               <div className="space-y-1">
                                 <Link
-                                  href="/products/medical-consumables/ultimate-prep-pads"
+                                  href="/products/faros-360-ecg"
                                   className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
-                                    Ultimate Prep Pads
+                                    Bittium Faros™ (360 &amp; 180)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    70% IPA antiseptic sterile skin wipes
+                                    Medical-grade waterproof ECG monitors
                                   </div>
                                 </Link>
                                 <Link
-                                  href="/products/medical-consumables/disposable-underpads"
+                                  href="/products/and-abpm-monitor"
                                   className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
-                                    Disposable Underpads
+                                    A&amp;D Ambulatory BP (TM-2440 / 2441)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    High-absorbency dignity sheets (60x90cm)
+                                    Japanese 24-hour automatic blood pressure monitors
                                   </div>
                                 </Link>
                                 <Link
-                                  href="/products/medical-consumables/latex-gloves"
+                                  href="/products/ultimate-prep-pads"
                                   className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
-                                    Medical Latex Gloves
+                                    Hongde Alcohol Pads &amp; Underpads
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    AQL 1.5 micro-textured examination gloves
+                                    70% IPA sterile pads &amp; dignity underpads
                                   </div>
                                 </Link>
                                 <Link
-                                  href="/products/medical-consumables/nitrile-gloves"
+                                  href="/products/sterile-surgical-gloves"
                                   className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
                                 >
                                   <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
-                                    Medical Nitrile Gloves
+                                    Sterile Latex Surgical Gloves
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
-                                    100% Latex-free chemical resistant gloves
+                                    Powder-free gamma-sterilized surgical gloves
                                   </div>
                                 </Link>
                               </div>
@@ -346,14 +383,23 @@ export const Navbar: React.FC = () => {
                 href={link.href}
                 className={cn(
                   "relative px-3 py-2 text-sm font-semibold rounded-xl transition-colors",
-                  isActive ? "text-primary" : "text-ink hover:text-primary"
+                  isDarkGlass
+                    ? isActive
+                      ? "text-sky-300"
+                      : "text-white/90 hover:text-white"
+                    : isActive
+                    ? "text-primary"
+                    : "text-ink hover:text-primary"
                 )}
               >
                 <span>{link.label}</span>
                 {isActive && (
                   <motion.div
                     layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary rounded-full"
+                    className={cn(
+                      "absolute bottom-0 left-3 right-3 h-0.5 rounded-full",
+                      isDarkGlass ? "bg-sky-300" : "bg-primary"
+                    )}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -379,13 +425,18 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-xl text-ink hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40"
+            className={cn(
+              "lg:hidden p-2.5 rounded-xl transition-colors focus:outline-none focus:ring-2",
+              isDarkGlass
+                ? "text-white hover:bg-white/15 focus:ring-white/40"
+                : "text-ink hover:bg-slate-100 focus:ring-primary/40"
+            )}
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Slide-in Drawer */}
       <AnimatePresence>
@@ -398,7 +449,7 @@ export const Navbar: React.FC = () => {
             data-lenis-prevent="true"
             onWheel={(e) => e.stopPropagation()}
             onTouchMove={(e) => e.stopPropagation()}
-            className="fixed inset-0 top-[60px] bg-white z-50 lg:hidden flex flex-col justify-between overflow-y-auto overscroll-contain touch-pan-y px-6 py-8"
+            className="fixed inset-0 top-[84px] bg-white/95 backdrop-blur-lg z-50 lg:hidden flex flex-col justify-between overflow-y-auto overscroll-contain touch-pan-y px-6 py-8"
           >
             <div className="space-y-4">
               <div className="pb-3 border-b border-slate-100">

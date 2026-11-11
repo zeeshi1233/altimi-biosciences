@@ -32,7 +32,7 @@ const slides: HeroSlide[] = [
       "Easy to use for reliable patient monitoring.",
     ],
     image: "/images/products/bittium-360-180.png",
-    exploreUrl: "/products/medical-devices",
+    exploreUrl: "/products/faros-360-ecg",
   },
   {
     id: "quikread-go",
@@ -47,7 +47,7 @@ const slides: HeroSlide[] = [
       "Broad assay portfolio enabling efficient testing in primary healthcare settings, clinics, and clinical laboratories.",
     ],
     image: "/images/products/quikread-go.webp",
-    exploreUrl: "/products/clinical-chemistry-analyzer/point-of-care-testing",
+    exploreUrl: "/products/point-of-care-testing",
   },
   // {
   //   id: "faros-360",
@@ -96,84 +96,7 @@ const slides: HeroSlide[] = [
       "Adds a modern, user-friendly touch to your laboratory.",
     ],
     image: "/images/products/rx-modena.png",
-    exploreUrl: "/products/clinical-chemistry-analyzer/rx-modena",
-  },
-  {
-    id: "clip-neo",
-    category: "Hospital Supplies & Safety Needles",
-    title: "GREINER",
-    highlight: "– STICK TO SAFETY: CLiP NEO, WINGED & PORTED",
-    badge: "Passive Safety",
-    bullets: [
-      "Automatic safety.",
-      "Excellent insertion properties.",
-      "Comprehensive range.",
-      "Vast variety of gauge sizes, lengths and materials.",
-    ],
-    image: "/images/products/clip-neo.png",
-    exploreUrl: "/products/hospital-supplies",
-  },
-  // {
-  //   id: "bittium-holterplus",
-  //   category: "Remote Telecardiology",
-  //   title: "BITTIUM HOLTERPLUS",
-  //   highlight: "– REMOTE CARDIAC MONITORING",
-  //   badge: "Cloud Telemetry",
-  //   bullets: [
-  //     "The perfect option for extended cardiac monitoring.",
-  //     "A web-based cardiac monitoring solution.",
-  //     "Enables remote cardiac monitoring with ease.",
-  //     "Ideal for private cardiologists, cardiac service providers, hospitals and clinics.",
-  //   ],
-  //   image: "/images/products/bittium-holterplus.png",
-  //   exploreUrl: "/products/medical-devices",
-  // },
-  {
-    id: "latex-gloves",
-    category: "Medical Disposable / Consumables",
-    title: "LATEX GLOVES",
-    highlight: "– CLINICAL BARRIER",
-    badge: "AQL 1.5 Standard",
-    bullets: [
-      "Unparalleled comfort and protection.",
-      "Perfect combination of toughness, elasticity and non-slip.",
-      "Textured for improved grip.",
-      "AQL 1.5.",
-      "Low level of extractable proteins and chemical residue.",
-    ],
-    image: "/images/products/latex-gloves.png",
-    exploreUrl: "/products/medical-consumables/latex-gloves",
-  },
-  {
-    id: "histoacryl",
-    category: "Medicine / Drugs & Surgical",
-    title: "HISTOACRYL TISSUE ADHESIVE",
-    highlight: "– WOUND CLOSURE IN A MINUTE",
-    badge: "Anti-Bacterial Barrier",
-    bullets: [
-      "Anti-bacterial barrier protects the wound.",
-      "No need of refrigeration.",
-      "Significantly less pain than suture material.",
-      "Excellent cosmetic result.",
-      "Water resistant: showering is possible.",
-    ],
-    image: "/images/products/histoacryl.png",
-    exploreUrl: "/products/medicine-drugs",
-  },
-  {
-    id: "nitrile-gloves",
-    category: "Medical Disposable / Consumables",
-    title: "NITRILE GLOVES",
-    highlight: "– HIGH PROTECTION",
-    badge: "Latex-Free",
-    bullets: [
-      "Latex free, powder free and odor free.",
-      "Custom design enhanced comfort and fit.",
-      "An alternative for people allergic to natural rubber latex.",
-      "Good barrier protection against chemicals and dangerous substances.",
-    ],
-    image: "/images/products/nitrile-gloves.png",
-    exploreUrl: "/products/medical-consumables/nitrile-gloves",
+    exploreUrl: "/products/randox-rx-series",
   },
 ];
 
@@ -225,7 +148,7 @@ export const HeroSlider: React.FC = () => {
   return (
     <section
       aria-label="Featured Medical Equipment & Supplies"
-      className="relative min-h-[88dvh] lg:min-h-[90dvh] flex items-center overflow-hidden bg-primary-900 pt-6 pb-12"
+      className="relative min-h-[88dvh] lg:min-h-[90dvh] flex items-center overflow-hidden bg-primary-900 pt-28 sm:pt-32 pb-12"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

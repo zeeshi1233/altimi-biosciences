@@ -40,65 +40,66 @@ const expertiseList: ExpertiseItem[] = [
   },
   {
     id: "hospital-supplies",
-    title: "Hospital Supplies",
-    categoryName: "Consumables & PPE",
+    title: "Hospital & Surgical Supplies",
+    categoryName: "Consumables & Sterile Protection",
     badge: "Clinical Hygiene",
     description:
-      "Comprehensive daily hospital necessities including Greiner CLiP Neo safety catheters, dignity sheets, prep pads, and surgical disposables.",
+      "Essential registered hospital disposables including Hongde 70% isopropyl alcohol pads, dignity underpads, and powder-free sterile latex surgical gloves.",
     icon: Package,
     features: [
-      "Greiner safety needle systems",
-      "70% IPA antiseptic prep pads",
-      "Ultra-absorbent underpads",
+      "Anji Hongde 70% Alcohol Pads",
+      "Anji Hongde Dignity Underpads",
+      "Sterile Latex Surgical Gloves Powder Free",
     ],
-    link: "/products?category=hospital-supplies",
+    link: "/products/sterile-surgical-gloves",
     gradient: "from-teal-500/20 via-cyan-500/10 to-transparent",
   },
   {
     id: "medical-devices",
-    title: "Medical Devices",
-    categoryName: "Cardiac & Monitoring",
+    title: "Cardiac & BP Monitoring",
+    categoryName: "Medical Devices",
     badge: "Digital Precision",
     description:
-      "Wearable ECG monitors, telecardiology cloud infrastructure, and point-of-care patient diagnostics with real-time biometric telemetry.",
+      "Wearable Bittium ECG telemetry monitors, clinical Holter software, and Japanese A&D 24-hour ambulatory blood pressure monitoring systems.",
     icon: Cpu,
     features: [
-      "Bittium Faros 360 ECG (18g)",
-      "Bittium HolterPlus cloud monitoring",
+      "Bittium Faros 360 & Faros 180 (ECG Monitor)",
+      "Bittium HolterPlus & Cardiac Navigator",
+      "A&D TM-2440 & TM-2441 Ambulatory BP Monitor",
     ],
-    link: "/products?category=medical-devices",
+    link: "/products/faros-360-ecg",
     gradient: "from-indigo-500/20 via-blue-500/10 to-transparent",
   },
   {
     id: "diagnostic-kits",
-    title: "Diagnostic Kits",
-    categoryName: "Clinical Assays",
-    badge: "High Specificity",
+    title: "Diagnostic Kits & Clinical Analyzers",
+    categoryName: "Chemistry, Molecular & Rapid Kits",
+    badge: "DRAP Registered",
     description:
-      "Reagent kits and multi-parameter assay panels for routine chemistry, cardiac enzymes, diabetes HbA1c, and therapeutic drugs.",
+      "Randox automated clinical chemistry systems, Bosch Vivalytic molecular diagnostics, and Aidian QuikRead go rapid human diagnostic test kits.",
     icon: FlaskConical,
     features: [
-      "Randox direct HbA1c reagents",
-      "Lipids and cardiac biomarkers",
-      "Liquid-stable calibration standards",
+      "Randox RX 4900 & RX 9000 Chemistry Analyzers",
+      "Bosch Vivalytic Molecular Analyzer",
+      "Aidian QuikRead go® easy CRP & HbA1c Kits",
     ],
-    link: "/products?category=clinical-chemistry-analyzer",
+    link: "/products/randox-rx-series",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
   },
   {
     id: "medicine-drugs",
-    title: "Medicine / Drugs",
-    categoryName: "Surgical & Therapeutic",
-    badge: "Hospital Formulary",
+    title: "Biosimilar Drugs",
+    categoryName: "Biopharmaceuticals",
+    badge: "Cold-Chain Biologics",
     description:
-      "Essential hospital pharmaceuticals, specialized surgical tissue adhesives (Histoacryl), and high-demand hospital formulary agents.",
+      "Targeted monoclonal antibody biosimilars manufactured by Hetero Biopharma Limited and distributed across Pakistan under validated 2°C to 8°C cold chain.",
     icon: Pill,
     features: [
-      "B. Braun Histoacryl tissue adhesive",
-      "Sutureless wound closure in 60s",
-      "Hospital critical injectables",
+      "Pamera 40 (Adalimumab)",
+      "Bevaas 100 (Bevacizumab)",
+      "Bevaas 400/16 (Bevacizumab)",
     ],
-    link: "/products?category=medicine-drugs",
+    link: "/products/hetero-biosimilar-drugs",
     gradient: "from-rose-500/20 via-orange-500/10 to-transparent",
   },
   {
@@ -434,7 +435,7 @@ export const ExpertiseSection: React.FC = () => {
                     href={expertiseList[4].link}
                     className="inline-flex items-center gap-2 text-xs font-bold text-primary group-hover:text-secondary-dark transition-colors"
                   >
-                    <span>View Surgical Formulary</span>
+                    <span>View Biosimilar Drugs</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

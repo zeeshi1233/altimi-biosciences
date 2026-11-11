@@ -1,14 +1,30 @@
 export type ProductCategory =
-  | "clinical-chemistry-analyzer"
-  | "medical-consumables"
-  | "medical-devices"
+  | "chemistry-analyzer"
+  | "molecular-analyzer"
   | "diagnostic-kits"
-  | "hospital-supplies"
-  | "medicine-drugs";
+  | "cardiac-monitors"
+  | "automatic-blood-pressure-monitor"
+  | "biosimilar-drugs"
+  | "alcohol-pads"
+  | "dignity-underpads"
+  | "surgical-gloves";
 
 export interface ProductSpec {
   label: string;
   value: string;
+}
+
+export interface ProductModel {
+  id: string;
+  slug?: string;
+  name: string;
+  modelCode?: string;
+  image: string;
+  gallery?: string[];
+  shortDescription: string;
+  badge?: string;
+  features?: string[];
+  specifications?: ProductSpec[];
 }
 
 export interface Product {
@@ -29,5 +45,6 @@ export interface Product {
   badge?: string;
   modelCode?: string;
   brand?: string;
+  country?: string;
+  models?: ProductModel[];
 }
-
