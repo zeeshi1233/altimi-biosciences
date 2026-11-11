@@ -158,8 +158,8 @@ export const Navbar: React.FC = () => {
                           ? "text-sky-300"
                           : "text-white/90 hover:text-white"
                         : isActive
-                        ? "text-primary"
-                        : "text-ink hover:text-primary"
+                          ? "text-primary"
+                          : "text-ink hover:text-primary"
                     )}
                   >
                     <span>{link.label}</span>
@@ -167,7 +167,7 @@ export const Navbar: React.FC = () => {
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
                         activeDropdown === "about" &&
-                          (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
+                        (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
                       )}
                     />
                   </button>
@@ -222,8 +222,8 @@ export const Navbar: React.FC = () => {
                           ? "text-sky-300"
                           : "text-white/90 hover:text-white"
                         : isActive
-                        ? "text-primary"
-                        : "text-ink hover:text-primary"
+                          ? "text-primary"
+                          : "text-ink hover:text-primary"
                     )}
                   >
                     <span>{link.label}</span>
@@ -231,7 +231,7 @@ export const Navbar: React.FC = () => {
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
                         activeDropdown === "products" &&
-                          (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
+                        (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
                       )}
                     />
                   </Link>
@@ -244,7 +244,7 @@ export const Navbar: React.FC = () => {
                         exit={{ opacity: 0, y: 8, scale: 0.97 }}
                         transition={{ duration: 0.2 }}
                         className={cn(
-                          "fixed left-1/2 -translate-x-1/2 pt-2 w-[92vw] max-w-5xl z-50",
+                          "fixed !left-[150px] -translate-x-1/2 pt-2 w-[92vw] max-w-5xl z-50",
                           isDarkGlass ? "top-[114px]" : "top-[82px]"
                         )}
                       >
@@ -388,8 +388,8 @@ export const Navbar: React.FC = () => {
                       ? "text-sky-300"
                       : "text-white/90 hover:text-white"
                     : isActive
-                    ? "text-primary"
-                    : "text-ink hover:text-primary"
+                      ? "text-primary"
+                      : "text-ink hover:text-primary"
                 )}
               >
                 <span>{link.label}</span>
