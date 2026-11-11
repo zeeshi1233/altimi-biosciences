@@ -3,7 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Award, FlaskConical, Users, Building2, CheckCircle2 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Award, FlaskConical, Users, Building2, CheckCircle2, Activity, Gauge } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Counter } from "@/components/ui/Counter";
@@ -18,6 +19,8 @@ const stats = [
 ];
 
 export const AboutSection: React.FC = () => {
+  const prefersReduced = useReducedMotion();
+
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden bg-white">
       <Container>
@@ -25,7 +28,7 @@ export const AboutSection: React.FC = () => {
         <Reveal direction="up">
           <SectionHeading
             badge="About Altimi Biosciences"
-            title="We Are A Modern Research Expert Company"
+            title="Driving the Future of Precision Healthcare and Diagnostics"
             subtitle="Leading Pakistan's medical diagnostic sector through world-renowned automated instrumentation and specialized clinical supplies."
             align="center"
             className="mb-14"
@@ -97,56 +100,83 @@ export const AboutSection: React.FC = () => {
             </Reveal>
           </div>
 
-          {/* Right Two Image Cards (6 cols) */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Card 1: Lab Machines */}
+          {/* Right Animated Product Showcase: Randox RX Modena (6 cols) */}
+          <div className="lg:col-span-6">
             <Reveal direction="left" delay={0.2}>
-              <div className="group rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
-                  <Image
-                    src="/images/about/lab-machines.png"
-                    alt="Lab Machines – Advanced laboratory equipment"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-103"
-                  />
-                </div>
-                <div className="p-5 sm:p-6 space-y-2">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary/15 text-secondary-dark border border-secondary/25">
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    Clinical Technology
-                  </span>
-                  <h4 className="text-base sm:text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors">
-                    Lab Machines
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Advanced laboratory equipment engineered for ultra-high throughput and continuous automated chemistry testing.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
+              <div className="relative rounded-[2rem] bg-gradient-to-br from-surface via-white to-primary/5 border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-primary/30 transition-[box-shadow,border-color] duration-300 p-6 sm:p-8 overflow-hidden group">
+                {/* Subtle clinical dots texture */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-dots-pattern opacity-35 pointer-events-none"
+                />
 
-            {/* Card 2: Research Center */}
-            <Reveal direction="right" delay={0.3}>
-              <div className="group rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between sm:translate-y-8">
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
-                  <Image
-                    src="/images/about/research-center.png"
-                    alt="Research Center – Precision testing equipment"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-103"
-                  />
-                </div>
-                <div className="p-5 sm:p-6 space-y-2">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    Biomedical Infrastructure
+                {/* Top Meta Header */}
+                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 mb-5">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-ink">
+                    <span className="w-2 h-2 rounded-full bg-secondary motion-safe:animate-pulse" />
+                    <span>Randox Laboratories • Flagship System</span>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-bold">
+                    <Gauge className="w-3.5 h-3.5" />
+                    1,200 Tests / Hr
                   </span>
-                  <h4 className="text-base sm:text-lg font-bold font-heading text-ink group-hover:text-primary transition-colors">
-                    Research Center
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Precision testing equipment, calibration facilities, and biomedical quality assurance operations.
-                  </p>
+                </div>
+
+                {/* Animated Floating Product Stage */}
+                <div className="relative z-10 my-2 rounded-2xl bg-gradient-to-b from-white to-surface border border-slate-200/80 p-4 sm:p-6 flex items-center justify-center overflow-hidden">
+                  <motion.div
+                    animate={prefersReduced ? undefined : { y: [0, -7, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative w-full aspect-[16/10]"
+                  >
+                    <Image
+                      src="/images/products/rx-9000.png"
+                      alt="Randox RX Modena (RX 9000) Automated Clinical Chemistry Analyzer"
+                      fill
+                      className="object-contain drop-shadow-xl"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Product Summary & Key Metrics */}
+                <div className="relative z-10 mt-6 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <span className="text-xs font-semibold text-secondary-dark">
+                        Automated Chemistry Analyzer
+                      </span>
+                      <h4 className="text-xl sm:text-2xl font-black font-heading text-ink mt-0.5">
+                        Randox RX Modena (RX 9000)
+                      </h4>
+                    </div>
+                    <Link
+                      href="/products/randox-rx-series"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-dark active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-[background-color,transform] shrink-0 self-start sm:self-center shadow-sm"
+                    >
+                      <span>View Analyzer</span>
+                      <ArrowRight className="w-3.5 h-3.5 motion-safe:transition-transform motion-safe:group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+
+                  {/* Quick Spec Chips */}
+                  <div className="grid grid-cols-3 gap-2.5 pt-3 border-t border-slate-200/80">
+                    <div className="rounded-xl bg-white/90 border border-slate-200/80 p-2.5 text-center">
+                      <div className="text-xs sm:text-sm font-black font-heading text-primary">800/hr</div>
+                      <div className="text-[11px] font-medium text-muted">Photometric Rate</div>
+                    </div>
+                    <div className="rounded-xl bg-white/90 border border-slate-200/80 p-2.5 text-center">
+                      <div className="text-xs sm:text-sm font-black font-heading text-ink flex items-center justify-center gap-1">
+                        <Activity className="w-3.5 h-3.5 text-secondary shrink-0" />
+                        <span>Direct</span>
+                      </div>
+                      <div className="text-[11px] font-medium text-muted">HbA1c Testing</div>
+                    </div>
+                    <div className="rounded-xl bg-white/90 border border-slate-200/80 p-2.5 text-center">
+                      <div className="text-xs sm:text-sm font-black font-heading text-ink">150 Pos</div>
+                      <div className="text-[11px] font-medium text-muted">STAT Continuous</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Reveal>

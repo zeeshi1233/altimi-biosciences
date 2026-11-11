@@ -114,9 +114,9 @@ export const Navbar: React.FC = () => {
         />
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
-          <div className="relative w-[130px] h-[52px] sm:w-[145px] sm:h-[58px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
+          <div className="relative w-[130px] h-[52px] sm:w-[145px] sm:h-[70px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
             <img
-              src={isDarkGlass ? "/logo-white.png" : "/navbarlogo.png"}
+              src={isDarkGlass ? "/logo-white.png" : "/logo.png"}
               alt="Altimi Biosciences (Pvt) Ltd."
               className="object-contain w-full h-full transition-opacity duration-200"
             />
