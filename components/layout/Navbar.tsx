@@ -108,8 +108,8 @@ export const Navbar: React.FC = () => {
           className={cn(
             "absolute inset-0 -z-10 rounded-2xl backdrop-blur-lg border transition-[background-color,border-color,box-shadow] duration-300",
             isDarkGlass
-              ? "bg-white/50 border-white/20 shadow-lg shadow-primary-900/20"
-              : "bg-white/75 border-slate-200/80 shadow-lg shadow-primary/10"
+              ? "bg-white/85 border-white/30 shadow-lg shadow-primary-900/20"
+              : "bg-white/90 border-slate-200/80 shadow-lg shadow-primary/10"
           )}
         />
         {/* Brand Logo */}
@@ -152,22 +152,15 @@ export const Navbar: React.FC = () => {
                 >
                   <button
                     className={cn(
-                      "flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-xl transition-colors focus:outline-none",
-                      isDarkGlass
-                        ? isActive
-                          ? "text-sky-300"
-                          : "text-black hover:text-white"
-                        : isActive
-                          ? "text-primary"
-                          : "text-ink hover:text-primary"
+                      "nav-link flex items-center gap-1 px-3 py-2 text-sm rounded-md",
+                      isActive && "is-active"
                     )}
                   >
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
-                        activeDropdown === "about" &&
-                        (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
+                        activeDropdown === "about" && "rotate-180"
                       )}
                     />
                   </button>
@@ -186,9 +179,9 @@ export const Navbar: React.FC = () => {
                             <Link
                               key={sub.label}
                               href={sub.href}
-                              className="block p-3 rounded-xl hover:bg-primary/5 transition-colors group"
+                              className="nav-dropdown-link block p-3 rounded-xl group"
                             >
-                              <div className="font-heading font-bold text-sm text-ink group-hover:text-primary flex items-center justify-between">
+                              <div className="font-heading font-bold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary flex items-center justify-between">
                                 <span>{sub.label}</span>
                                 <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-150 text-primary" />
                               </div>
@@ -216,22 +209,15 @@ export const Navbar: React.FC = () => {
                   <Link
                     href={link.href}
                     className={cn(
-                      "flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-xl transition-colors focus:outline-none",
-                      isDarkGlass
-                        ? isActive
-                          ? "text-sky-300"
-                          : "text-black hover:text-white"
-                        : isActive
-                          ? "text-primary"
-                          : "text-ink hover:text-primary"
+                      "nav-link flex items-center gap-1 px-3 py-2 text-sm rounded-md",
+                      isActive && "is-active"
                     )}
                   >
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
-                        activeDropdown === "products" &&
-                        (isDarkGlass ? "rotate-180 text-sky-300" : "rotate-180 text-primary")
+                        activeDropdown === "products" && "rotate-180"
                       )}
                     />
                   </Link>
@@ -259,9 +245,9 @@ export const Navbar: React.FC = () => {
                               <div className="space-y-1">
                                 <Link
                                   href="/products/randox-rx-series"
-                                  className="block p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-primary">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     Randox RX Series (4900 / 9000)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -270,9 +256,9 @@ export const Navbar: React.FC = () => {
                                 </Link>
                                 <Link
                                   href="/products/bosch-vivalytic"
-                                  className="block p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-primary">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     Bosch Vivalytic Molecular Analyzer
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -281,9 +267,9 @@ export const Navbar: React.FC = () => {
                                 </Link>
                                 <Link
                                   href="/products/point-of-care-testing"
-                                  className="block p-2.5 rounded-xl hover:bg-primary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-primary">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     QuikRead go® (Point Of Care Testing)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -302,9 +288,9 @@ export const Navbar: React.FC = () => {
                               <div className="space-y-1">
                                 <Link
                                   href="/products/faros-360-ecg"
-                                  className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     Bittium Faros™ (360 &amp; 180)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -313,9 +299,9 @@ export const Navbar: React.FC = () => {
                                 </Link>
                                 <Link
                                   href="/products/and-abpm-monitor"
-                                  className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     A&amp;D Ambulatory BP (TM-2440 / 2441)
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -324,9 +310,9 @@ export const Navbar: React.FC = () => {
                                 </Link>
                                 <Link
                                   href="/products/ultimate-prep-pads"
-                                  className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     Hongde Alcohol Pads &amp; Underpads
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -335,9 +321,9 @@ export const Navbar: React.FC = () => {
                                 </Link>
                                 <Link
                                   href="/products/sterile-surgical-gloves"
-                                  className="block p-2.5 rounded-xl hover:bg-secondary/5 transition-colors group"
+                                  className="nav-dropdown-link block p-2.5 rounded-xl group"
                                 >
-                                  <div className="font-semibold text-sm text-ink group-hover:text-secondary-dark">
+                                  <div className="font-semibold text-sm text-ink group-hover:text-primary group-focus-visible:text-primary">
                                     Sterile Latex Surgical Gloves
                                   </div>
                                   <div className="text-xs text-muted line-clamp-1">
@@ -362,7 +348,7 @@ export const Navbar: React.FC = () => {
                               </div>
                               <Link
                                 href="/products"
-                                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-dark transition-colors"
+                                className="nav-dropdown-link mt-4 inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-bold text-primary"
                               >
                                 <span>Browse All Categories</span>
                                 <ArrowRight className="w-3.5 h-3.5" />
@@ -382,27 +368,11 @@ export const Navbar: React.FC = () => {
                 key={link.label}
                 href={link.href}
                 className={cn(
-                  "relative px-3 py-2 text-sm font-semibold rounded-xl transition-colors",
-                  isDarkGlass
-                    ? isActive
-                      ? ""
-                      : "text-black hover:text-white"
-                    : isActive
-                      ? "text-primary"
-                      : "text-ink hover:text-primary"
+                  "nav-link px-3 py-2 text-sm rounded-md",
+                  isActive && "is-active"
                 )}
               >
                 <span>{link.label}</span>
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNavIndicator"
-                    className={cn(
-                      "absolute bottom-0 left-3 right-3 h-0.5 rounded-full",
-                      isDarkGlass ? "bg-sky-300" : "bg-primary"
-                    )}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
               </Link>
             );
           })}
@@ -425,12 +395,7 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn(
-              "lg:hidden p-2.5 rounded-xl transition-colors focus:outline-none focus:ring-2",
-              isDarkGlass
-                ? "text-white hover:bg-white/15 focus:ring-white/40"
-                : "text-ink hover:bg-slate-100 focus:ring-primary/40"
-            )}
+            className="lg:hidden nav-dropdown-link p-2.5 rounded-xl text-ink"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

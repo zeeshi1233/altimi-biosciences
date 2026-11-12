@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/animations/Reveal";
 import { Counter } from "@/components/ui/Counter";
-
+import { motion } from "framer-motion";
 const pillars = [
   {
     icon: Target,
@@ -52,7 +52,25 @@ const pillars = [
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-surface via-slate-50 to-surface">
+    <section className="py-20 lg:py-28 relative overflow-hidden bg-ink">
+      <motion.div
+        animate={{
+          scale: [1, 1.25, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-32 -left-32 w-96 h-96 bg-primary rounded-full blur-[100px] pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.25, 0.45, 0.25],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary rounded-full blur-[100px] pointer-events-none"
+      />
+
+
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
       <Container>
@@ -62,7 +80,8 @@ export const WhyChooseUs: React.FC = () => {
             title="Engineered for Precision, Backed by Commitment"
             subtitle="Diagnostic accuracy, swift logistics, and dependable engineering support powering Pakistan's leading healthcare facilities."
             align="center"
-            className="mb-16"
+            className="mb-16 "
+            theme="dark"
           />
         </Reveal>
 

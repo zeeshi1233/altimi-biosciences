@@ -151,6 +151,63 @@ html.lenis body {
   opacity: 1;
 }
 
+/* Navbar frosted-glass link & dropdown item styles */
+.nav-link {
+  position: relative;
+  color: #0F2A47;
+  font-weight: 600;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #38BDF8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: #0B5ED7;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-link:focus-visible {
+  color: #0B5ED7;
+  outline: 2px solid #0B5ED7;
+  outline-offset: 4px;
+  border-radius: 6px;
+  background: rgba(11, 94, 215, 0.08);
+}
+
+.nav-dropdown-link {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-dropdown-link:hover {
+  color: #0B5ED7;
+  background: rgba(11, 94, 215, 0.08);
+}
+
+.nav-dropdown-link:focus-visible {
+  color: #0B5ED7;
+  outline: 2px solid #0B5ED7;
+  outline-offset: 4px;
+  border-radius: 6px;
+  background: rgba(11, 94, 215, 0.08);
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

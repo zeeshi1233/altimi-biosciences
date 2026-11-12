@@ -7,7 +7,7 @@ import { Microscope, Package, Cpu, FlaskConical, Pill, ArrowRight, Activity } fr
 import { Container } from "@/components/ui/Container";
 import { TiltCard } from "@/components/animations/TiltCard";
 import { Reveal } from "@/components/animations/Reveal";
-
+import { motion } from "framer-motion";
 interface ExpertiseItem {
   id: string;
   title: string;
@@ -130,7 +130,25 @@ const [clinicalAnalyzers, poctDivision, ...secondaryDivisions] = expertiseList;
 
 export const ExpertiseSection: React.FC = () => {
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-surface">
+    <section className="py-20 lg:py-28 relative overflow-hidden bg-ink
+">
+      <motion.div
+        animate={{
+          scale: [1, 1.25, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-32 -left-32 w-96 h-96 bg-primary rounded-full blur-[100px] pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.25, 0.45, 0.25],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary rounded-full blur-[100px] pointer-events-none"
+      />
+
       <div className="absolute inset-0 bg-dots-pattern opacity-50 pointer-events-none" />
 
       <Container>
@@ -138,15 +156,15 @@ export const ExpertiseSection: React.FC = () => {
         <Reveal direction="up">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-slate-200/80 pb-8">
             <div className="space-y-3 max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-                <Activity className="w-3.5 h-3.5 text-primary" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-white border border-primary/20">
+                <Activity className="w-3.5 h-3.5 text-white" />
                 Comprehensive Healthcare & Diagnostic Solutions
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-tight">
+              <h2 className="text-3xl relative z-40 sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight">
                 Specialized Diagnostic & Clinical Divisions
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-muted max-w-md leading-relaxed">
+            <p className="text-sm sm:text-base text-white max-w-md leading-relaxed">
               We provide end-to-end distribution, scientific validation, and equipment lifecycle support across 6 key medical domains in Pakistan.
             </p>
           </div>
