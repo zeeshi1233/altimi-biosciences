@@ -535,38 +535,38 @@ export const products: Product[] = [
     brochureUrl: "/brochures/hongde-prep-pads.pdf",
     featured: false
   },
-  {
-    id: "disposable-underpads",
-    slug: "disposable-underpads",
-    name: "Dignity Underpads",
-    category: "dignity-underpads",
-    categoryName: "Dignity Underpads",
-    brand: "Anji Hongde Medical Products Co. Ltd.",
-    country: "China",
-    modelCode: "HONGDE-UNDERPAD",
-    badge: "Super Absorbent Core",
-    subtitle: "Multi-layer disposable dignity underpads for ICU, maternity, and patient ward protection",
-    shortDescription:
-      "Heavy-duty waterproof disposable dignity underpads by Anji Hongde Medical Products Co. Ltd. offering rapid moisture locking and skin protection.",
-    fullDescription:
-      "Registered under Altimi Biosciences Pvt Ltd. and sourced from Anji Hongde Medical Products Co. Ltd. (China), our Dignity Underpads feature a soft hypoallergenic non-woven top sheet, super-absorbent fluff pulp + SAP polymer core, and waterproof PE backing film to safeguard mattresses and surgical beds.",
-    image: "/images/products/underpads.png",
-    features: [
-      "Diamond-quilted surface rapidly channels liquid away from patient skin",
-      "Fluff pulp + Super Absorbent Polymer (SAP) locks moisture as gel",
-      "Leak-proof polyethylene backsheet protects bedding and examination tables",
-      "Breathable, hypoallergenic & latex-free construction"
-    ],
-    specifications: [
-      { label: "Manufacturer", value: "Anji Hongde Medical Products Co. Ltd. — China" },
-      { label: "Dimensions", value: "60 x 90 cm (Standard Hospital Size)" },
-      { label: "Absorption Core", value: "Virgin Fluff Pulp + Japanese SAP" },
-      { label: "Backsheet", value: "Waterproof Non-Slip PE Film" }
-    ],
-    certifications: ["CE Certified", "ISO 13485", "DRAP Registered"],
-    brochureUrl: "/brochures/hongde-dignity-underpads.pdf",
-    featured: false
-  },
+  // {
+  //   id: "disposable-underpads",
+  //   slug: "disposable-underpads",
+  //   name: "Dignity Underpads",
+  //   category: "dignity-underpads",
+  //   categoryName: "Dignity Underpads",
+  //   brand: "Anji Hongde Medical Products Co. Ltd.",
+  //   country: "China",
+  //   modelCode: "HONGDE-UNDERPAD",
+  //   badge: "Super Absorbent Core",
+  //   subtitle: "Multi-layer disposable dignity underpads for ICU, maternity, and patient ward protection",
+  //   shortDescription:
+  //     "Heavy-duty waterproof disposable dignity underpads by Anji Hongde Medical Products Co. Ltd. offering rapid moisture locking and skin protection.",
+  //   fullDescription:
+  //     "Registered under Altimi Biosciences Pvt Ltd. and sourced from Anji Hongde Medical Products Co. Ltd. (China), our Dignity Underpads feature a soft hypoallergenic non-woven top sheet, super-absorbent fluff pulp + SAP polymer core, and waterproof PE backing film to safeguard mattresses and surgical beds.",
+  //   image: "/images/products/underpads.png",
+  //   features: [
+  //     "Diamond-quilted surface rapidly channels liquid away from patient skin",
+  //     "Fluff pulp + Super Absorbent Polymer (SAP) locks moisture as gel",
+  //     "Leak-proof polyethylene backsheet protects bedding and examination tables",
+  //     "Breathable, hypoallergenic & latex-free construction"
+  //   ],
+  //   specifications: [
+  //     { label: "Manufacturer", value: "Anji Hongde Medical Products Co. Ltd. — China" },
+  //     { label: "Dimensions", value: "60 x 90 cm (Standard Hospital Size)" },
+  //     { label: "Absorption Core", value: "Virgin Fluff Pulp + Japanese SAP" },
+  //     { label: "Backsheet", value: "Waterproof Non-Slip PE Film" }
+  //   ],
+  //   certifications: ["CE Certified", "ISO 13485", "DRAP Registered"],
+  //   brochureUrl: "/brochures/hongde-dignity-underpads.pdf",
+  //   featured: false
+  // },
   {
     id: "sterile-surgical-gloves",
     slug: "sterile-surgical-gloves",
@@ -637,11 +637,11 @@ export const productCategories = [
     name: "Alcohol Pads",
     count: products.filter((p) => p.category === "alcohol-pads").length,
   },
-  {
-    id: "dignity-underpads",
-    name: "Dignity Underpads",
-    count: products.filter((p) => p.category === "dignity-underpads").length,
-  },
+  // {
+  //   id: "dignity-underpads",
+  //   name: "Dignity Underpads",
+  //   count: products.filter((p) => p.category === "dignity-underpads").length,
+  // },
   {
     id: "surgical-gloves",
     name: "Surgical Gloves",

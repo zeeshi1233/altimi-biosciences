@@ -28,9 +28,7 @@ export default function BrochuresPage() {
 
   const categories = [
     "All",
-    "Medical Devices",
-    "Diagnostic Kits",
-    "Medical Consumables",
+    ...Array.from(new Set(brochures.map((b) => b.category))),
   ];
 
   const filteredBrochures = brochures.filter((b) => {

@@ -7,6 +7,16 @@ export interface FAQItem {
 export const faqs: FAQItem[] = [
   {
     category: "General",
+    question: "How is Altimi Biosciences different from House of Altimi?",
+    answer: "Altimi Biosciences is a specialized division of House of Altimi, focused on the distribution of medical supplies, medical devices, and diagnostic analyzers. It aims to provide healthcare professionals and institutions with reliable medical technologies and solutions."
+  },
+  {
+    category: "General",
+    question: "Is Altimi Diagnostic Lab the same as Altimi Biosciences?",
+    answer: "No. Both are separate divisions of House of Altimi with distinct areas of operation. Altimi Diagnostic Lab focuses on providing quality laboratory diagnostic testing services, while Altimi Biosciences specializes in the distribution of medical devices, supplies, and diagnostic analyzers."
+  },
+  {
+    category: "General",
     question: "What medical sectors does Altimi Biosciences serve in Pakistan?",
     answer: "Altimi Biosciences is a premier nationwide distributor serving public and private tertiary care hospitals, diagnostic reference laboratories, military medical facilities, research institutes, and cardiology centers across Pakistan with diagnostic instrumentation, POCT systems, medical devices, and hospital supplies."
   },

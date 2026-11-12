@@ -9,9 +9,6 @@ import {
   GraduationCap,
   Activity,
   ShieldCheck,
-  Eye,
-  Target,
-  ArrowRight,
   Award,
   CheckCircle2,
   Stethoscope,
@@ -21,7 +18,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
-
+import { VisionMissionSection } from "@/components/sections/VisionMissionSection";
 export const metadata: Metadata = {
   title: "Executive Leadership & Governance | Altimi Biosciences",
   description:
@@ -271,7 +268,14 @@ export default function LeadershipPage() {
             </div>
           </div>
         </Reveal>
+      </Container>
 
+      {/* ========================================================================= */}
+      {/* VISION & MISSION (FULL-BLEED OFFICIAL STATEMENTS) */}
+      {/* ========================================================================= */}
+      <VisionMissionSection />
+
+      <Container>
         {/* ========================================================================= */}
         {/* KEY ACCOMPLISHMENTS & PUBLIC HEALTH MILESTONES (8 CARDS) */}
         {/* ========================================================================= */}
@@ -325,89 +329,7 @@ export default function LeadershipPage() {
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* VISION & MISSION (OFFICIAL STATEMENTS) */}
-        {/* ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Vision Card */}
-          <Reveal direction="left" delay={0.1}>
-            <div className="glass-card p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl h-full flex flex-col justify-between relative overflow-hidden group">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center shadow-md shadow-primary/25">
-                    <Eye className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-primary">
-                      Our Guiding Light
-                    </span>
-                    <h3 className="text-2xl font-black font-heading text-ink">
-                      Vision
-                    </h3>
-                  </div>
-                </div>
 
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  ALTIMI also envisage that the <strong className="text-ink">pulmonary diseases</strong> have acquired significance in Pakistan and are accelerating due to lack of advanced inhalation and respiratory therapies causing aggravation and more complications.
-                </p>
-
-                <p className="text-sm sm:text-base text-muted leading-relaxed mt-4">
-                  To condense the increasing tendency of these diseases essentially, we need to have <strong className="text-primary font-semibold">trusted brand inhalation equipment and therapies with proven track record</strong>.
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-primary">
-                <span>Advancing Pulmonary & Diagnostic Care</span>
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Mission Card */}
-          <Reveal direction="right" delay={0.2}>
-            <div className="glass-card p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl h-full flex flex-col justify-between relative overflow-hidden group">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-secondary text-white flex items-center justify-center shadow-md shadow-secondary/25">
-                    <Target className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-secondary-dark">
-                      Our Core Purpose
-                    </span>
-                    <h3 className="text-2xl font-black font-heading text-ink">
-                      Mission
-                    </h3>
-                  </div>
-                </div>
-
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  The mission of <strong className="text-ink">ABL</strong> is to become an eventual choice for all about <strong className="text-secondary-dark font-bold">HEALTH CARE Company</strong> by providing the <strong className="text-ink">ULTIMATE Products, Services and Devices</strong> to customers throughout the country.
-                </p>
-
-                <div className="mt-5 space-y-2 text-xs sm:text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                    <span>Emphasizing consistent innovation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                    <span>Operational excellence across distribution</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                    <span>Highest quality in every healthcare segment offered</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-secondary-dark">
-                <span>The Ultimate Choice in Healthcare Solutions</span>
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
-          </Reveal>
-        </div>
 
         {/* Bottom Contact / Inquiries Banner */}
         <div className="p-8 sm:p-12 rounded-3xl bg-ink text-white flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
