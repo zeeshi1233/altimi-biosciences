@@ -81,8 +81,8 @@ export const Navbar: React.FC = () => {
       dropdownType: "mega",
     },
     { label: "Brochures", href: "/brochures" },
-    { label: "Media", href: "/media" },
-    { label: "Events", href: "/events" },
+    // { label: "Media", href: "/media" },
+    // { label: "Events", href: "/events" },
     { label: "Partners", href: "#" },
     { label: "Contact", href: "/contact" },
   ];
