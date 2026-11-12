@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Microscope, Package, Cpu, FlaskConical, Pill, ArrowRight, Activity } from "lucide-react";
+import { Microscope, Package, Cpu, FlaskConical, Pill, ArrowRight, Activity, ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { TiltCard } from "@/components/animations/TiltCard";
 import { Reveal } from "@/components/animations/Reveal";
@@ -145,6 +145,34 @@ const expertiseList: ExpertiseItem[] = [
 const [clinicalAnalyzers, poctDivision, ...secondaryDivisions] = expertiseList;
 
 export const ExpertiseSection: React.FC = () => {
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+
+  const updateScrollButtons = useCallback(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    setCanScrollPrev(el.scrollLeft > 4);
+    setCanScrollNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    updateScrollButtons();
+    window.addEventListener("resize", updateScrollButtons);
+    return () => window.removeEventListener("resize", updateScrollButtons);
+  }, [updateScrollButtons]);
+
+  const scrollSlider = (direction: "prev" | "next") => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const firstCard = el.firstElementChild as HTMLElement | null;
+    const step = firstCard ? firstCard.offsetWidth + 24 : el.clientWidth * 0.8;
+    el.scrollBy({
+      left: direction === "next" ? step : -step,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden bg-ink
 ">
@@ -331,58 +359,96 @@ export const ExpertiseSection: React.FC = () => {
             </Reveal>
           </div>
 
-          {/* 3-6. Secondary Clinical Divisions (Diagnostic Kits, Cardiac & BP, Consumables, Biosimilar Drugs) */}
-          {secondaryDivisions.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.id} className="md:col-span-1 lg:col-span-3">
-                <Reveal direction="up" delay={0.2 + idx * 0.05} className="h-full">
-                  <TiltCard className="h-full">
-                    <div className="h-full flex flex-col justify-between p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl hover:border-primary/40 transition-[box-shadow,border-color] duration-200 relative overflow-hidden group">
-                      <div>
-                        <div className="flex items-center justify-between mb-5">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-colors duration-200 group-hover:bg-primary group-hover:text-white shadow-sm">
-                            <Icon className="w-6 h-6" />
-                          </div>
-                          <span className="text-xs font-medium text-secondary-dark bg-secondary/10 px-2.5 py-0.5 rounded-full border border-secondary/20">
-                            {item.badge}
-                          </span>
-                        </div>
+        </div>
 
-                        <span className="text-xs font-medium text-primary">
-                          {item.categoryName}
-                        </span>
-                        <h3 className="text-lg font-bold font-heading text-ink mt-1 mb-2.5 group-hover:text-primary transition-colors">
-                          {item.title}
-                        </h3>
+        {/* 3-7. Secondary Clinical Divisions — Single-Row Slider with Next / Previous Controls */}
+        <div className="mt-8 lg:mt-10">
+          <div className="flex items-center justify-between gap-4 mb-5">
+            <p className="text-xs sm:text-sm font-semibold text-white/80">
+              Additional Clinical &amp; Diagnostic Divisions
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => scrollSlider("prev")}
+                disabled={!canScrollPrev}
+                aria-label="Previous division card"
+                className="p-2.5 rounded-xl bg-white/15 border border-white/25 text-white hover:bg-white/25 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 disabled:opacity-40 disabled:cursor-not-allowed transition-[background-color,transform,opacity] duration-200"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollSlider("next")}
+                disabled={!canScrollNext}
+                aria-label="Next division card"
+                className="p-2.5 rounded-xl bg-white/15 border border-white/25 text-white hover:bg-white/25 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 disabled:opacity-40 disabled:cursor-not-allowed transition-[background-color,transform,opacity] duration-200"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
 
-                        <p className="text-xs text-muted leading-relaxed mb-5">
-                          {item.description}
-                        </p>
-
-                        <div className="space-y-2 border-t border-slate-100 pt-4 mb-5">
-                          {item.features.map((f, fIdx) => (
-                            <div key={fIdx} className="flex items-center gap-2 text-xs font-medium text-slate-700">
-                              <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
-                              <span>{f}</span>
+          <div
+            ref={sliderRef}
+            onScroll={updateScrollButtons}
+            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {secondaryDivisions.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.id}
+                  className="snap-start shrink-0 w-[85%] sm:w-[calc(50%-0.75rem)] lg:w-[calc((100%-3rem)/3)] xl:w-[calc((100%-4.5rem)/4)]"
+                >
+                  <Reveal direction="up" delay={0.15 + idx * 0.04} className="h-full">
+                    <TiltCard className="h-full">
+                      <div className="h-full flex flex-col justify-between p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl hover:border-primary/40 transition-[box-shadow,border-color] duration-200 relative overflow-hidden group">
+                        <div>
+                          <div className="flex items-center justify-between mb-5">
+                            <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-colors duration-200 group-hover:bg-primary group-hover:text-white shadow-sm">
+                              <Icon className="w-6 h-6" />
                             </div>
-                          ))}
-                        </div>
-                      </div>
+                            <span className="text-xs font-medium text-secondary-dark bg-secondary/10 px-2.5 py-0.5 rounded-full border border-secondary/20">
+                              {item.badge}
+                            </span>
+                          </div>
 
-                      <Link
-                        href={item.link}
-                        className="inline-flex items-center gap-2 text-xs font-bold text-primary group-hover:text-secondary-dark transition-colors"
-                      >
-                        <span>{item.ctaLabel}</span>
-                        <ArrowRight className="w-3.5 h-3.5 motion-safe:transition-transform motion-safe:group-hover:translate-x-1" />
-                      </Link>
-                    </div>
-                  </TiltCard>
-                </Reveal>
-              </div>
-            );
-          })}
+                          <span className="text-xs font-medium text-primary">
+                            {item.categoryName}
+                          </span>
+                          <h3 className="text-lg font-bold font-heading text-ink mt-1 mb-2.5 group-hover:text-primary transition-colors">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-xs text-muted leading-relaxed mb-5">
+                            {item.description}
+                          </p>
+
+                          <div className="space-y-2 border-t border-slate-100 pt-4 mb-5">
+                            {item.features.map((f, fIdx) => (
+                              <div key={fIdx} className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                                <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
+                                <span>{f}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <Link
+                          href={item.link}
+                          className="inline-flex items-center gap-2 text-xs font-bold text-primary group-hover:text-secondary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-md transition-colors"
+                        >
+                          <span>{item.ctaLabel}</span>
+                          <ArrowRight className="w-3.5 h-3.5 motion-safe:transition-transform motion-safe:group-hover:translate-x-1" />
+                        </Link>
+                      </div>
+                    </TiltCard>
+                  </Reveal>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>

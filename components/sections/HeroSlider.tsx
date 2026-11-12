@@ -289,13 +289,13 @@ export const HeroSlider: React.FC = () => {
 
                   {/* Hardware Image with gentle floating motion */}
                   <motion.div
-                    animate={prefersReduced ? {} : { y: [0, -7, 0] }}
+                    animate={prefersReduced ? {} : { y: [0, -10, 0] }} // Range thori barha di hai taake zeda notice ho
                     transition={{
                       repeat: Infinity,
-                      duration: 6,
+                      duration: 2.5, // Speed tez karne ke liye duration kam kar di (pehle 6 thi)
                       ease: "easeInOut",
                     }}
-                    className="relative w-full h-full p-5 sm:p-6 transition-transform duration-300 motion-safe:group-hover/hardware:scale-105"
+                    className="relative w-full h-full p-5 sm:p-6 transition-transform duration-150 motion-safe:group-hover/hardware:scale-105"
                   >
                     <Image
                       src={slide.image}
