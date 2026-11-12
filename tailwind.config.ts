@@ -75,8 +75,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        heading: ["var(--font-plus-jakarta)", "sans-serif"],
+        sans: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        heading: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
       },
       borderRadius: {
         "2xl": "1rem",
@@ -90,6 +90,10 @@ const config: Config = {
         "glow-secondary": "0 0 25px rgba(14, 159, 154, 0.35)",
       },
       keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
@@ -103,6 +107,7 @@ const config: Config = {
         },
       },
       animation: {
+        marquee: "marquee 45s linear infinite",
         float: "float 6s ease-in-out infinite",
         "float-slow": "float 9s ease-in-out infinite",
         "pulse-glow": "pulseGlow 4s ease-in-out infinite",

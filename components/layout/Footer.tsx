@@ -117,6 +117,15 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
+                  href="/collaborators"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1 group"
+                >
+                  <span>Our Global Partners</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/media"
                   className="hover:text-white transition-colors inline-flex items-center gap-1 group"
                 >

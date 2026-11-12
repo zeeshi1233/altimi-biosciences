@@ -22,7 +22,9 @@ export const Navbar: React.FC = () => {
   } = useUIStore();
 
   const isHome = pathname === "/";
-  const isDarkGlass = isHome && !isScrolled;
+  const isCollaborators = pathname === "/collaborators";
+  const isOverlayPage = isHome || isCollaborators;
+  const isDarkGlass = isOverlayPage && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,7 +85,7 @@ export const Navbar: React.FC = () => {
     { label: "Brochures", href: "/brochures" },
     // { label: "Media", href: "/media" },
     // { label: "Events", href: "/events" },
-    { label: "Collaborators", href: "#" },
+    { label: "Collaborators", href: "/collaborators" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -91,9 +93,10 @@ export const Navbar: React.FC = () => {
     <header
       className={cn(
         "z-50 w-full px-3 sm:px-6",
-        isHome
+        isOverlayPage
           ? cn("fixed left-0 right-0", isScrolled ? "top-2.5" : "top-2.5 md:top-11")
-          : "sticky top-2.5 py-2"
+          : "sticky top-2.5 py-2",
+        isDarkGlass && "is-dark-overlay"
       )}
     >
       <motion.div
@@ -106,15 +109,20 @@ export const Navbar: React.FC = () => {
         <div
           aria-hidden="true"
           className={cn(
-            "absolute inset-0 -z-10 rounded-2xl backdrop-blur-lg border transition-[background-color,border-color,box-shadow] duration-300",
+            "absolute inset-0 -z-10 rounded-2xl transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
             isDarkGlass
-              ? "bg-white/85 border-white/30 shadow-lg shadow-primary-900/20"
-              : "bg-white/90 border-slate-200/80 shadow-lg shadow-primary/10"
+              ? "bg-white/85 backdrop-blur-[14px] border border-white/40 shadow-lg shadow-black/15"
+              : "bg-white/85 backdrop-blur-lg border border-slate-200/90 shadow-xl shadow-slate-900/5"
           )}
         />
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
-          <div className="relative w-[130px] h-[52px] sm:w-[145px] sm:h-[78px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
+          <div
+            className={cn(
+              "relative w-[130px] h-[52px] sm:w-[145px] sm:h-[70px] transition-[transform,background-color,border-color,padding] duration-300 motion-safe:group-hover:scale-105 shrink-0 flex items-center justify-center",
+
+            )}
+          >
             <img
               src={"/logo.png"}
               alt="Altimi Biosciences (Pvt) Ltd."
@@ -159,7 +167,7 @@ export const Navbar: React.FC = () => {
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
-                        "w-4 h-4 transition-transform duration-200",
+                        "w-4 h-4 text-current transition-transform duration-200",
                         activeDropdown === "about" && "rotate-180"
                       )}
                     />
@@ -216,7 +224,7 @@ export const Navbar: React.FC = () => {
                     <span>{link.label}</span>
                     <ChevronDown
                       className={cn(
-                        "w-4 h-4 transition-transform duration-200",
+                        "w-4 h-4 text-current transition-transform duration-200",
                         activeDropdown === "products" && "rotate-180"
                       )}
                     />
@@ -473,18 +481,11 @@ export const Navbar: React.FC = () => {
                   Brochures
                 </Link>
                 <Link
-                  href="/media"
+                  href="/collaborators"
                   onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
                 >
-                  Media
-                </Link>
-                <Link
-                  href="/events"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2.5 text-lg font-heading font-bold text-ink hover:text-primary border-b border-slate-50"
-                >
-                  Events
+                  Collaborators
                 </Link>
                 <Link
                   href="/contact"
