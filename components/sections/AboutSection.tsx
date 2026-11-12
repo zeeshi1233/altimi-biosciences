@@ -12,10 +12,10 @@ import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
 
 const stats = [
-  { label: "Years of Excellence", value: 18, suffix: "+", icon: Award },
-  { label: "Diagnostic Instruments", value: 450, suffix: "+", icon: FlaskConical },
-  { label: "Global Brand Partners", value: 15, suffix: "+", icon: Building2 },
-  { label: "Hospital & Lab Clients", value: 850, suffix: "+", icon: Users },
+  { label: "Years of Excellence", value: 8, suffix: "+", icon: Award },
+  { label: "Diagnostic Instruments", value: 100, suffix: "+", icon: FlaskConical },
+  { label: "Global Brand Partners", value: 20, suffix: "+", icon: Building2 },
+  { label: "Hospital & Lab Clients", value: 100, suffix: "+", icon: Users },
 ];
 
 export const AboutSection: React.FC = () => {

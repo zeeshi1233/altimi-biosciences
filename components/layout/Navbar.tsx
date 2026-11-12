@@ -108,15 +108,15 @@ export const Navbar: React.FC = () => {
           className={cn(
             "absolute inset-0 -z-10 rounded-2xl backdrop-blur-lg border transition-[background-color,border-color,box-shadow] duration-300",
             isDarkGlass
-              ? "bg-white/10 border-white/20 shadow-lg shadow-primary-900/20"
+              ? "bg-white/50 border-white/20 shadow-lg shadow-primary-900/20"
               : "bg-white/75 border-slate-200/80 shadow-lg shadow-primary/10"
           )}
         />
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
-          <div className="relative w-[130px] h-[52px] sm:w-[145px] sm:h-[70px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
+          <div className="relative w-[130px] h-[52px] sm:w-[145px] sm:h-[78px] transition-transform duration-300 motion-safe:group-hover:scale-105 shrink-0">
             <img
-              src={isDarkGlass ? "/logo-white.png" : "/logo.png"}
+              src={"/logo.png"}
               alt="Altimi Biosciences (Pvt) Ltd."
               className="object-contain w-full h-full transition-opacity duration-200"
             />
@@ -156,7 +156,7 @@ export const Navbar: React.FC = () => {
                       isDarkGlass
                         ? isActive
                           ? "text-sky-300"
-                          : "text-white/90 hover:text-white"
+                          : "text-black hover:text-white"
                         : isActive
                           ? "text-primary"
                           : "text-ink hover:text-primary"
@@ -220,7 +220,7 @@ export const Navbar: React.FC = () => {
                       isDarkGlass
                         ? isActive
                           ? "text-sky-300"
-                          : "text-white/90 hover:text-white"
+                          : "text-black hover:text-white"
                         : isActive
                           ? "text-primary"
                           : "text-ink hover:text-primary"
@@ -385,8 +385,8 @@ export const Navbar: React.FC = () => {
                   "relative px-3 py-2 text-sm font-semibold rounded-xl transition-colors",
                   isDarkGlass
                     ? isActive
-                      ? "text-sky-300"
-                      : "text-white/90 hover:text-white"
+                      ? ""
+                      : "text-black hover:text-white"
                     : isActive
                       ? "text-primary"
                       : "text-ink hover:text-primary"
