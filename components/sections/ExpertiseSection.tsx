@@ -82,7 +82,7 @@ const expertiseList: ExpertiseItem[] = [
     icon: Cpu,
     features: [
       "Bittium Faros 360",
-      "Faros 180 (ECG Monitor)",
+      "Bittium Faros 180",
       "Bittium HolterPlus",
       "Cardiac Navigator",
     ],
@@ -100,8 +100,7 @@ const expertiseList: ExpertiseItem[] = [
     icon: Activity,
     features: [
       "A&D TM-2440",
-      "TM-2441",
-      "Ambulatory BP Monitor",
+      "A&D TM-2441",
     ],
     link: "/products/and-abpm-monitor",
     ctaLabel: "Explore BP Monitors",
