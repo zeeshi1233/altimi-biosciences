@@ -131,7 +131,7 @@ export default function RootLayout({
           <Navbar />
           <main className="min-h-[calc(100vh-80px)]">{children}</main>
           <Footer />
-          <VoiceAssistant />
+          {/* <VoiceAssistant /> */}
         </SmoothScroll>
       </body>
     </html>

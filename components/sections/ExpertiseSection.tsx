@@ -24,7 +24,7 @@ interface ExpertiseItem {
 const expertiseList: ExpertiseItem[] = [
   {
     id: "clinical-analyzers",
-    title: "Clinical Chemistry Analyzer",
+    title: "Clinical Chemistry Analyzers",
     categoryName: "Chemistry & Molecular Systems",
     badge: "DRAP Registered",
     description:
@@ -65,7 +65,6 @@ const expertiseList: ExpertiseItem[] = [
       "Rapid quantitative human diagnostic test kits by Aidian for fast, accurate CRP and HbA1c measurement in outpatient clinics and labs.",
     icon: FlaskConical,
     features: [
-      "Aidian QuikRead go® easy CRP & HbA1c Kits",
       "QuikRead go® easy CRP Assay",
       "QuikRead go® HbA1c Test Kit",
     ],
@@ -73,24 +72,24 @@ const expertiseList: ExpertiseItem[] = [
     ctaLabel: "Explore Diagnostic Kits",
     gradient: "from-teal-500/20 via-emerald-500/10 to-transparent",
   },
-  // {
-  //   id: "holter-monitoring",
-  //   title: "Holter Monitoring",
-  //   categoryName: "Cardiac Diagnostic Device",
-  //   badge: "Digital Precision",
-  //   description:
-  //     "Wearable Bittium Faros ECG sensors paired with HolterPlus cloud telemetry and Cardiac Navigator analysis software for continuous arrhythmia monitoring.",
-  //   icon: Cpu,
-  //   features: [
-  //     "Bittium Faros 360",
-  //     "Faros 180 (ECG Monitor)",
-  //     "Bittium HolterPlus",
-  //     "Cardiac Navigator",
-  //   ],
-  //   link: "/products/faros-360-ecg",
-  //   ctaLabel: "Explore Holter Systems",
-  //   gradient: "from-indigo-500/20 via-blue-500/10 to-transparent",
-  // },
+  {
+    id: "holter-monitoring",
+    title: "Holter Monitoring",
+    categoryName: "Cardiac Diagnostic Device",
+    badge: "Digital Precision",
+    description:
+      "Wearable Bittium Faros ECG sensors paired with HolterPlus cloud telemetry and Cardiac Navigator analysis software for continuous arrhythmia monitoring.",
+    icon: Cpu,
+    features: [
+      "Bittium Faros 360",
+      "Faros 180 (ECG Monitor)",
+      "Bittium HolterPlus",
+      "Cardiac Navigator",
+    ],
+    link: "/products/faros-360-ecg",
+    ctaLabel: "Explore Holter Systems",
+    gradient: "from-indigo-500/20 via-blue-500/10 to-transparent",
+  },
   {
     id: "bp-monitoring",
     title: "BP Monitoring",
@@ -205,8 +204,8 @@ export const ExpertiseSection: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center mb-6">
-                      <div className="sm:col-span-7">
+                    <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center mb-6">
+                      <div className="sm:col-span-6">
                         <span className="text-xs font-semibold text-primary">
                           {clinicalAnalyzers.categoryName}
                         </span>
@@ -218,32 +217,32 @@ export const ExpertiseSection: React.FC = () => {
                         </p>
                       </div>
 
-                      <div className="sm:col-span-5 rounded-2xl bg-gradient-to-br from-surface via-white to-primary/5 border border-slate-200/80 p-2.5 grid grid-cols-2 gap-2">
+                      <div className="sm:col-span-6 rounded-2xl bg-gradient-to-br from-surface via-white to-primary/5 border border-slate-200/80 p-2 grid grid-cols-2 gap-2">
                         <div className="flex flex-col items-center rounded-xl bg-white border border-slate-200/70 p-2 shadow-sm">
-                          <div className="relative w-full aspect-square">
+                          <div className="relative w-full h-24 sm:h-28">
                             <Image
                               src="/images/products/rx-9000.png"
                               alt="Randox RX 9000 (RX Modena) Chemistry Analyzer"
                               fill
-                              className="object-contain p-1"
-                              sizes="(max-width: 768px) 30vw, 100px"
+                              className="object-contain"
+                              sizes="(max-width: 768px) 40vw, 150px"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                          <span className="mt-1.5 text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
                             RX 9000
                           </span>
                         </div>
                         <div className="flex flex-col items-center rounded-xl bg-white border border-slate-200/70 p-2 shadow-sm">
-                          <div className="relative w-full aspect-square">
+                          <div className="relative w-full h-24 sm:h-28">
                             <Image
                               src="/images/products/rx-imola.png"
                               alt="Randox RX 4900 (RX Imola) Chemistry Analyzer"
                               fill
-                              className="object-contain p-1"
-                              sizes="(max-width: 768px) 30vw, 100px"
+                              className="object-contain"
+                              sizes="(max-width: 768px) 40vw, 150px"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] font-bold text-secondary-dark bg-secondary/10 px-2 py-0.5 rounded-full">
+                          <span className="mt-1.5 text-[10px] font-bold text-secondary-dark bg-secondary/10 px-2 py-0.5 rounded-full">
                             RX 4900
                           </span>
                         </div>
