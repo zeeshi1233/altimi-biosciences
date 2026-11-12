@@ -70,7 +70,6 @@ export const WhyChooseUs: React.FC = () => {
         className="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary rounded-full blur-[100px] pointer-events-none"
       />
 
-
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
       <Container>
@@ -86,7 +85,7 @@ export const WhyChooseUs: React.FC = () => {
         </Reveal>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 relative z-40 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (

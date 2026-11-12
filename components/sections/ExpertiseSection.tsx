@@ -24,7 +24,7 @@ interface ExpertiseItem {
 const expertiseList: ExpertiseItem[] = [
   {
     id: "clinical-analyzers",
-    title: "Clinical Analyzers",
+    title: "Clinical Chemistry Analyzer",
     categoryName: "Chemistry & Molecular Systems",
     badge: "DRAP Registered",
     description:
@@ -41,8 +41,8 @@ const expertiseList: ExpertiseItem[] = [
   },
   {
     id: "point-of-care-testing",
-    title: "QuikRead go® by Aidian",
-    categoryName: "Point Of Care Testing",
+    title: "Point Of Care Testing",
+    categoryName: "",
     badge: "Portable POCT",
     description:
       "A compact, portable point-of-care (POCT) analyzer combining photometric and turbidimetric measurement technologies for rapid diagnostic testing.",
@@ -92,7 +92,7 @@ const expertiseList: ExpertiseItem[] = [
   },
   {
     id: "hospital-supplies",
-    title: "Medical & Consumables",
+    title: "Medical Consumables & Supplies",
     categoryName: "Consumables & Sterile Protection",
     badge: "Clinical Hygiene",
     description:
@@ -187,16 +187,50 @@ export const ExpertiseSection: React.FC = () => {
                       </span>
                     </div>
 
-                    <span className="text-xs font-semibold text-primary">
-                      {clinicalAnalyzers.categoryName}
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-ink mt-1 mb-3 group-hover:text-primary transition-colors">
-                      {clinicalAnalyzers.title}
-                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center mb-6">
+                      <div className="sm:col-span-7">
+                        <span className="text-xs font-semibold text-primary">
+                          {clinicalAnalyzers.categoryName}
+                        </span>
+                        <h3 className="text-2xl sm:text-3xl font-black font-heading text-ink mt-1 mb-2.5 group-hover:text-primary transition-colors">
+                          {clinicalAnalyzers.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                          {clinicalAnalyzers.description}
+                        </p>
+                      </div>
 
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-                      {clinicalAnalyzers.description}
-                    </p>
+                      <div className="sm:col-span-5 rounded-2xl bg-gradient-to-br from-surface via-white to-primary/5 border border-slate-200/80 p-2.5 grid grid-cols-2 gap-2">
+                        <div className="flex flex-col items-center rounded-xl bg-white border border-slate-200/70 p-2 shadow-sm">
+                          <div className="relative w-full aspect-square">
+                            <Image
+                              src="/images/products/rx-9000.png"
+                              alt="Randox RX 9000 (RX Modena) Chemistry Analyzer"
+                              fill
+                              className="object-contain p-1"
+                              sizes="(max-width: 768px) 30vw, 100px"
+                            />
+                          </div>
+                          <span className="mt-1 text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                            RX 9000
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-center rounded-xl bg-white border border-slate-200/70 p-2 shadow-sm">
+                          <div className="relative w-full aspect-square">
+                            <Image
+                              src="/images/products/rx-imola.png"
+                              alt="Randox RX 4900 (RX Imola) Chemistry Analyzer"
+                              fill
+                              className="object-contain p-1"
+                              sizes="(max-width: 768px) 30vw, 100px"
+                            />
+                          </div>
+                          <span className="mt-1 text-[10px] font-bold text-secondary-dark bg-secondary/10 px-2 py-0.5 rounded-full">
+                            RX 4900
+                          </span>
+                        </div>
+                      </div>
+                    </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 border-t border-slate-100 pt-5 mb-6">
                       {clinicalAnalyzers.features.map((f, fIdx) => (

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Award, FlaskConical, Users, Building2, CheckCircle2, Activity, Gauge } from "lucide-react";
+import { ArrowRight, Award, FlaskConical, Users, Building2, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Counter } from "@/components/ui/Counter";
@@ -109,75 +109,53 @@ export const AboutSection: React.FC = () => {
                   aria-hidden="true"
                   className="absolute inset-0 bg-dots-pattern opacity-35 pointer-events-none"
                 />
-
-                {/* Top Meta Header */}
-                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 mb-5">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-ink">
-                    <span className="w-2 h-2 rounded-full bg-secondary motion-safe:animate-pulse" />
-                    <span>Randox Laboratories • Flagship System</span>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-bold">
-                    <Gauge className="w-3.5 h-3.5" />
-                    1,200 Tests / Hr
-                  </span>
-                </div>
-
-                {/* Animated Floating Product Stage */}
-                <div className="relative z-10 my-2 rounded-2xl bg-gradient-to-b from-white to-surface border border-slate-200/80 p-4 sm:p-6 flex items-center justify-center overflow-hidden">
-                  <motion.div
-                    animate={prefersReduced ? undefined : { y: [0, -7, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="relative w-full aspect-[16/10]"
+                {/* Inline Dual Product Stage */}
+                <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+                  <Link
+                    href="/products/rx-modena"
+                    className="rounded-2xl bg-gradient-to-b from-white to-surface border border-slate-200/80 hover:border-primary/40 hover:shadow-md active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-[border-color,box-shadow,transform] duration-200 p-4 sm:p-5 flex flex-col items-center justify-between overflow-hidden"
                   >
-                    <Image
-                      src="/images/products/rx-9000.png"
-                      alt="Randox RX Modena (RX 9000) Automated Clinical Chemistry Analyzer"
-                      fill
-                      className="object-contain drop-shadow-xl"
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                    />
-                  </motion.div>
-                </div>
-
-                {/* Product Summary & Key Metrics */}
-                <div className="relative z-10 mt-6 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                      <span className="text-xs font-semibold text-secondary-dark">
-                        Automated Chemistry Analyzer
-                      </span>
-                      <h4 className="text-xl sm:text-2xl font-black font-heading text-ink mt-0.5">
-                        Randox RX Modena (RX 9000)
-                      </h4>
-                    </div>
-                    <Link
-                      href="/products/randox-rx-series"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-dark active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-[background-color,transform] shrink-0 self-start sm:self-center shadow-sm"
+                    <motion.div
+                      animate={prefersReduced ? undefined : { y: [0, -6, 0] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                      className="relative w-full aspect-[4/3]"
                     >
-                      <span>View Analyzer</span>
-                      <ArrowRight className="w-3.5 h-3.5 motion-safe:transition-transform motion-safe:group-hover:translate-x-1" />
-                    </Link>
-                  </div>
+                      <Image
+                        src="/images/products/rx-9000.png"
+                        alt="Randox RX Modena (RX 9000) Automated Clinical Chemistry Analyzer"
+                        fill
+                        className="object-contain drop-shadow-xl"
+                        sizes="(max-width: 640px) 100vw, 260px"
+                      />
+                    </motion.div>
+                    <span className="mt-3 text-xs font-bold font-heading text-ink text-center">
+                      Randox RX Modena (RX 9000)
+                    </span>
+                  </Link>
 
-                  {/* Quick Spec Chips */}
-                  <div className="grid grid-cols-3 gap-2.5 pt-3 border-t border-slate-200/80">
-                    <div className="rounded-xl bg-white/90 border border-slate-200/80 p-2.5 text-center">
-                      <div className="text-xs sm:text-sm font-black font-heading text-primary">800/hr</div>
-                      <div className="text-[11px] font-medium text-muted">Photometric Rate</div>
-                    </div>
-                    <div className="rounded-xl bg-white/90 border border-slate-200/80 p-2.5 text-center">
-                      <div className="text-xs sm:text-sm font-black font-heading text-ink flex items-center justify-center gap-1">
-                        <Activity className="w-3.5 h-3.5 text-secondary shrink-0" />
-                        <span>Direct</span>
-                      </div>
-                      <div className="text-[11px] font-medium text-muted">HbA1c Testing</div>
-                    </div>
-                    <div className="rounded-xl bg-white/90 border border-slate-200/80 p-2.5 text-center">
-                      <div className="text-xs sm:text-sm font-black font-heading text-ink">150 Pos</div>
-                      <div className="text-[11px] font-medium text-muted">STAT Continuous</div>
-                    </div>
-                  </div>
+                  <Link
+                    href="/products/rx-imola"
+                    className="rounded-2xl bg-gradient-to-b from-white to-surface border border-slate-200/80 hover:border-primary/40 hover:shadow-md active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-[border-color,box-shadow,transform] duration-200 p-4 sm:p-5 flex flex-col items-center justify-between overflow-hidden"
+                  >
+                    <motion.div
+                      animate={prefersReduced ? undefined : { y: [0, -6, 0] }}
+                      transition={{ duration: 5, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
+                      className="relative w-full aspect-[4/3]"
+                    >
+                      <Image
+                        src="/images/products/rx-imola.png"
+                        alt="Randox RX Imola (RX 4900) Automated Clinical Chemistry Analyzer"
+                        fill
+                        className="object-contain drop-shadow-xl"
+                        sizes="(max-width: 640px) 100vw, 260px"
+                      />
+                    </motion.div>
+                    <span className="mt-3 text-xs font-bold font-heading text-ink text-center">
+                      Randox RX Imola (RX 4900)
+                    </span>
+                  </Link>
                 </div>
+
               </div>
             </Reveal>
           </div>
