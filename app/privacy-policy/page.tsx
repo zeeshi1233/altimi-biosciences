@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="p-4 rounded-2xl bg-surface border border-slate-100 text-xs">
               <p className="font-bold text-ink">Altimi Biosciences Corporate Affairs</p>
-              <p>Email: legal@altimibiosciences.com</p>
+              <p>Email: info@altimibiosciences.com</p>
               <p>Phone: +92 21 35344476</p>
               <p>Karachi, Sindh, Pakistan</p>
             </div>

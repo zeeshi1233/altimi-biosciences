@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import {
-  HeartPulse,
   Building2,
   Globe2,
   GraduationCap,
@@ -11,78 +10,19 @@ import {
   ShieldCheck,
   Award,
   CheckCircle2,
-  Stethoscope,
   Briefcase,
+  UserCheck,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
 import { VisionMissionSection } from "@/components/sections/VisionMissionSection";
+
 export const metadata: Metadata = {
   title: "Executive Leadership & Governance | Altimi Biosciences",
   description:
-    "Meet Dr. Fazlullah Pechuho and Dr. Khalil Memon, the visionary leadership steering Altimi Biosciences in diagnostic excellence, public health partnerships, and hospital systems in Pakistan.",
+    "Meet Dr. Fazlullah Pechuho (CEO & Managing Director), Dr. Khalil Memon, and Sir Najam-ul-Saqib Siddique (General Manager), steering Altimi Biosciences in clinical diagnostic excellence and healthcare technology.",
 };
-
-const accomplishments = [
-  {
-    title: "Pediatric Emergency Centers",
-    agency: "Public-Private Partnership (PPP)",
-    desc: "Establishment of children and pediatric emergency centers under the Public-Private Partnership model under the direct supervision of Child Life Foundation (CLF), fully on par with Canadian Children Emergency Centers.",
-    icon: Stethoscope,
-    badge: "Child Healthcare",
-  },
-  {
-    title: "Satellite Units For Cardiovascular Diseases",
-    agency: "NICVD Sindh",
-    desc: "Establishment of satellite units of NICVD all over Sindh to cater the services of Angioplasty including Angiography and comprehensive cardiovascular disease services free of cost to the people living in Sindh, Pakistan.",
-    icon: HeartPulse,
-    badge: "Cardiology Network",
-  },
-  {
-    title: "USAID Partnership",
-    agency: "USAID Pakistan",
-    desc: "Supervised and managed to establish 100 Schools under the direct guidelines of USAID, being the biggest investment done by USAID in Sindh, with schools operationalized under Public-Private Partnership mode.",
-    icon: Globe2,
-    badge: "Global Aid",
-  },
-  {
-    title: "World Bank Healthcare Reform",
-    agency: "World Bank / SERP",
-    desc: "Managed World Bank-sponsored Sindh Education Reform Program (SERP) including Nutrition Support Program, National Immunization Support, and Lady Health Workers Program.",
-    icon: Building2,
-    badge: "Health Reform",
-  },
-  {
-    title: "Asian Development Bank (ADB)",
-    agency: "Asian Development Bank",
-    desc: "With the help of the Asian Development Bank, the Public-Private Partnership (PPP) tool was made robust and strengthened to bring substantial institutional investment in Sindh under PPP mode.",
-    icon: Briefcase,
-    badge: "Strategic PPP",
-  },
-  {
-    title: "Cardiac Chest Pain Units",
-    agency: "Provincial Emergency Network",
-    desc: "Establishment of rapid-response Cardiac Chest Pain Units across Sindh province, drastically cutting mortality from acute myocardial infarction.",
-    icon: Activity,
-    badge: "Emergency Care",
-  },
-  {
-    title: "JICA Educational Infrastructure",
-    agency: "Japan International Cooperation Agency",
-    desc: "Projects Liaison for the establishment of 30 state-of-the-art educational institutions and technical schools across Sindh.",
-    icon: GraduationCap,
-    badge: "International Liaison",
-  },
-  {
-    title: "World Health Organization (WHO)",
-    agency: "United Nations / WHO",
-    desc: "Close institutional liaison with the World Health Organization (WHO) for the eradication of life-threatening communicable diseases and maternal-child health campaigns.",
-    icon: ShieldCheck,
-    badge: "Disease Eradication",
-  },
-];
 
 export default function LeadershipPage() {
   return (
@@ -99,23 +39,24 @@ export default function LeadershipPage() {
           <span className="text-primary font-bold">Leadership</span>
         </nav>
 
-        {/* Page Heading */}
-        <Reveal direction="up">
-          <SectionHeading
-            badge="Executive Leadership"
-            badgeIcon={<Award className="w-3.5 h-3.5" />}
-            title="Leadership Behind Altimi Biosciences"
-            subtitle="Guided by visionary healthcare administrators, medical doctors, and public health strategists with over three decades of institutional leadership."
-            align="center"
-            className="mb-16"
-          />
-        </Reveal>
+        {/* Page Header */}
+        <div className="max-w-3xl mb-12 lg:mb-16">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-3">
+            Governance &amp; Executive Board
+          </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-[1.12]">
+            Visionary Healthcare Leadership
+          </h1>
+          <p className="text-sm sm:text-base text-muted leading-relaxed mt-4">
+            Backed by decades of public health governance, medical doctorates from top-tier institutions, and federal civil administration expertise to deliver authenticated diagnostic solutions across Pakistan.
+          </p>
+        </div>
 
         {/* ========================================================================= */}
         {/* LEADER 1: DR. FAZLULLAH PECHUHO */}
         {/* ========================================================================= */}
         <Reveal direction="up" delay={0.1}>
-          <div className="glass-card p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl mb-12 relative overflow-hidden">
+          <div className="glass-card p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl mb-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-bl-full pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -124,7 +65,7 @@ export default function LeadershipPage() {
                 <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
                     src="/images/leadership/dr-fazlullah-pechuho.jpeg"
-                    alt="Dr. Fazlullah Pechuho"
+                    alt="Dr. Fazlullah Pechuho - CEO & Managing Director"
                     fill
                     priority
                     sizes="(max-width: 768px) 280px, 320px"
@@ -142,8 +83,8 @@ export default function LeadershipPage() {
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-ink mt-1">
                     Dr. Fazlullah Pechuho
                   </h2>
-                  <p className="text-sm font-semibold text-primary mt-1">
-                    Managing Director & Former Secretary Health, Government of Sindh
+                  <p className="text-sm sm:text-base font-bold text-primary mt-1">
+                    CEO &amp; Managing Director | Former Secretary Health, Government of Sindh
                   </p>
                 </div>
 
@@ -158,7 +99,7 @@ export default function LeadershipPage() {
                 <div className="p-5 rounded-2xl bg-surface border border-slate-200/80 space-y-3">
                   <h4 className="text-xs font-bold text-ink flex items-center gap-2">
                     <Briefcase className="w-4 h-4 text-primary" />
-                    <span>Distinguished Public Service & Executive Portfolio</span>
+                    <span>Distinguished Public Service &amp; Executive Portfolio</span>
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     Before ALTIMI, Dr. Fazlullah Pechuho has served as:
@@ -178,7 +119,7 @@ export default function LeadershipPage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                      <span>Secretary Communication & Works (GoS)</span>
+                      <span>Secretary Communication &amp; Works (GoS)</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
@@ -189,9 +130,6 @@ export default function LeadershipPage() {
                       <span>Chief Financial Officer (Civil Aviation Authority)</span>
                     </li>
                   </ul>
-                  <p className="text-[11px] text-muted pt-1">
-                    Mainly responsible for Strategic Planning, Budgetary Control, Monitoring, and Workforce Management across national public institutions.
-                  </p>
                 </div>
               </div>
             </div>
@@ -210,13 +148,13 @@ export default function LeadershipPage() {
               <div className="lg:col-span-8 space-y-5 order-2 lg:order-1">
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary-dark border border-secondary/20 mb-2">
-                    Global Health & Public Policy
+                    Global Health &amp; Public Policy
                   </span>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-ink mt-1">
                     Dr. Khalil Memon
                   </h2>
-                  <p className="text-sm font-semibold text-secondary-dark mt-1">
-                    Medical Doctor & Public Health Strategist | CEO, EIK Healthcare Services, Boston, USA
+                  <p className="text-sm sm:text-base font-bold text-secondary-dark mt-1">
+                    Medical Doctor &amp; Public Health Strategist | CEO, EIK Healthcare Services, Boston, USA
                   </p>
                 </div>
 
@@ -268,6 +206,79 @@ export default function LeadershipPage() {
             </div>
           </div>
         </Reveal>
+
+        {/* ========================================================================= */}
+        {/* LEADER 3: SIR NAJAM-UL-SAQIB SIDDIQUE (GENERAL MANAGER) */}
+        {/* ========================================================================= */}
+        <Reveal direction="up" delay={0.25}>
+          <div className="glass-card p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl mb-16 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-bl-full pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Photo Column (4 cols) */}
+              <div className="lg:col-span-4 flex flex-col items-center text-center">
+                <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
+                  <Image
+                    src="/images/leadership/najam.jpeg"
+                    alt="Sir Najam-ul-Saqib Siddique - General Manager"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 280px, 320px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
+
+              {/* Bio Details Column (8 cols) */}
+              <div className="lg:col-span-8 space-y-5">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-2">
+                    Executive Administration &amp; Operations
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-ink mt-1">
+                    Sir Najam-ul-Saqib Siddique
+                  </h2>
+                  <p className="text-sm sm:text-base font-bold text-primary mt-1">
+                    General Manager, Altimi Biosciences
+                  </p>
+                </div>
+
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  <strong className="text-ink font-bold">Sir Najam-ul-Saqib Siddique</strong> holds an <strong className="text-primary font-semibold">MSc in Geology</strong> and an <strong className="text-primary font-semibold">MA in International Relations</strong> from the University of Karachi.
+                </p>
+
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  He has an extensive professional background in the <strong className="text-ink">Federal Government Civil Services</strong>. Following his retirement, he continued contributing to the social welfare and education sectors through his association with organizations including <strong className="text-ink">Akhuwat</strong>, non-governmental organizations (NGOs), and <strong className="text-ink">NJV School</strong>.
+                </p>
+
+                <div className="p-5 rounded-2xl bg-surface border border-slate-200/80 space-y-3">
+                  <h4 className="text-xs font-bold text-ink flex items-center gap-2">
+                    <UserCheck className="w-4 h-4 text-primary" />
+                    <span>Key Qualifications &amp; Institutional Engagements</span>
+                  </h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                      <span>MSc in Geology (University of Karachi)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                      <span>MA in International Relations (UoK)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                      <span>Federal Government Civil Services Veteran</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                      <span>Social Welfare Leadership &amp; Akhuwat Association</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Container>
 
       {/* ========================================================================= */}
@@ -276,63 +287,8 @@ export default function LeadershipPage() {
       <VisionMissionSection />
 
       <Container>
-        {/* ========================================================================= */}
-        {/* KEY ACCOMPLISHMENTS & PUBLIC HEALTH MILESTONES (8 CARDS) */}
-        {/* ========================================================================= */}
-        <div className="mb-20">
-          <Reveal direction="up">
-            <div className="max-w-3xl mb-10">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary-dark border border-secondary/20 mb-2">
-                Public Health Track Record
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-heading text-ink mt-1">
-                Institutional Milestones & Healthcare PPP Projects
-              </h2>
-              <p className="text-xs sm:text-sm text-muted mt-2">
-                Transformational healthcare programs, pediatric emergency centers, and cardiac care networks established under our leadership.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {accomplishments.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <Reveal key={idx} direction="up" delay={idx * 0.05}>
-                  <div className="glass-card p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl hover:border-primary/40 transition-[box-shadow,border-color] duration-200 h-full flex flex-col justify-between group">
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200 shadow-sm">
-                          <Icon className="w-6 h-6" />
-                        </div>
-                        <span className="text-[10px] font-semibold text-secondary-dark bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/20">
-                          {item.badge}
-                        </span>
-                      </div>
-
-                      <h3 className="text-base font-bold font-heading text-ink group-hover:text-primary transition-colors mb-2">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-xs text-muted leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-slate-500">
-                      {item.agency}
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-
-
-
         {/* Bottom Contact / Inquiries Banner */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-ink text-white flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="p-8 sm:p-12 rounded-3xl bg-ink text-white flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden mt-12">
           <div className="space-y-2 max-w-xl">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-secondary border border-white/10 mb-2">
               Executive Office Inquiries

@@ -172,8 +172,8 @@ export default function MediaPage() {
               For official press kits, executive commentary, high-res logos, or interviews regarding diagnostic trends in Pakistan, reach out to our communications team.
             </p>
           </div>
-          <Button href="mailto:media@altimibiosciences.com" variant="primary" size="md">
-            media@altimibiosciences.com
+          <Button href="mailto:info@altimibiosciences.com" variant="primary" size="md">
+            info@altimibiosciences.com
           </Button>
         </div>
       </Container>
