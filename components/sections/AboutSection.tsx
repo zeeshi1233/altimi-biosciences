@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/Button";
 
 const stats = [
   { label: "Years of Excellence", value: 8, suffix: "+", icon: Award },
-  { label: "Diagnostic Instruments", value: 100, suffix: "+", icon: FlaskConical },
+  { label: "Healthcare Products", value: 100, suffix: "+", icon: FlaskConical },
   { label: "Global Brand Partners", value: 20, suffix: "+", icon: Building2 },
   { label: "Hospital & Lab Clients", value: 100, suffix: "+", icon: Users },
 ];
@@ -36,9 +36,9 @@ export const AboutSection: React.FC = () => {
         </Reveal>
 
         {/* Narrative & Image Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           {/* Left Text Narrative (6 cols) */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
             <Reveal direction="up" delay={0.1}>
               <h3 className="text-2xl sm:text-3xl font-bold font-heading text-ink leading-snug">
                 Redefining diagnostic speed, analytical precision, and laboratory reliability.
@@ -53,7 +53,7 @@ export const AboutSection: React.FC = () => {
 
             <Reveal direction="up" delay={0.3}>
               <p className="text-muted text-base leading-relaxed">
-                From routine chemistries and direct HbA1c assays to specialized cardiac monitoring, consumables, and safety catheters, we support healthcare workflows across Pakistan with calibrated accuracy and prompt technical assistance.
+                From routine chemistries and direct HbA1c assays to specialized cardiac monitoring and consumables, we support healthcare workflows across Pakistan with calibrated accuracy and prompt technical assistance.
               </p>
             </Reveal>
 
@@ -100,62 +100,130 @@ export const AboutSection: React.FC = () => {
             </Reveal>
           </div>
 
-          {/* Right Animated Product Showcase: Randox RX Modena (6 cols) */}
-          <div className="lg:col-span-6">
-            <Reveal direction="left" delay={0.2}>
-              <div className="relative rounded-[2rem] bg-gradient-to-br from-surface via-white to-primary/5 border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-primary/30 transition-[box-shadow,border-color] duration-300 p-6 sm:p-8 overflow-hidden group">
+          {/* Right Animated Product Showcase: Block-Level 1-by-1 Stack (6 cols) */}
+          <div className="lg:col-span-6 flex flex-col">
+            <Reveal direction="left" delay={0.2} className="h-full flex-1">
+              <div className="relative h-full rounded-[2rem] bg-gradient-to-br from-surface via-white to-primary/5 border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-primary/30 transition-[box-shadow,border-color] duration-300 p-5 sm:p-7 overflow-hidden flex flex-col justify-between group">
                 {/* Subtle clinical dots texture */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 bg-dots-pattern opacity-35 pointer-events-none"
                 />
-                {/* Inline Dual Product Stage */}
-                <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+
+                {/* Header Badge */}
+                {/* <div className="relative z-10 flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-200/80">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary motion-safe:animate-pulse" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-primary font-heading">
+                      Advanced Clinical &amp; Molecular Systems
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-semibold text-secondary-dark bg-secondary/10 px-2.5 py-0.5 rounded-full border border-secondary/20">
+                    Direct OEM Import
+                  </span>
+                </div> */}
+
+                {/* Block-Level 1 by 1 Vertical Stack */}
+                <div className="relative z-10 flex flex-col gap-3.5 flex-1 justify-between">
+                  {/* Item 1: Randox RX Modena (RX 9000) */}
                   <Link
                     href="/products/rx-modena"
-                    className="rounded-2xl bg-gradient-to-b from-white to-surface border border-slate-200/80 hover:border-primary/40 hover:shadow-md active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-[border-color,box-shadow,transform] duration-200 p-4 sm:p-5 flex flex-col items-center justify-between overflow-hidden"
+                    className="rounded-2xl bg-white border border-slate-200/85 hover:border-primary/50 hover:shadow-md active:scale-[0.99] transition-[border-color,box-shadow,transform] duration-200 p-3.5 sm:p-4 flex items-center gap-4 group/item flex-1"
                   >
-                    <motion.div
-                      animate={prefersReduced ? undefined : { y: [0, -6, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                      className="relative w-full aspect-[4/3]"
-                    >
+                    <div className="relative w-24 sm:w-32 h-20 sm:h-24 shrink-0 rounded-xl bg-surface border border-slate-100 p-2 flex items-center justify-center overflow-hidden">
                       <Image
                         src="/images/products/rx-9000.png"
                         alt="Randox RX Modena (RX 9000) Automated Clinical Chemistry Analyzer"
                         fill
-                        className="object-contain drop-shadow-xl"
-                        sizes="(max-width: 640px) 100vw, 260px"
+                        className="object-contain p-1 motion-safe:group-hover/item:scale-105 transition-transform duration-300 drop-shadow-sm"
+                        sizes="(max-width: 640px) 100px, 140px"
                       />
-                    </motion.div>
-                    <span className="mt-3 text-xs font-bold font-heading text-ink text-center">
-                      Randox RX Modena (RX 9000)
-                    </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] sm:text-xs font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
+                          1,200 Tests / Hr
+                        </span>
+                        <span className="text-[11px] font-semibold text-muted group-hover/item:text-primary transition-colors inline-flex items-center gap-0.5">
+                          View Specs
+                          <ArrowRight className="w-3 h-3 group-hover/item:translate-x-0.5 transition-transform" />
+                        </span>
+                      </div>
+                      <h4 className="text-sm sm:text-base font-bold font-heading text-ink group-hover/item:text-primary transition-colors truncate">
+                        Randox RX Modena (RX 9000)
+                      </h4>
+                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                        800 Photometric + 400 ISE • Direct HbA1c Whole Blood
+                      </p>
+                    </div>
                   </Link>
 
+                  {/* Item 2: Randox RX Imola (RX 4900) */}
                   <Link
                     href="/products/rx-imola"
-                    className="rounded-2xl bg-gradient-to-b from-white to-surface border border-slate-200/80 hover:border-primary/40 hover:shadow-md active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 transition-[border-color,box-shadow,transform] duration-200 p-4 sm:p-5 flex flex-col items-center justify-between overflow-hidden"
+                    className="rounded-2xl bg-white border border-slate-200/85 hover:border-primary/50 hover:shadow-md active:scale-[0.99] transition-[border-color,box-shadow,transform] duration-200 p-3.5 sm:p-4 flex items-center gap-4 group/item flex-1"
                   >
-                    <motion.div
-                      animate={prefersReduced ? undefined : { y: [0, -6, 0] }}
-                      transition={{ duration: 5, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
-                      className="relative w-full aspect-[4/3]"
-                    >
+                    <div className="relative w-24 sm:w-32 h-20 sm:h-24 shrink-0 rounded-xl bg-surface border border-slate-100 p-2 flex items-center justify-center overflow-hidden">
                       <Image
                         src="/images/products/rx-imola.png"
                         alt="Randox RX Imola (RX 4900) Automated Clinical Chemistry Analyzer"
                         fill
-                        className="object-contain drop-shadow-xl"
-                        sizes="(max-width: 640px) 100vw, 260px"
+                        className="object-contain p-1 motion-safe:group-hover/item:scale-105 transition-transform duration-300 drop-shadow-sm"
+                        sizes="(max-width: 640px) 100px, 140px"
                       />
-                    </motion.div>
-                    <span className="mt-3 text-xs font-bold font-heading text-ink text-center">
-                      Randox RX Imola (RX 4900)
-                    </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] sm:text-xs font-bold text-secondary-dark bg-secondary/10 px-2.5 py-0.5 rounded-full">
+                          400 + 240 ISE / Hr
+                        </span>
+                        <span className="text-[11px] font-semibold text-muted group-hover/item:text-primary transition-colors inline-flex items-center gap-0.5">
+                          View Specs
+                          <ArrowRight className="w-3 h-3 group-hover/item:translate-x-0.5 transition-transform" />
+                        </span>
+                      </div>
+                      <h4 className="text-sm sm:text-base font-bold font-heading text-ink group-hover/item:text-primary transition-colors truncate">
+                        Randox RX Imola (RX 4900)
+                      </h4>
+                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                        Rapid Benchtop Chemistry • 72 Permanent Pyrex Cuvettes
+                      </p>
+                    </div>
+                  </Link>
+
+                  {/* Item 3: Bosch Vivalytic */}
+                  <Link
+                    href="/products/bosch-vivalytic"
+                    className="rounded-2xl bg-white border border-slate-200/85 hover:border-primary/50 hover:shadow-md active:scale-[0.99] transition-[border-color,box-shadow,transform] duration-200 p-3.5 sm:p-4 flex items-center gap-4 group/item flex-1"
+                  >
+                    <div className="relative w-24 sm:w-32 h-20 sm:h-24 shrink-0 rounded-xl bg-surface border border-slate-100 p-2 flex items-center justify-center overflow-hidden">
+                      <Image
+                        src="/images/products/bosch-vivalytic.jpeg"
+                        alt="Bosch Vivalytic All-in-One Cartridge PCR Molecular Diagnostics"
+                        fill
+                        className="object-contain p-1 motion-safe:group-hover/item:scale-105 transition-transform duration-300 drop-shadow-sm"
+                        sizes="(max-width: 640px) 100px, 140px"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] sm:text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200/50">
+                          Closed Cartridge PCR
+                        </span>
+                        <span className="text-[11px] font-semibold text-muted group-hover/item:text-primary transition-colors inline-flex items-center gap-0.5">
+                          View Specs
+                          <ArrowRight className="w-3 h-3 group-hover/item:translate-x-0.5 transition-transform" />
+                        </span>
+                      </div>
+                      <h4 className="text-sm sm:text-base font-bold font-heading text-ink group-hover/item:text-primary transition-colors truncate">
+                        Bosch Vivalytic Molecular Analyzer
+                      </h4>
+                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                        All-in-One PCR &amp; Microarray • Multiplex Target Panels
+                      </p>
+                    </div>
                   </Link>
                 </div>
-
               </div>
             </Reveal>
           </div>

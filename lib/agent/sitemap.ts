@@ -20,7 +20,7 @@ export const SITE_METADATA = {
   location: "Karachi Central Healthcare Complex, Sindh, Pakistan",
   phone: "+92 21 35344476",
   email: "info@altimibiosciences.com",
-  workingHours: "Monday to Saturday: 10:00 AM – 5:00 PM PST",
+  workingHours: "Monday to Saturday: 10:00 AM – 6:00 PM PST",
   tagline: "Leading Distributor of Clinical Chemistry Analyzers, Medical Devices & Hospital Supplies in Pakistan",
 };
 

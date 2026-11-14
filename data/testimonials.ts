@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     role: "Senior Consultant Pathologist",
     institution: "Patel Hospital Clinical Laboratory",
     city: "Karachi",
-    quote: "From Greiner CLiP Neo safety IV catheters to Randox RX Imola analyzers, Altimi Biosciences provides high-caliber, DRAP-registered supplies that our clinical staff trust without reservation.",
+    quote: "From QuikRead go POCT systems to Randox RX Imola analyzers, Altimi Biosciences provides high-caliber, DRAP-registered supplies that our clinical staff trust without reservation.",
     avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=260&auto=format&fit=crop",
     rating: 5
   }

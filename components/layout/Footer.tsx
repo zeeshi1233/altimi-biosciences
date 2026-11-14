@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-secondary">
                   <Clock className="w-4 h-4" />
                 </div>
-                <span>Monday – Saturday: 10:00 – 17:00 (Sunday Closed)</span>
+                <span>Monday – Saturday: 10:00 AM – 6:00 PM (Sunday Closed)</span>
               </div>
             </div>
           </div>
@@ -121,24 +121,6 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors inline-flex items-center gap-1 group"
                 >
                   <span>Our Global Partners</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/media"
-                  className="hover:text-white transition-colors inline-flex items-center gap-1 group"
-                >
-                  <span>Media & Press</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/events"
-                  className="hover:text-white transition-colors inline-flex items-center gap-1 group"
-                >
-                  <span>Events & Expos</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-secondary" />
                 </Link>
               </li>

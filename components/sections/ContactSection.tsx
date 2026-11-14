@@ -149,7 +149,7 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>Monday to Saturday:</span>
-                  <span className="font-semibold text-ink">10:00 to 17:00</span>
+                  <span className="font-semibold text-ink">10:00 AM – 6:00 PM</span>
                 </div>
                 <div className="flex justify-between text-muted">
                   <span>Sunday:</span>

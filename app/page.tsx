@@ -5,7 +5,6 @@ import { ExpertiseSection } from "@/components/sections/ExpertiseSection";
 import { ProductsShowcase } from "@/components/sections/ProductsShowcase";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { PartnersMarquee } from "@/components/sections/PartnersMarquee";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -18,7 +17,7 @@ export default function HomePage() {
       {/* 2. About Us Section */}
       <AboutSection />
 
-      {/* 3. Our Expertise (5 cards with 3D tilt & GSAP) */}
+      {/* 3. Our Expertise (Specialized Diagnostic & Clinical Divisions) */}
       <ExpertiseSection />
 
       {/* 4. Our Products Showcase + Quick View */}
@@ -30,13 +29,10 @@ export default function HomePage() {
       {/* 6. Global Partners Marquee */}
       <PartnersMarquee />
 
-      {/* 7. Client Testimonials */}
-      <TestimonialsSection />
-
-      {/* 8. World Class Customer Support CTA Banner */}
+      {/* 7. World Class Customer Support CTA Banner */}
       <CtaBanner />
 
-      {/* 9. Contact & Inquiries Section */}
+      {/* 8. Contact & Inquiries Section */}
       <ContactSection />
     </>
   );

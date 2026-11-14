@@ -1,4 +1,11 @@
 export type ProductCategory =
+  | "clinical-chemistry-analyzers"
+  | "point-of-care-testing"
+  | "holter-monitoring-systems"
+  | "ambulatory-blood-pressure-monitoring"
+  | "medicines"
+  | "hospital-consumables"
+  | "surgical-supplies"
   | "chemistry-analyzer"
   | "molecular-analyzer"
   | "diagnostic-kits"

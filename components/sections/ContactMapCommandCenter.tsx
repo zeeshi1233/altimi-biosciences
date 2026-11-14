@@ -133,7 +133,7 @@ export const ContactMapCommandCenter: React.FC = () => {
               <Clock className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
               <span>
                 <strong className="text-white block font-semibold">Business Hours:</strong>
-                Monday to Saturday: 10:00 to 17:00 | Sunday Closed
+                Monday to Saturday: 10:00 AM to 6:00 PM | Sunday Closed
               </span>
             </div>
           </div>

@@ -43,7 +43,7 @@ const products = [
   { file: 'poct-suite.jpg', title: 'POCT Critical Suite', sub: 'Rapid Blood Gas & Cardiac', icon: 'M22 12h-4l-3 9L9 3l-3 9H2' },
   { file: 'faros-360.jpg', title: 'Bittium Faros 360', sub: '3-Channel 18g ECG Sensor', icon: 'M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z' },
   { file: 'bittium-holterplus.jpg', title: 'Bittium HolterPlus', sub: 'Extended Remote Telecardiology', icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z' },
-  { file: 'clip-neo.jpg', title: 'Greiner CLiP Neo', sub: 'Safety IV Catheter System', icon: 'm18 15-6-6-6 6' },
+  { file: 'clip-neo.jpg', title: 'Greiner CLiP Neo', sub: 'Safety Cannula System', icon: 'm18 15-6-6-6 6' },
   { file: 'histoacryl.jpg', title: 'B. Braun Histoacryl', sub: 'Topical Tissue Adhesive', icon: 'M12 2v10l4.5 4.5' },
   { file: 'prep-pads.jpg', title: 'Ultimate Prep Pads', sub: '70% IPA Antiseptic Sachet', icon: 'M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z' },
   { file: 'underpads.jpg', title: 'Disposable Underpads', sub: 'Ultra Absorbent Dignity Sheets', icon: 'M3 6h18M3 12h18M3 18h18' },

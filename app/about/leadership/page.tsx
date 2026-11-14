@@ -21,7 +21,7 @@ import { VisionMissionSection } from "@/components/sections/VisionMissionSection
 export const metadata: Metadata = {
   title: "Executive Leadership & Governance | Altimi Biosciences",
   description:
-    "Meet Dr. Fazlullah Pechuho (CEO & Managing Director), Dr. Khalil Memon, and Sir Najam-ul-Saqib Siddique (General Manager), steering Altimi Biosciences in clinical diagnostic excellence and healthcare technology.",
+    "Meet Dr. Fazlullah Pechuho (CEO & Managing Director), Dr. Khalil Memon, and Najam-ul-Saqib Siddiqi (General Manager), steering Altimi Biosciences in clinical diagnostic excellence and healthcare technology.",
 };
 
 export default function LeadershipPage() {
@@ -208,7 +208,7 @@ export default function LeadershipPage() {
         </Reveal>
 
         {/* ========================================================================= */}
-        {/* LEADER 3: SIR NAJAM-UL-SAQIB SIDDIQUE (GENERAL MANAGER) */}
+        {/* LEADER 3: NAJAM-UL-SAQIB SIDDIQI (GENERAL MANAGER) */}
         {/* ========================================================================= */}
         <Reveal direction="up" delay={0.25}>
           <div className="glass-card p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl mb-16 relative overflow-hidden">
@@ -220,7 +220,7 @@ export default function LeadershipPage() {
                 <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
                     src="/images/leadership/najam.jpg"
-                    alt="Sir Najam-ul-Saqib Siddique - General Manager"
+                    alt="Najam-ul-Saqib Siddiqi - General Manager"
                     fill
                     priority
                     sizes="(max-width: 768px) 280px, 320px"
@@ -236,7 +236,7 @@ export default function LeadershipPage() {
                     Executive Administration &amp; Operations
                   </span>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-ink mt-1">
-                    Sir Najam-ul-Saqib Siddique
+                    Najam-ul-Saqib Siddiqi
                   </h2>
                   <p className="text-sm sm:text-base font-bold text-primary mt-1">
                     General Manager, Altimi Biosciences
@@ -244,7 +244,7 @@ export default function LeadershipPage() {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  <strong className="text-ink font-bold">Sir Najam-ul-Saqib Siddique</strong> holds an <strong className="text-primary font-semibold">MSc in Geology</strong> and an <strong className="text-primary font-semibold">MA in International Relations</strong> from the University of Karachi.
+                  <strong className="text-ink font-bold">Najam-ul-Saqib Siddiqi</strong> holds an <strong className="text-primary font-semibold">MSc in Geology</strong> and an <strong className="text-primary font-semibold">MA in International Relations</strong> from the University of Karachi.
                 </p>
 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">

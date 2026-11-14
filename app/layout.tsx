@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Altimi Biosciences",
   },
   description:
-    "Altimi Biosciences is a premier Karachi-based distributor of advanced clinical chemistry analyzers (Randox RX Modena & Imola), remote ECG monitoring (Bittium), vaccines, medical devices, and hospital supplies across Pakistan.",
+    "Altimi Biosciences is a premier Karachi-based distributor of advanced clinical chemistry analyzers (Randox RX Modena & Imola), Holter monitoring (Bittium), vaccines, medical devices, and hospital supplies across Pakistan.",
   keywords: [
     "Altimi Biosciences",
     "Medical Diagnostics Pakistan",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Bittium Faros 360",
     "Hospital Supplies Karachi",
     "Medical Devices Distributor Pakistan",
-    "Greiner Safety Catheters",
+    "Point-of-Care Testing POCT",
     "Latex Gloves Karachi",
     "Nitrile Gloves Pakistan",
     "DRAP Registered Medical Supplies",
@@ -92,7 +92,7 @@ const organizationSchema = {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "10:00",
-      "closes": "17:00"
+      "closes": "18:00"
     }
   ],
   "sameAs": [
@@ -102,6 +102,8 @@ const organizationSchema = {
     "https://twitter.com/altimibio"
   ]
 };
+
+import { LiveChat } from "@/components/ui/LiveChat";
 
 export default function RootLayout({
   children,
@@ -125,6 +127,7 @@ export default function RootLayout({
           <Navbar />
           <main className="min-h-[calc(100vh-80px)]">{children}</main>
           <Footer />
+          <LiveChat />
           {/* <VoiceAssistant /> */}
         </SmoothScroll>
       </body>

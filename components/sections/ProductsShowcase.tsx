@@ -29,6 +29,13 @@ export const ProductsShowcase: React.FC = () => {
 
   const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     all: Layers,
+    "clinical-chemistry-analyzers": FlaskConical,
+    "point-of-care-testing": Activity,
+    "holter-monitoring-systems": HeartPulse,
+    "ambulatory-blood-pressure-monitoring": Activity,
+    medicines: Pill,
+    "hospital-consumables": ShieldCheck,
+    "surgical-supplies": ShieldCheck,
     "chemistry-analyzer": FlaskConical,
     "molecular-analyzer": Microscope,
     "diagnostic-kits": Activity,
@@ -93,7 +100,7 @@ export const ProductsShowcase: React.FC = () => {
             </div>
             <div className="max-w-md space-y-2">
               <p className="text-sm sm:text-base text-muted leading-relaxed">
-                Explore our DRAP-registered clinical chemistry instruments, remote ECG telemetry, and specialized hospital consumables.
+                Explore our DRAP-registered clinical chemistry instruments, Holter monitoring systems, and specialized hospital consumables to support comprehensive healthcare delivery across Pakistan.
               </p>
               <div className="flex items-center gap-2 text-xs font-semibold text-secondary-dark">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 motion-safe:animate-pulse" />
