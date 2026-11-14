@@ -219,7 +219,7 @@ export default function LeadershipPage() {
               <div className="lg:col-span-4 flex flex-col items-center text-center">
                 <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 group">
                   <Image
-                    src="/images/leadership/najam.jpeg"
+                    src="/images/leadership/najam.jpg"
                     alt="Sir Najam-ul-Saqib Siddique - General Manager"
                     fill
                     priority
