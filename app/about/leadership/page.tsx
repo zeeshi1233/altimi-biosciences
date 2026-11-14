@@ -267,7 +267,7 @@ export default function LeadershipPage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                      <span>Federal Government Civil Services Veteran</span>
+                      <span>Federal Government Civil Services </span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
