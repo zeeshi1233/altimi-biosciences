@@ -1,134 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650" width="100%" height="100%">
-  <defs>
-    <!-- Glow and Gradient Definitions -->
-    <radialGradient id="globeGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#EBF3FF" stop-opacity="0.9" />
-      <stop offset="70%" stop-color="#D1E3FF" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#A5C9FF" stop-opacity="0.2" />
-    </radialGradient>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0F2C59" flood-opacity="0.10" />
-    </filter>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-      <feMerge>
-        <feMergeNode in="coloredBlur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-labelledby="title desc">
+<title id="title">Altimi Biosciences global partner network</title>
+<desc id="desc">A luminous cobalt and cyan globe connecting Altimi Biosciences to international healthcare partners.</desc>
+<defs>
+  <radialGradient id="space" cx="50%" cy="48%" r="60%">
+    <stop offset="0" stop-color="#0C3C78" stop-opacity=".65"/>
+    <stop offset=".62" stop-color="#061D3B" stop-opacity=".2"/>
+    <stop offset="1" stop-color="#031326" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="globe" cx="34%" cy="28%" r="75%">
+    <stop offset="0" stop-color="#77E8FF"/>
+    <stop offset=".25" stop-color="#238FEA"/>
+    <stop offset=".65" stop-color="#0756B8"/>
+    <stop offset="1" stop-color="#032D69"/>
+  </radialGradient>
+  <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#8AF7FF"/><stop offset=".48" stop-color="#168DFF"/><stop offset="1" stop-color="#D4FBFF"/>
+  </linearGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+    <stop stop-color="#0AA9FF" stop-opacity=".1"/><stop offset=".5" stop-color="#59F0FF"/><stop offset="1" stop-color="#176EFF" stop-opacity=".1"/>
+  </linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAF5FF"/>
+  </linearGradient>
+  <filter id="blueGlow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000814" flood-opacity=".45"/>
+  </filter>
+  <clipPath id="clip"><circle cx="380" cy="310" r="166"/></clipPath>
+  <style>
+    .orbit{fill:none;stroke:#28BFFF;stroke-opacity:.55;stroke-width:1.5;transform-origin:380px 310px}
+    .spin{animation:spin 28s linear infinite}.back{animation:back 36s linear infinite}
+    .route{fill:none;stroke:url(#line);stroke-width:2;stroke-dasharray:4 9;stroke-linecap:round;animation:dash 6s linear infinite}
+    .grid{fill:none;stroke:#B9F5FF;stroke-opacity:.25;stroke-width:1.1}
+    .card{filter:url(#shadow);animation:float 5.5s ease-in-out infinite}
+    .card:nth-of-type(2n){animation-delay:-2.5s}
+    .cardbg{fill:url(#card);stroke:#FFFFFF;stroke-opacity:.95;stroke-width:1}
+    .name{font:700 11.5px Inter,Arial,sans-serif;fill:#092443}
+    .sub{font:10px Inter,Arial,sans-serif;fill:#58718C}
+    .tag{font:700 9px Inter,Arial,sans-serif;fill:#0877D9}
+    .globeSurface{transform-box:view-box;transform-origin:380px 310px;animation:globeTurn 18s ease-in-out infinite}
+    .landMasses{animation:landDrift 18s ease-in-out infinite}
+    .shine{animation:shine 7s ease-in-out infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes back{to{transform:rotate(-360deg)}}
+    @keyframes dash{to{stroke-dashoffset:-52}}@keyframes float{0%,100%{translate:0 0}50%{translate:0 -3px}}
+    @keyframes globeTurn{0%,100%{transform:perspective(700px) rotateY(0deg) scaleX(1)}25%{transform:perspective(700px) rotateY(16deg) scaleX(.94)}50%{transform:perspective(700px) rotateY(0deg) scaleX(1)}75%{transform:perspective(700px) rotateY(-16deg) scaleX(.94)}}
+    @keyframes landDrift{0%,100%{translate:0 0}50%{translate:9px 0}}
+    @keyframes shine{0%,100%{opacity:.22}50%{opacity:.65}}
+    @keyframes pulse{0%,100%{opacity:.5;scale:.88}50%{opacity:1;scale:1.12}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</defs>
 
-  <!-- Background Decorative Grid / Orbit Rings -->
-  <circle cx="400" cy="330" r="280" fill="none" stroke="#2563EB" stroke-width="1" stroke-dasharray="4 8" opacity="0.15" />
-  <circle cx="400" cy="330" r="240" fill="none" stroke="#2563EB" stroke-width="1" opacity="0.08" />
+<!-- soft ambient field -->
+<circle cx="380" cy="310" r="280" fill="url(#space)"/>
+<ellipse class="orbit spin" cx="380" cy="310" rx="290" ry="112" transform="rotate(-25 380 310)"/>
+<ellipse class="orbit back" cx="380" cy="310" rx="270" ry="156" transform="rotate(34 380 310)" stroke-dasharray="5 9"/>
+<ellipse class="orbit" cx="380" cy="310" rx="224" ry="198" transform="rotate(72 380 310)" stroke-opacity=".18"/>
 
-  <!-- Globe Base Sphere -->
-  <circle cx="400" cy="330" r="200" fill="url(#globeGrad)" stroke="#3B82F6" stroke-width="1.5" stroke-opacity="0.3" filter="url(#softShadow)" />
+<!-- partner connection paths: each route starts at globe center and meets its card edge -->
+<g>
+ <path class="route" d="M380 310 Q285 250 207 224"/>
+ <path class="route" d="M380 310 Q285 370 207 396"/>
+ <path class="route" d="M380 310 Q475 250 553 224"/>
+ <path class="route" d="M380 310 Q475 370 553 396"/>
+ <path class="route" d="M380 310 Q315 175 264 137"/>
+ <path class="route" d="M380 310 Q445 175 496 137"/>
+ <path class="route" d="M380 310 Q315 445 264 483"/>
+ <path class="route" d="M380 310 Q445 445 496 483"/>
+</g>
 
-  <!-- Globe Latitudes & Longitudes Lines -->
-  <g stroke="#2563EB" stroke-width="1" stroke-opacity="0.2" fill="none">
-    <!-- Longitudes -->
-    <ellipse cx="400" cy="330" rx="200" ry="200" />
-    <ellipse cx="400" cy="330" rx="140" ry="200" />
-    <ellipse cx="400" cy="330" rx="70" ry="200" />
-    <!-- Latitudes -->
-    <ellipse cx="400" cy="330" rx="200" ry="140" />
-    <ellipse cx="400" cy="330" rx="200" ry="70" />
-    <line x1="200" y1="330" x2="600" y2="330" />
-    <line x1="400" y1="130" x2="400" y2="530" />
-  </g>
+<!-- globe -->
+<circle cx="380" cy="310" r="178" fill="#087BFF" opacity=".15" filter="url(#blueGlow)"/>
+<circle cx="380" cy="310" r="166" fill="url(#globe)" stroke="url(#edge)" stroke-width="2.5"/>
+<g clip-path="url(#clip)">
+ <g class="globeSurface">
+ <g class="grid">
+  <ellipse cx="380" cy="310" rx="166" ry="50"/><ellipse cx="380" cy="310" rx="166" ry="105"/>
+  <ellipse cx="380" cy="310" rx="166" ry="143"/>
+  <ellipse cx="380" cy="310" rx="55" ry="166"/><ellipse cx="380" cy="310" rx="110" ry="166"/>
+  <ellipse cx="380" cy="310" rx="143" ry="166"/>
+  <path d="M214 310H546M380 144V476"/>
+ </g>
+ <!-- simplified luminous land masses -->
+ <g class="landMasses" fill="#BDF8FF" opacity=".7">
+  <path d="M260 205l22-16 30 5 18 20-12 18-25 5-9 22-22-8-10-24z"/>
+  <path d="M310 268l25 10 15 30-10 38-22 28-13-24 5-30-16-22z"/>
+  <path d="M394 188l31-12 32 15 18 27-14 20-28-5-15 18-19-17z"/>
+  <path d="M420 280l34-10 29 21-6 37-27 20-21-14-19-27z"/>
+  <path d="M473 378l24 10 10 21-19 18-22-13z"/>
+ </g>
+ <path class="shine" d="M230 220Q380 100 530 220" fill="none" stroke="#D7FBFF" stroke-opacity=".75" stroke-width="2"/>
+ </g>
+</g>
+<circle cx="380" cy="310" r="166" fill="none" stroke="#B5F6FF" stroke-opacity=".55"/>
 
-  <!-- Connection Arcs from Altimi Biosciences Hub (400, 360) to Partners -->
-  <g fill="none" stroke-dasharray="5 5" stroke-width="1.5">
-    <!-- To Randox (Left Top) -->
-    <path d="M400,360 Q300,240 280,210" stroke="#3B82F6" opacity="0.7" />
-    <!-- To Aidian (Center Top) -->
-    <path d="M400,360 Q390,240 380,215" stroke="#3B82F6" opacity="0.7" />
-    <!-- To Bittium (Right Top) -->
-    <path d="M400,360 Q520,240 540,225" stroke="#3B82F6" opacity="0.7" />
-    <!-- To A&D Medical (Far Right Mid) -->
-    <path d="M400,360 Q510,310 525,320" stroke="#3B82F6" opacity="0.7" />
-  </g>
+<!-- central Altimi hub: clean symbol-only mark, no overflowing wordmark -->
+<circle cx="380" cy="310" r="42" fill="#008BFF" opacity=".22" filter="url(#blueGlow)"/>
+<circle cx="380" cy="310" r="32" fill="#F5FBFF" stroke="#66E6FF" stroke-width="2.2"/>
+<g fill="#087AC8" transform="translate(0 -11)">
+ <circle cx="380" cy="297" r="8"/><circle cx="366" cy="307" r="7"/><circle cx="394" cy="307" r="7"/>
+ <rect x="371" y="304" width="18" height="12" rx="6"/>
+</g>
+<text x="380" y="315" text-anchor="middle"
+      font-family="Arial, sans-serif" font-size="6.8" font-weight="700"
+      letter-spacing="-.12" fill="#C32236">ALTIMI</text>
+<text x="380" y="323" text-anchor="middle"
+      font-family="Arial, sans-serif" font-size="6.8" font-weight="700"
+      letter-spacing="-.18" fill="#C32236">BIOSCIENCES</text>
+<text x="380" y="331" text-anchor="middle"
+      font-family="Arial, sans-serif" font-size="6.4" font-weight="700"
+      letter-spacing="-.08" fill="#C32236">PVT. LTD.</text>
+<circle cx="380" cy="310" r="48" fill="none" stroke="#73EFFF" stroke-opacity=".75" class="orbit spin"/>
+<circle cx="380" cy="310" r="25" fill="none" stroke="#0C78C8" stroke-opacity=".14" stroke-width="1"/>
 
-  <!-- Altimi Biosciences Hub Marker (Source) - width adjusted for text length -->
-  <circle cx="400" cy="360" r="6" fill="#EF4444" filter="url(#glow)" />
-  <circle cx="400" cy="360" r="14" fill="#EF4444" opacity="0.3" />
-  <rect x="340" y="375" width="120" height="24" rx="6" fill="#0F172A" opacity="0.95" />
-  <text x="400" y="391" fill="#FFFFFF" font-family="sans-serif" font-size="10" font-weight="600" text-anchor="middle">Altimi Biosciences</text>
+<!-- bright endpoint nodes -->
+<g fill="#8CF5FF" filter="url(#blueGlow)">
+ <circle cx="275" cy="244" r="4"/><circle cx="430" cy="175" r="4"/><circle cx="520" cy="265" r="4"/>
+ <circle cx="480" cy="420" r="4"/><circle cx="270" cy="405" r="4"/><circle cx="380" cy="466" r="4"/>
+</g>
 
-  <!-- Partner Destination Nodes on Globe -->
-  <circle cx="280" cy="210" r="4.5" fill="#2563EB" /><circle cx="280" cy="210" r="9" fill="#2563EB" opacity="0.3" />
-  <circle cx="380" cy="215" r="4.5" fill="#2563EB" /><circle cx="380" cy="215" r="9" fill="#2563EB" opacity="0.3" />
-  <circle cx="540" cy="225" r="4.5" fill="#2563EB" /><circle cx="540" cy="225" r="9" fill="#2563EB" opacity="0.3" />
-  <circle cx="525" cy="320" r="4.5" fill="#2563EB" /><circle cx="525" cy="320" r="9" fill="#2563EB" opacity="0.3" />
+<!-- partner cards: all cards use identical 200 x 58 geometry and shared internal alignment -->
+<!-- Top row: centered as a pair around x=380 with 7px globe clearance -->
+<g class="card" transform="translate(164 79)">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <path d="M19 29l7 7 13-15" fill="none" stroke="#0877D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+ <text class="name" x="55" y="25">Verified Distribution</text>
+ <text class="sub" x="55" y="41">DRAP registered in Pakistan</text>
+</g>
+<g class="card" transform="translate(396 79)" style="animation-delay:-1.2s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <text class="tag" x="29" y="32" text-anchor="middle">FIN</text>
+ <text class="name" x="55" y="25">Aidian</text>
+ <text class="sub" x="55" y="41">Point-of-care technology</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
 
-  <!-- FLOATING PROFESSIONAL CARDS (With Clean Content) -->
+<!-- Left column -->
+<g class="card" transform="translate(7 195)" style="animation-delay:-.8s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <text class="tag" x="29" y="32" text-anchor="middle">UK</text>
+ <text class="name" x="55" y="25">Randox Laboratories</text>
+ <text class="sub" x="55" y="41">Diagnostic solutions</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
+<g class="card" transform="translate(7 367)" style="animation-delay:-1.4s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <text class="tag" x="29" y="32" text-anchor="middle">FIN</text>
+ <text class="name" x="55" y="25">BITTIUM</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
 
-  <!-- Card 1: Top Right (100% Authentic) -->
-  <g transform="translate(620, 45)" filter="url(#softShadow)">
-    <rect width="150" height="55" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="28" cy="27" r="16" fill="#EFF6FF" />
-    <!-- Check Shield Icon -->
-    <path d="M28 19L33 21.5V25.5C33 28.5 30.8 31.2 28 32C25.2 31.2 23 28.5 23 25.5V21.5L28 19Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M25.5 27L27 28.5L30.5 25" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-    <text x="54" y="25" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">100% Verified</text>
-    <text x="54" y="40" fill="#64748B" font-family="sans-serif" font-size="9" font-weight="500">DRAP Registered</text>
-  </g>
+<!-- Right column -->
+<g class="card" transform="translate(553 195)" style="animation-delay:-2s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <text class="tag" x="29" y="32" text-anchor="middle">JPN</text>
+ <text class="name" x="55" y="25">A&amp;D Medical</text>
+ <text class="sub" x="55" y="41">Precision monitors</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
+<g class="card" transform="translate(553 367)" style="animation-delay:-2.6s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <path d="M29 19v13m-5-5 5 5 5-5" fill="none" stroke="#0877D9" stroke-width="2" stroke-linecap="round"/>
+ <text class="name" x="55" y="25">Cold Chain 24/7</text>
+ <text class="sub" x="55" y="41">Validated logistics</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
 
-  <!-- Card 2: Top Left (Randox / UK) -->
-  <g transform="translate(100, 180)" filter="url(#softShadow)">
-    <rect width="145" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="26" cy="25" r="14" fill="#EFF6FF" />
-    <text x="26" y="29" fill="#2563EB" font-family="sans-serif" font-size="10" font-weight="800" text-anchor="middle">UK</text>
-    <text x="50" y="23" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">Randox Labs</text>
-    <text x="50" y="38" fill="#10B981" font-family="sans-serif" font-size="9" font-weight="600">● Direct Principal</text>
-  </g>
-
-  <!-- Card 3: Top Center (Aidian / Finland) -->
-  <g transform="translate(410, 80)" filter="url(#softShadow)">
-    <rect width="145" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="26" cy="25" r="14" fill="#EFF6FF" />
-    <text x="26" y="29" fill="#2563EB" font-family="sans-serif" font-size="9" font-weight="800" text-anchor="middle">FIN</text>
-    <text x="50" y="23" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">Aidian Diagnostics</text>
-    <text x="50" y="38" fill="#64748B" font-family="sans-serif" font-size="9" font-weight="500">Point-of-Care</text>
-  </g>
-
-  <!-- Card 4: Right Mid (A&D Medical / Japan) -->
-  <g transform="translate(560, 200)" filter="url(#softShadow)">
-    <rect width="155" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="26" cy="25" r="14" fill="#EFF6FF" />
-    <text x="26" y="29" fill="#2563EB" font-family="sans-serif" font-size="9" font-weight="800" text-anchor="middle">JPN</text>
-    <text x="50" y="23" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">A&amp;D Medical</text>
-    <text x="50" y="38" fill="#64748B" font-family="sans-serif" font-size="9" font-weight="500">Precision Monitors</text>
-  </g>
-
-  <!-- Card 5: Right Lower (Cold Chain Support) -->
-  <g transform="translate(530, 420)" filter="url(#softShadow)">
-    <rect width="155" height="55" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="28" cy="27" r="16" fill="#EFF6FF" />
-    <!-- Temp / Gauge Icon -->
-    <path d="M28 19V28M25 25L28 28L31 25" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-    <text x="54" y="25" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">Cold Chain 24/7</text>
-    <text x="54" y="40" fill="#64748B" font-family="sans-serif" font-size="9" font-weight="500">Validated Logistics</text>
-  </g>
-
-  <!-- Card 6: Bottom Left (Diagnostics & Reagents) -->
-  <g transform="translate(110, 430)" filter="url(#softShadow)">
-    <rect width="160" height="55" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="28" cy="27" r="16" fill="#EFF6FF" />
-    <!-- Pulse / ECG Icon -->
-    <path d="M20 27H24L26.5 21L30 33L32.5 26L34 27H37" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-    <text x="54" y="25" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">Clinical Reagents</text>
-    <text x="54" y="40" fill="#64748B" font-family="sans-serif" font-size="9" font-weight="500">ISO 13485 Standards</text>
-  </g>
-
-  <!-- Card 7: Bottom Center (Global Supply) -->
-  <g transform="translate(300, 500)" filter="url(#softShadow)">
-    <rect width="155" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
-    <circle cx="26" cy="25" r="14" fill="#EFF6FF" />
-    <!-- Capsule / Supply Icon -->
-    <path d="M23 25L29 19M25 29L31 23" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" />
-    <text x="50" y="23" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="700">Direct Import</text>
-    <text x="50" y="38" fill="#64748B" font-family="sans-serif" font-size="9" font-weight="500">Institution-Wide Supply</text>
-  </g>
+<!-- Bottom row: centered as a pair around x=380 with 7px globe clearance -->
+<g class="card" transform="translate(164 483)" style="animation-delay:-3s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <path d="M18 29h7l4-8 5 16 4-8h5" fill="none" stroke="#0877D9" stroke-width="2" stroke-linecap="round"/>
+ <text class="name" x="55" y="25">Clinical Reagents</text>
+ <text class="sub" x="55" y="41">Quality-led diagnostics</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
+<g class="card" transform="translate(396 483)" style="animation-delay:-1.8s">
+ <rect class="cardbg" width="200" height="58" rx="13"/>
+ <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
+ <path d="M22 29h14m-7-7v14" stroke="#0877D9" stroke-width="2" stroke-linecap="round"/>
+ <text class="name" x="55" y="25">Direct Import</text>
+ <text class="sub" x="55" y="41">Institution-wide supply</text>
+ <circle cx="184" cy="15" r="3" fill="#10B981"/>
+</g>
 </svg>

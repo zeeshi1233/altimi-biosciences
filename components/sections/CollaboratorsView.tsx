@@ -194,10 +194,10 @@ export const CollaboratorsView: React.FC = () => {
                   {/* Native Animated SVG Illustration */}
                   <div className="relative z-10 w-full transition-transform duration-500 motion-safe">
                     <img
-                      src="/images/partners/altimi-global-partners-logo-text-fit.svg"
+                      src="/images/partners/partners-hero.svg"
                       alt="Altimi Biosciences Global Partners Network"
                       width="760"
-                      height="620"
+                      height="720"
                       loading="eager"
                       // @ts-ignore - React 18 / HTML fetchpriority
                       fetchpriority="high"
@@ -285,14 +285,14 @@ export const CollaboratorsView: React.FC = () => {
                             <span className="truncate">{partner.name.split(" ")[0]}</span>
                           </div>
                         ) : (
-                          <div className="relative w-full h-full grayscale opacity-75 group-hover/brand:grayscale-0 group-hover/brand:opacity-100 transition-all duration-300">
+                          <div className="relative w-full h-full   transition-all duration-300">
                             <Image
                               src={partner.logo}
                               alt={`${partner.name} logo`}
                               fill
                               sizes="(max-width: 640px) 140px, 180px"
                               onError={() => handleImageError(`strip-${partner.id}-${index}`)}
-                              className="object-contain mix-blend-multiply"
+                              className="object-contain "
                             />
                           </div>
                         )}
@@ -369,15 +369,15 @@ export const CollaboratorsView: React.FC = () => {
                   type="button"
                   onClick={() => setSelectedFilter(tab.value)}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${isSelected
-                      ? "bg-blue-600 text-white shadow-md shadow-blue-600/25"
-                      : "bg-white text-slate-700 border border-slate-200 hover:border-blue-300 hover:text-blue-600 shadow-sm"
+                    ? " "
+                    : "bg-white text-slate-700 border border-slate-200 hover:border-blue-300 hover:text-blue-600 shadow-sm"
                     }`}
                 >
                   <span>{tab.label}</span>
                   <span
                     className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${isSelected
-                        ? "bg-white/20 text-white"
-                        : "bg-slate-100 text-slate-600"
+                      ? "bg-white/20 text-white"
+                      : "bg-slate-100 text-slate-600"
                       }`}
                   >
                     {count}
@@ -394,12 +394,12 @@ export const CollaboratorsView: React.FC = () => {
 
               return (
                 <Reveal key={partner.id} direction="up" delay={0.08 * (idx % 3)}>
-                  <div className="group h-full flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-2xl hover:border-blue-500 transition-all duration-300 relative overflow-hidden">
+                  <div className="group h-full flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-blue-500 transition-all duration-300 relative overflow-hidden">
                     {/* Top Subtle Brand Accent Bar */}
-                    <div
+                    {/* <div
                       aria-hidden="true"
                       className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    />
+                    /> */}
 
                     <div>
                       {/* Logo Frame & Country Pill */}
@@ -413,14 +413,14 @@ export const CollaboratorsView: React.FC = () => {
                               <span>{partner.name.split(" ")[0]}</span>
                             </div>
                           ) : (
-                            <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300">
+                            <div className="relative w-full h-full  transition-all duration-300">
                               <Image
                                 src={partner.logo}
                                 alt={`${partner.name} logo`}
                                 fill
                                 sizes="(max-width: 640px) 150px, 180px"
                                 onError={() => handleImageError(partner.id)}
-                                className="object-contain mix-blend-multiply"
+                                className="object-contain "
                               />
                             </div>
                           )}
@@ -442,10 +442,16 @@ export const CollaboratorsView: React.FC = () => {
 
                       {/* Products We Import Checklist */}
                       <div className="pt-4 border-t border-slate-100 mb-6">
-                        <div className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                          <span>Products we import:</span>
-                        </div>
+                        {
+                          partner?.products?.length > 0 && (
+                            <>
+                              <div className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                                <span>Products we import:</span>
+                              </div>
+                            </>
+                          )
+                        }
                         <ul className="space-y-2.5">
                           {partner.products.map((prod, pIdx) => (
                             <li
