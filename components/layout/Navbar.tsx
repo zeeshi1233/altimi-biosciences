@@ -285,16 +285,6 @@ export const Navbar: React.FC = () => {
                                     Aidian POCT Analyzer, easy CRP &amp; HbA1c Rapid Kits
                                   </div>
                                 </Link>
-                              </div>
-                            </div>
-
-                            {/* Column 2: Medical Devices & Hospital Supplies */}
-                            <div className="space-y-3">
-                              <div className="flex items-center gap-2 text-secondary-dark font-heading font-bold text-sm pb-2 border-b border-slate-100">
-                                <ShieldCheck className="w-4 h-4 text-secondary" />
-                                <span>Devices &amp; Supplies</span>
-                              </div>
-                              <div className="space-y-1">
                                 <Link
                                   href="/products/faros-360-ecg"
                                   className="nav-dropdown-link block p-2.5 rounded-xl group"
@@ -306,6 +296,17 @@ export const Navbar: React.FC = () => {
                                     Medical-grade waterproof ECG monitors
                                   </div>
                                 </Link>
+                              </div>
+                            </div>
+
+                            {/* Column 2: Medical Devices & Hospital Supplies */}
+                            <div className="space-y-3">
+                              <div className="flex items-center gap-2 text-secondary-dark font-heading font-bold text-sm pb-2 border-b border-slate-100">
+                                <ShieldCheck className="w-4 h-4 text-secondary" />
+                                <span>Devices &amp; Supplies</span>
+                              </div>
+                              <div className="space-y-1">
+
                                 <Link
                                   href="/products/and-abpm-monitor"
                                   className="nav-dropdown-link block p-2.5 rounded-xl group"
