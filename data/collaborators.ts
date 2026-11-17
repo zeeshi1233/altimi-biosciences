@@ -115,12 +115,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     logo: "/partners/braun.png",
     description:
       "Global healthcare leader supplying infusion therapy, surgical and wound care products to hospitals worldwide.",
-    products: [
-      "Infusion therapy products",
-      "Surgical sutures and instruments",
-      "Wound care and dressings",
-      "[edit as needed]",
-    ],
+    products: [],
   },
   {
     id: "pari",
@@ -131,12 +126,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     logo: "/partners/pari.png",
     description:
       "Specialist in inhalation therapy, known for high-quality nebulizers and aerosol delivery systems.",
-    products: [
-      "Compressor nebulizers",
-      "Nebulizer kits and masks",
-      "Inhalation accessories",
-      "[edit as needed]",
-    ],
+    products: [],
   },
   {
     id: "schebo",
@@ -147,11 +137,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     logo: "/partners/schebo.png",
     description:
       "Biotech company developing rapid diagnostic tests for gastrointestinal and metabolic conditions.",
-    products: [
-      "Rapid stool diagnostic tests",
-      "ELISA test kits",
-      "[edit as needed]",
-    ],
+    products: [],
   },
   {
     id: "dongkook",
@@ -163,7 +149,6 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     description:
       "Korean pharmaceutical manufacturer supplying quality healthcare and wound-care products.",
     products: [
-      "[edit: add actual imported products]",
     ],
   },
   {
@@ -175,9 +160,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     logo: "/partners/hetero.png",
     description:
       "Leading pharmaceutical manufacturer producing quality generic medicines and active ingredients.",
-    products: [
-      "[edit: add actual imported products]",
-    ],
+    products: [],
   },
   {
     id: "blue-leaves",
@@ -188,26 +171,23 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     logo: "/partners/blue-leaves.png",
     description:
       "Manufacturer of hygiene products made with care for healthcare and personal use.",
-    products: [
-      "Hygiene products",
-      "[edit as needed]",
-    ],
+    products: []
   },
-  {
-    id: "ardl",
-    slug: "ardl",
-    name: "ARDL – Altimi Research & Diagnostic Laboratory",
-    country: "Pakistan",
-    flag: "🇵🇰",
-    logo: "/partners/diagnostic.png",
-    description:
-      "Our associated research and diagnostic laboratory providing reliable testing and diagnostic services.",
-    products: [
-      "Diagnostic testing services",
-      "Laboratory research",
-      "[edit as needed]",
-    ],
-  },
+  // {
+  //   id: "ardl",
+  //   slug: "ardl",
+  //   name: "ARDL – Altimi Research & Diagnostic Laboratory",
+  //   country: "Pakistan",
+  //   flag: "🇵🇰",
+  //   logo: "/partners/diagnostic.png",
+  //   description:
+  //     "Our associated research and diagnostic laboratory providing reliable testing and diagnostic services.",
+  //   products: [
+  //     "Diagnostic testing services",
+  //     "Laboratory research",
+
+  //   ],
+  // },
 ];
 
 // Compute statistics dynamically from partnerCollaborators

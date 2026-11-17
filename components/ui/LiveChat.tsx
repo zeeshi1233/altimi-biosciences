@@ -15,11 +15,11 @@ import React, { useEffect } from "react";
 
 // Paste your Tawk.to Property ID here (or use NEXT_PUBLIC_TAWKTO_PROPERTY_ID in .env.local)
 export const TAWK_PROPERTY_ID =
-  process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID || "";
+  process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID || "6afc1e0cc3df8b3cbd42678e";
 
 // Paste your Tawk.to Widget ID here (default or specific widget ID)
 export const TAWK_WIDGET_ID =
-  process.env.NEXT_PUBLIC_TAWKTO_WIDGET_ID || "default";
+  process.env.NEXT_PUBLIC_TAWKTO_WIDGET_ID || "1k7kdaoqk";
 
 declare global {
   interface Window {

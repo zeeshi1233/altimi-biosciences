@@ -58,8 +58,8 @@ const slides: HeroSlide[] = [
   {
     id: "quikread-go",
     category: "Point-of-Care Testing (POCT)",
-    title: "Aidian QuikRead go® ",
-    highlight: "– ",
+    title: "Aidian ",
+    highlight: "–  QuikRead go®",
     badge: "Portable POCT Analyzer",
     bullets: [
       "Instrument & POCT Kits",
@@ -126,8 +126,8 @@ export const HeroSlider: React.FC = () => {
 
   const total = slides.length;
   const slide = slides[current];
-  const activeImages = slide.images && slide.images.length > 0 
-    ? slide.images 
+  const activeImages = slide.images && slide.images.length > 0
+    ? slide.images
     : [{ src: slide.image, alt: slide.title, label: slide.badge }];
 
   // Reset inner image when main slide changes
@@ -367,9 +367,8 @@ export const HeroSlider: React.FC = () => {
                           key={i}
                           type="button"
                           onClick={() => setInnerImgIndex(i)}
-                          className={`w-1.5 h-1.5 rounded-full transition-all ${
-                            i === innerImgIndex ? "w-3 bg-sky-400" : "bg-white/60"
-                          }`}
+                          className={`w-1.5 h-1.5 rounded-full transition-all ${i === innerImgIndex ? "w-3 bg-sky-400" : "bg-white/60"
+                            }`}
                           aria-label={`Show model image ${i + 1}`}
                         />
                       ))}
