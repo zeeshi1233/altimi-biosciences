@@ -153,6 +153,7 @@
  <circle cx="29" cy="29" r="17" fill="#D8EEFF"/>
  <text class="tag" x="29" y="32" text-anchor="middle">FIN</text>
  <text class="name" x="55" y="25">BITTIUM</text>
+ <text class="sub" x="55" y="41">Cardiology solutions</text>
  <circle cx="184" cy="15" r="3" fill="#10B981"/>
 </g>
 

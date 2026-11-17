@@ -196,7 +196,7 @@ export const CollaboratorsView: React.FC = () => {
                     <img
                       src="/images/partners/partners-hero.svg"
                       alt="Altimi Biosciences Global Partners Network"
-                      width="760"
+                      width="800"
                       height="720"
                       loading="eager"
                       // @ts-ignore - React 18 / HTML fetchpriority
@@ -369,7 +369,7 @@ export const CollaboratorsView: React.FC = () => {
                   type="button"
                   onClick={() => setSelectedFilter(tab.value)}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${isSelected
-                    ? " "
+                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/25 "
                     : "bg-white text-slate-700 border border-slate-200 hover:border-blue-300 hover:text-blue-600 shadow-sm"
                     }`}
                 >
