@@ -13,6 +13,7 @@ interface HeroSlide {
   highlight: string;
   bullets: string[];
   image: string;
+  images?: { src: string; alt: string; label?: string }[];
   exploreUrl: string;
   badge: string;
 }
@@ -32,15 +33,20 @@ const slides: HeroSlide[] = [
       "Intuitive touchscreen interface with automated washing and cooled onboard reagents.",
     ],
     image: "/images/products/rx-9000.png",
+    images: [
+      { src: "/images/products/rx-9000.png", alt: "Randox RX modena Clinical Chemistry Analyzer", label: "RX modena" },
+      { src: "/images/products/rx-imola.png", alt: "Randox RX imola Clinical Chemistry Analyzer", label: "RX imola" },
+    ],
     exploreUrl: "/products/randox-rx-series",
   },
   {
     id: "bosch-vivalytic",
     category: "Molecular Diagnostics",
-    title: "Bosch Vivalytic ",
-    highlight: "– All-in-One Molecular Analyzer",
+    title: "Bosch ",
+    highlight: "- Vivalytic",
     badge: "Closed Cartridge PCR",
     bullets: [
+      "All-in-One Molecular Analyzer",
       "All-in-one cartridge-based molecular diagnostic platform by Bosch GmbH & Randox.",
       "Sample-in to result-out workflow with minimal contamination risk.",
       "Multiplex & singleplex testing for respiratory, STI, and bacterial pathogens.",
@@ -53,15 +59,21 @@ const slides: HeroSlide[] = [
     id: "quikread-go",
     category: "Point-of-Care Testing (POCT)",
     title: "Aidian QuikRead go® ",
-    highlight: "– Instrument & POCT Kits",
+    highlight: "– ",
     badge: "Portable POCT Analyzer",
     bullets: [
+      "Instrument & POCT Kits",
       "Compact, portable point-of-care (POCT) analyzer engineered by Aidian (Finland).",
       "Combines photometric and turbidimetric measurement technologies for rapid diagnostic testing.",
       "QuikRead go easy CRP provides quantitative results in 2 minutes at the point of care.",
       "QuikRead go HbA1c delivers IFCC & NGSP certified diabetes screening and monitoring.",
     ],
     image: "/images/products/quikread-go.webp",
+    images: [
+      { src: "/images/products/quikread-go.webp", alt: "Aidian QuikRead go Instrument", label: "QuikRead go Instrument" },
+      { src: "/images/products/quikread-easy-crp.png", alt: "QuikRead go easy CRP POCT Kit", label: "QuikRead easy CRP Kit" },
+      { src: "/images/products/quikread-hba1c.png", alt: "QuikRead go HbA1c POCT Kit", label: "QuikRead HbA1c Kit" },
+    ],
     exploreUrl: "/products/point-of-care-testing",
   },
   {
@@ -71,6 +83,7 @@ const slides: HeroSlide[] = [
     highlight: "– Holter Monitor",
     badge: "18 Grams Sensor",
     bullets: [
+      "Bittium Faros 360 & Bittium Faros 180 & Bittium HolterPlus",
       "Wearable Bittium FAROS ECG sensors paired with Cardiac Navigator analysis software.",
       "Ultra-compact, lightweight 18g waterproof medical-grade ECG recorder.",
       "Multi-day continuous ambulatory cardiac rhythm recording and arrhythmia monitoring.",
@@ -83,15 +96,20 @@ const slides: HeroSlide[] = [
     id: "and-abpm",
     category: "Ambulatory Blood Pressure Monitoring",
     title: "A&D Medical ",
-    highlight: "– TM-2440 & TM-2441 ABPM",
+    highlight: "– ABPM",
     badge: "Clinical 24h ABPM",
     bullets: [
+      "TM-2440 & TM-2441 ABPM",
       "Lightweight oscillometric 24-hour ambulatory blood pressure monitors from Japan.",
       "Clinically validated for accurate hypertension profiling and nocturnal dipping analysis.",
       "Quiet cuff inflation technology for undisturbed patient sleep.",
       "Dedicated clinical PC software for circadian reporting and analysis.",
     ],
     image: "/images/products/tm-2441.png",
+    images: [
+      { src: "/images/products/tm-2441.png", alt: "A&D Medical TM-2441 Ambulatory Blood Pressure Monitor", label: "TM-2441 ABPM" },
+      { src: "/images/products/tm-2440.png", alt: "A&D Medical TM-2440 Ambulatory Blood Pressure Monitor", label: "TM-2440 ABPM" },
+    ],
     exploreUrl: "/products/and-abpm-monitor",
   },
 ];
@@ -100,12 +118,33 @@ const AUTOPLAY_DELAY = 6500;
 
 export const HeroSlider: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [innerImgIndex, setInnerImgIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const prefersReduced = useReducedMotion();
 
   const total = slides.length;
+  const slide = slides[current];
+  const activeImages = slide.images && slide.images.length > 0 
+    ? slide.images 
+    : [{ src: slide.image, alt: slide.title, label: slide.badge }];
+
+  // Reset inner image when main slide changes
+  useEffect(() => {
+    setInnerImgIndex(0);
+  }, [current]);
+
+  // Sub-loop rotation for slides that have multiple images
+  useEffect(() => {
+    if (activeImages.length <= 1 || isPaused) return;
+
+    const subInterval = setInterval(() => {
+      setInnerImgIndex((prev) => (prev + 1) % activeImages.length);
+    }, 2800);
+
+    return () => clearInterval(subInterval);
+  }, [activeImages.length, isPaused, current]);
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % total);
@@ -138,8 +177,6 @@ export const HeroSlider: React.FC = () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [current, isPaused]);
-
-  const slide = slides[current];
 
   return (
     <section
@@ -283,7 +320,7 @@ export const HeroSlider: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Hardware Image with gentle floating motion */}
+                  {/* Hardware Image with gentle floating motion & multi-model loop support */}
                   <motion.div
                     animate={prefersReduced ? {} : { y: [0, -10, 0] }} // Range thori barha di hai taake zeda notice ho
                     transition={{
@@ -293,23 +330,51 @@ export const HeroSlider: React.FC = () => {
                     }}
                     className="relative w-full h-full p-5 sm:p-6 transition-transform duration-150 motion-safe:group-hover/hardware:scale-105"
                   >
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      priority
-                      className="object-contain p-3 drop-shadow-xl"
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                    />
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${slide.id}-${innerImgIndex}`}
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                        className="relative w-full h-full"
+                      >
+                        <Image
+                          src={activeImages[innerImgIndex]?.src || slide.image}
+                          alt={activeImages[innerImgIndex]?.alt || slide.title}
+                          fill
+                          priority
+                          className="object-contain p-3 drop-shadow-xl"
+                          sizes="(max-width: 1024px) 100vw, 40vw"
+                        />
+                      </motion.div>
+                    </AnimatePresence>
                   </motion.div>
 
                   {/* Interactive Technical Spec Hotspot */}
                   <div className="absolute bottom-3 left-3 z-20">
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-md text-xs font-semibold text-ink">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 motion-safe:animate-pulse" />
-                      <span>{slide.badge}</span>
+                      <span>{activeImages[innerImgIndex]?.label || slide.badge}</span>
                     </div>
                   </div>
+
+                  {/* Multi-image indicators if slide has multiple models */}
+                  {activeImages.length > 1 && (
+                    <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2 py-1 rounded-full border border-white/20">
+                      {activeImages.map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setInnerImgIndex(i)}
+                          className={`w-1.5 h-1.5 rounded-full transition-all ${
+                            i === innerImgIndex ? "w-3 bg-sky-400" : "bg-white/60"
+                          }`}
+                          aria-label={`Show model image ${i + 1}`}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </div>

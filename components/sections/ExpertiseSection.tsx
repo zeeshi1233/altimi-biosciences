@@ -35,7 +35,7 @@ const expertiseList: ExpertiseItem[] = [
       "Randox RX modena (RX 9000) — 800 photometric, 1,200 tests/hr incl. ISE",
       "Bosch Vivalytic — All-in-One Closed Cartridge PCR Molecular Diagnostics",
       "Randox RX imola (RX 4900) — 400 photometric + 240 ISE tests/hr",
-      "Direct HbA1c testing without manual pre-treatment & consolidated panels",
+      // "Direct HbA1c testing without manual pre-treatment & consolidated panels",
     ],
     link: "/products/randox-rx-series",
     ctaLabel: "Explore Analyzers",

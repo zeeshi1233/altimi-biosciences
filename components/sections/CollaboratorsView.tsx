@@ -35,12 +35,17 @@ interface CountryTab {
   value: string;
 }
 
+// Derive country list dynamically from partner data
+const uniqueCountries = Array.from(
+  new Set(partnerCollaborators.map((p) => p.country))
+);
+
 const countryTabs: CountryTab[] = [
   { label: "All", value: "All" },
-  { label: "UK", value: "United Kingdom" },
-  { label: "Finland", value: "Finland" },
-  { label: "Japan", value: "Japan" },
-  { label: "China", value: "China" },
+  ...uniqueCountries.map((c) => ({
+    label: c === "United Kingdom" ? "UK" : c,
+    value: c,
+  })),
 ];
 
 export const CollaboratorsView: React.FC = () => {
@@ -259,39 +264,42 @@ export const CollaboratorsView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Logo Grid (Randox, Aidian, Bittium, A&D, Anji Hongde, Yangzhong) */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 items-center">
-                {partnerCollaborators.map((partner) => {
-                  const hasError = logoErrors[`strip-${partner.id}`];
+              {/* Infinite Continuous Marquee Loop */}
+              <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] py-1">
+                <div className="marquee-track flex items-center gap-4 sm:gap-6">
+                  {/* Render 2 sets for perfect continuous loop */}
+                  {[...partnerCollaborators, ...partnerCollaborators].map((partner, index) => {
+                    const hasError = logoErrors[`strip-${partner.id}-${index}`];
 
-                  return (
-                    <div
-                      key={`strip-${partner.id}`}
-                      title={`${partner.name} (${partner.country})`}
-                      className="group/brand h-20 sm:h-24 rounded-xl bg-slate-50/70 border border-slate-200/70 p-3 sm:p-4 flex items-center justify-center hover:bg-white hover:border-blue-400/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-                    >
-                      {hasError ? (
-                        <div className="flex items-center gap-1.5 font-heading font-bold text-xs text-slate-700">
-                          <span className="w-6 h-6 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-black">
-                            {getInitials(partner.name)}
-                          </span>
-                          <span className="truncate">{partner.name.split(" ")[0]}</span>
-                        </div>
-                      ) : (
-                        <div className="relative w-full h-full grayscale opacity-75 group-hover/brand:grayscale-0 group-hover/brand:opacity-100 transition-all duration-300">
-                          <Image
-                            src={partner.logo}
-                            alt={`${partner.name} logo`}
-                            fill
-                            sizes="(max-width: 640px) 140px, 180px"
-                            onError={() => handleImageError(`strip-${partner.id}`)}
-                            className="object-contain"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                    return (
+                      <div
+                        key={`strip-${partner.id}-${index}`}
+                        title={`${partner.name} (${partner.country})`}
+                        className="group/brand w-36 sm:w-44 h-18 sm:h-20 rounded-xl bg-slate-50/80 border border-slate-200/80 p-3 sm:p-3.5 flex items-center justify-center shrink-0 hover:bg-white hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                      >
+                        {hasError ? (
+                          <div className="flex items-center gap-1.5 font-heading font-bold text-xs text-slate-700">
+                            <span className="w-6 h-6 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-black">
+                              {getInitials(partner.name)}
+                            </span>
+                            <span className="truncate">{partner.name.split(" ")[0]}</span>
+                          </div>
+                        ) : (
+                          <div className="relative w-full h-full grayscale opacity-75 group-hover/brand:grayscale-0 group-hover/brand:opacity-100 transition-all duration-300">
+                            <Image
+                              src={partner.logo}
+                              alt={`${partner.name} logo`}
+                              fill
+                              sizes="(max-width: 640px) 140px, 180px"
+                              onError={() => handleImageError(`strip-${partner.id}-${index}`)}
+                              className="object-contain mix-blend-multiply"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </Reveal>
@@ -412,7 +420,7 @@ export const CollaboratorsView: React.FC = () => {
                                 fill
                                 sizes="(max-width: 640px) 150px, 180px"
                                 onError={() => handleImageError(partner.id)}
-                                className="object-contain"
+                                className="object-contain mix-blend-multiply"
                               />
                             </div>
                           )}

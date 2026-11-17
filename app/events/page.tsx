@@ -1,167 +1,32 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
-import { Calendar, MapPin, Building2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { events } from "@/data/events";
+import { eventsData } from "@/data/eventsData";
+import { EventCard } from "@/components/events/EventCard";
+import { EventsHeroSlider } from "@/components/events/EventsHeroSlider";
 
 export const metadata: Metadata = {
-  title: "Expos & Clinical Events | Altimi Biosciences",
-  description:
-    "Explore upcoming medical exhibitions, scientific symposiums, and diagnostic workshops hosted or attended by Altimi Biosciences across Pakistan.",
+  title: "Events | Altimi Biosciences",
+  description: "Our latest events and moments",
 };
 
 export default function EventsPage() {
-  const upcomingEvents = events.filter((e) => e.status === "Upcoming");
-  const pastEvents = events.filter((e) => e.status === "Completed");
-
   return (
-    <div className="pt-6 pb-16 lg:pt-8 lg:pb-20 bg-surface min-h-screen">
-      <Container>
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs font-medium text-muted mb-3.5">
-          <Link href="/" className="hover:text-primary transition-colors">
-            Home
-          </Link>
-          <span className="text-slate-400">/</span>
-          <span className="text-primary font-semibold">Events &amp; Expos</span>
-        </nav>
+    <main className="min-h-screen bg-surface pb-20">
+      {/* Simple Hero Section with loop slider */}
+      <EventsHeroSlider />
 
-        {/* Left-Aligned Header */}
-        <div className="mb-8 max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-ink tracking-tight leading-[1.15]">
-            Expos, Symposiums &amp; Clinical Workshops
-          </h1>
-          <p className="text-sm sm:text-base text-muted leading-relaxed mt-3.5">
-            Meet our biomedical specialists in person at medical conventions and hands-on clinical instrumentation seminars across Pakistan.
-          </p>
-        </div>
-
-        {/* Upcoming Events Section */}
-        <div className="mb-16">
-          <div className="flex items-center gap-2 mb-8">
-            <span className="w-3 h-3 rounded-full bg-emerald-500 motion-safe:animate-pulse" />
-            <h2 className="text-xl sm:text-2xl font-bold font-heading text-ink">
-              Upcoming Medical Conferences & Expos
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {upcomingEvents.map((evt) => (
-              <div
-                key={evt.id}
-                className="glass-card rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-lg hover:shadow-xl transition-[box-shadow,border-color] duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
-                    <Image
-                      src={evt.image}
-                      alt={evt.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white">
-                        {evt.category}
-                      </span>
-                    </div>
-                    {evt.booth && (
-                      <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-ink text-white">
-                          {evt.booth}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-8 space-y-4">
-                    <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-secondary-dark">
-                      <div className="flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4 text-primary" />
-                        <span>{evt.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        <span>{evt.location}</span>
-                      </div>
-                    </div>
-
-                    <h3 className="text-xl font-bold font-heading text-ink">
-                      {evt.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-muted leading-relaxed">
-                      {evt.description}
-                    </p>
-
-                    <div className="p-3 rounded-xl bg-surface border border-slate-100 text-xs text-slate-600 flex items-center gap-2">
-                      <Building2 className="w-4 h-4 text-primary shrink-0" />
-                      <span>{evt.venue}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-8 pt-0 border-t border-slate-100 flex items-center justify-between mt-4">
-                  <span className="text-xs text-slate-400">
-                    Open to registered healthcare professionals
-                  </span>
-                  <Button
-                    href={`/contact?event=${encodeURIComponent(evt.title)}`}
-                    variant="primary"
-                    size="sm"
-                    className="focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:outline-none"
-                  >
-                    Book Booth Meeting
-                  </Button>
-                </div>
-              </div>
+      {/* Events Grid Section */}
+      <section className="py-12 sm:py-16">
+        <Container>
+          {/* Responsive Card Grid (1 col mobile, 2 col tablet, 3 col desktop) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {eventsData.map((item) => (
+              <EventCard key={item.id} event={item} />
             ))}
           </div>
-        </div>
-
-        {/* Past Events & Workshops */}
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold font-heading text-ink mb-8">
-            Completed Symposiums & Hands-On Workshops
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {pastEvents.map((evt) => (
-              <div
-                key={evt.id}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex items-start gap-4"
-              >
-                <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-slate-100 shrink-0">
-                  <Image
-                    src={evt.image}
-                    alt={evt.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-2 text-[11px] text-muted">
-                    <span className="font-semibold text-secondary-dark">
-                      {evt.date}
-                    </span>
-                    <span>•</span>
-                    <span>{evt.location}</span>
-                  </div>
-                  <h4 className="text-base font-bold font-heading text-ink">
-                    {evt.title}
-                  </h4>
-                  <p className="text-xs text-muted line-clamp-2">
-                    {evt.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Container>
-    </div>
+        </Container>
+      </section>
+    </main>
   );
 }
-

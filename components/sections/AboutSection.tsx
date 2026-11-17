@@ -47,36 +47,14 @@ export const AboutSection: React.FC = () => {
 
             <Reveal direction="up" delay={0.2}>
               <p className="text-muted text-base sm:text-lg leading-relaxed">
-                At <strong className="text-ink font-semibold">Altimi Biosciences</strong>, we supply verified diagnostic systems and hospital consumables. Our automated chemistry platforms, including the <span className="text-primary font-semibold">RX imola</span> and <span className="text-primary font-semibold">RX modena</span>, support institutional laboratories with reliable, continuous testing.
+                At <strong className="text-ink font-semibold">Altimi Biosciences</strong>, we supply verified diagnostic systems and hospital consumables. Our advanced portfolio spans automated chemistry platforms like <span className="text-primary font-semibold">RX imola</span> &amp; <span className="text-primary font-semibold">RX modena</span>, alongside rapid closed-cartridge molecular diagnostics with the <span className="text-primary font-semibold">Bosch Vivalytic</span> for sample-to-result precision.
               </p>
             </Reveal>
 
             <Reveal direction="up" delay={0.3}>
               <p className="text-muted text-base leading-relaxed">
-                From routine chemistries and direct HbA1c assays to specialized cardiac monitoring and consumables, we support healthcare workflows across Pakistan with calibrated accuracy and prompt technical assistance.
+                From routine chemistries and multiplex cartridge PCR panels to specialized cardiac telemetry and consumables, we support healthcare workflows across Pakistan with calibrated accuracy and prompt technical assistance.
               </p>
-            </Reveal>
-
-            {/* Core Competency Highlights */}
-            <Reveal direction="up" delay={0.35}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-ink">
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
-                  <span>DRAP & ISO 13485 Certified</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-ink">
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
-                  <span>Validated Cold-Chain Logistics</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-ink">
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
-                  <span>Factory-Trained Engineers</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-ink">
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
-                  <span>24/7 Technical On-Call Support</span>
-                </div>
-              </div>
             </Reveal>
 
             <Reveal direction="up" delay={0.4}>

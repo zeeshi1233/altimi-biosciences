@@ -2,7 +2,7 @@ export interface PartnerCollaborator {
   id: string;
   slug: string;
   name: string;
-  country: "United Kingdom" | "Finland" | "Japan" | "China";
+  country: string;
   flag: string;
   logo: string;
   description: string;
@@ -16,7 +16,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     name: "Randox Laboratories",
     country: "United Kingdom",
     flag: "🇬🇧",
-    logo: "/images/partners/randox-removebg-preview.png",
+    logo: "/partners/randox-removebg-preview.png",
     description:
       "A global leader in diagnostic solutions, providing reliable laboratory testing reagents, automated chemistry analyzers, and quality control products.",
     products: [
@@ -32,7 +32,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     name: "Aidian",
     country: "Finland",
     flag: "🇫🇮",
-    logo: "/images/partners/images-removebg-preview.png",
+    logo: "/partners/images-removebg-preview.png",
     description:
       "Specialist in rapid point-of-care diagnostics, delivering fast and accurate test results at the clinic, hospital or reference laboratory.",
     products: [
@@ -48,11 +48,11 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     name: "Bittium Corporation",
     country: "Finland",
     flag: "🇫🇮",
-    logo: "/images/partners/bittium.png",
+    logo: "/partners/bittium.png",
     description:
       "Finnish medical technology company providing advanced biosignal monitoring, waterproof ECG telemetry, and clinical analysis software.",
     products: [
-      "Bittium Faros™ 360 & Faros™ 180 ECG monitors",
+      "Bittium Faros™ 360 & Faros™ 180 Holter monitors",
       "Bittium HolterPlus™ remote cloud telemetry",
       "Bittium Cardiac Navigator™ analysis software",
       "Continuous outpatient arrhythmia monitoring",
@@ -64,7 +64,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     name: "A&D Medical",
     country: "Japan",
     flag: "🇯🇵",
-    logo: "/images/partners/and.png",
+    logo: "/partners/and.png",
     description:
       "Trusted Japanese manufacturer of precision clinical measurement and ambulatory blood pressure monitoring devices used worldwide.",
     products: [
@@ -80,7 +80,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     name: "Anji Hongde Medical Products",
     country: "China",
     flag: "🇨🇳",
-    logo: "/images/partners/Anji Hongde.png",
+    logo: "/partners/Anji Hongde.png",
     description:
       "Manufacturer of sterile clinical consumables and patient hygiene disposables supplied to hospital wards, ICUs, and laboratories.",
     products: [
@@ -96,7 +96,7 @@ export const partnerCollaborators: PartnerCollaborator[] = [
     name: "Yangzhong Jinxiang Emulsion Products",
     country: "China",
     flag: "🇨🇳",
-    logo: "/images/partners/yangzhong.png",
+    logo: "/partners/yangzhong.png",
     description:
       "Manufacturer of premium medical barrier protection, surgical latex gloves, and emulsion-based hospital healthcare supplies.",
     products: [
@@ -106,13 +106,143 @@ export const partnerCollaborators: PartnerCollaborator[] = [
       "International medical standard compliant consumables",
     ],
   },
+  {
+    id: "braun",
+    slug: "braun",
+    name: "B. Braun",
+    country: "Germany",
+    flag: "🇩🇪",
+    logo: "/partners/braun.png",
+    description:
+      "Global healthcare leader supplying infusion therapy, surgical and wound care products to hospitals worldwide.",
+    products: [
+      "Infusion therapy products",
+      "Surgical sutures and instruments",
+      "Wound care and dressings",
+      "[edit as needed]",
+    ],
+  },
+  {
+    id: "pari",
+    slug: "pari",
+    name: "PARI",
+    country: "Germany",
+    flag: "🇩🇪",
+    logo: "/partners/pari.png",
+    description:
+      "Specialist in inhalation therapy, known for high-quality nebulizers and aerosol delivery systems.",
+    products: [
+      "Compressor nebulizers",
+      "Nebulizer kits and masks",
+      "Inhalation accessories",
+      "[edit as needed]",
+    ],
+  },
+  {
+    id: "schebo",
+    slug: "schebo",
+    name: "ScheBo Biotech AG",
+    country: "Germany",
+    flag: "🇩🇪",
+    logo: "/partners/schebo.png",
+    description:
+      "Biotech company developing rapid diagnostic tests for gastrointestinal and metabolic conditions.",
+    products: [
+      "Rapid stool diagnostic tests",
+      "ELISA test kits",
+      "[edit as needed]",
+    ],
+  },
+  {
+    id: "dongkook",
+    slug: "dongkook",
+    name: "Dongkook",
+    country: "South Korea",
+    flag: "🇰🇷",
+    logo: "/partners/dongkook.png",
+    description:
+      "Korean pharmaceutical manufacturer supplying quality healthcare and wound-care products.",
+    products: [
+      "[edit: add actual imported products]",
+    ],
+  },
+  {
+    id: "hetero",
+    slug: "hetero",
+    name: "Hetero",
+    country: "India",
+    flag: "🇮🇳",
+    logo: "/partners/hetero.png",
+    description:
+      "Leading pharmaceutical manufacturer producing quality generic medicines and active ingredients.",
+    products: [
+      "[edit: add actual imported products]",
+    ],
+  },
+  {
+    id: "blue-leaves",
+    slug: "blue-leaves",
+    name: "Blue Leaves",
+    country: "United Kingdom",
+    flag: "🇬🇧",
+    logo: "/partners/blue-leaves.png",
+    description:
+      "Manufacturer of hygiene products made with care for healthcare and personal use.",
+    products: [
+      "Hygiene products",
+      "[edit as needed]",
+    ],
+  },
+  {
+    id: "ardl",
+    slug: "ardl",
+    name: "ARDL – Altimi Research & Diagnostic Laboratory",
+    country: "Pakistan",
+    flag: "🇵🇰",
+    logo: "/partners/diagnostic.png",
+    description:
+      "Our associated research and diagnostic laboratory providing reliable testing and diagnostic services.",
+    products: [
+      "Diagnostic testing services",
+      "Laboratory research",
+      "[edit as needed]",
+    ],
+  },
 ];
 
+// Compute statistics dynamically from partnerCollaborators
+const internationalPartners = partnerCollaborators.filter(
+  (p) => p.country !== "Pakistan"
+);
+const internationalCountries = Array.from(
+  new Set(internationalPartners.map((p) => p.country))
+);
+
 export const partnerStats = [
-  { value: 6, suffix: "+", label: "International Partners", subtext: "World-class manufacturers" },
-  { value: 4, suffix: "", label: "Countries Represented", subtext: "UK, Finland, Japan, China" },
-  { value: 100, suffix: "%", label: "Authentic Products", subtext: "Direct manufacturer supply" },
-  { value: 24, suffix: "/7", label: "After-Sales Support", subtext: "Factory-certified engineers" },
+  {
+    value: internationalPartners.length,
+    suffix: "+",
+    label: "International Partners",
+    subtext: "World-class global manufacturers & associate lab",
+  },
+  {
+    value: internationalCountries.length,
+    suffix: "",
+    label: "Countries Represented",
+    subtext: internationalCountries.slice(0, 4).join(", ") + " & more",
+  },
+  {
+    value: 100,
+    suffix: "%",
+    label: "Authentic Products",
+    subtext: "Direct manufacturer supply",
+  },
+  {
+    value: 24,
+    suffix: "/7",
+    label: "After-Sales Support",
+    subtext: "Factory-certified engineers",
+  },
 ];
 
 export const partnerValueProps = [
@@ -141,4 +271,3 @@ export const partnerValueProps = [
     icon: "Headphones",
   },
 ];
-

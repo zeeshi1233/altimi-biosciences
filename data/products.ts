@@ -345,7 +345,7 @@ export const products: Product[] = [
       {
         id: "faros-360",
         slug: "faros-360",
-        name: "Bittium Faros 360 (ECG Monitor)",
+        name: "Bittium Faros 360 (Holter Monitor)",
         modelCode: "FAROS 360",
         image: "/images/products/faros-360-excel.png",
         badge: "3-Channel ECG • 18g",

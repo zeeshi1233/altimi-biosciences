@@ -23,7 +23,8 @@ export const Navbar: React.FC = () => {
 
   const isHome = pathname === "/";
   const isCollaborators = pathname === "/collaborators";
-  const isOverlayPage = isHome || isCollaborators;
+  const isEvents = pathname === "/events";
+  const isOverlayPage = isHome || isCollaborators || isEvents;
   const isDarkGlass = isOverlayPage && !isScrolled;
 
   useEffect(() => {
@@ -84,8 +85,8 @@ export const Navbar: React.FC = () => {
     },
     { label: "Brochures", href: "/brochures" },
     // { label: "Media", href: "/media" },
-    // { label: "Events", href: "/events" },
     { label: "Collaborators", href: "/collaborators" },
+    { label: "Events", href: "/events" },
     { label: "Contact", href: "/contact" },
   ];
 

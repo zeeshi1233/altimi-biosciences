@@ -59,7 +59,7 @@ export const VisionMissionSection: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  ALTIMI also envisage that the <strong className="text-ink">pulmonary diseases</strong> have acquired significance in Pakistan and are accelerating due to lack of advanced inhalation and respiratory therapies causing aggravation and more complications.
+                  ALTIMI also envisage that the <strong className="text-ink">pulmonary diseases</strong> have acquired significance in Pakistan and are accelerating due to lack of world class inhalation and respiratory therapies causing aggravation and more complications.
                 </p>
 
                 <p className="text-sm sm:text-base text-muted leading-relaxed mt-4">

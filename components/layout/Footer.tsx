@@ -207,7 +207,8 @@ export const Footer: React.FC = () => {
                   Contact & Support
                 </Link>
               </li>
-              <li>
+              {/*
+               <li>
                 <Link
                   href="/privacy-policy"
                   className="hover:text-white transition-colors"
@@ -223,6 +224,7 @@ export const Footer: React.FC = () => {
                   Terms & Conditions
                 </Link>
               </li>
+               */}
             </ul>
 
             <div className="pt-3">
