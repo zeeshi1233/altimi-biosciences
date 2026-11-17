@@ -23,7 +23,8 @@ export const Navbar: React.FC = () => {
 
   const isHome = pathname === "/";
   const isCollaborators = pathname === "/collaborators";
-  const isOverlayPage = isHome || isCollaborators;
+  const isEvents = pathname === "/events";
+  const isOverlayPage = isHome || isCollaborators || isEvents;
   const isDarkGlass = isOverlayPage && !isScrolled;
 
   useEffect(() => {
