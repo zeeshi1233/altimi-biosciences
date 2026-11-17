@@ -237,7 +237,7 @@ export default function LeadershipPage() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b border-slate-200/80">
               <div>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 mb-2">
-                  <Sparkles className="w-3.5 h-3.5" />
+                  {/* <Sparkles className="w-3.5 h-3.5" /> */}
                   Executive Track Record
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black font-heading text-ink">
