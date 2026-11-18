@@ -306,7 +306,6 @@ export const Navbar: React.FC = () => {
                                 <span>Devices &amp; Supplies</span>
                               </div>
                               <div className="space-y-1">
-
                                 <Link
                                   href="/products/and-abpm-monitor"
                                   className="nav-dropdown-link block p-2.5 rounded-xl group"
