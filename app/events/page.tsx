@@ -26,6 +26,7 @@ export default function EventsPage() {
             ))}
           </div>
         </Container>
+
       </section>
     </main>
   );

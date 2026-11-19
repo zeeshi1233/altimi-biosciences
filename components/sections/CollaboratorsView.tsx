@@ -270,7 +270,6 @@ export const CollaboratorsView: React.FC = () => {
                   {/* Render 2 sets for perfect continuous loop */}
                   {[...partnerCollaborators, ...partnerCollaborators].map((partner, index) => {
                     const hasError = logoErrors[`strip-${partner.id}-${index}`];
-
                     return (
                       <div
                         key={`strip-${partner.id}-${index}`}
@@ -309,7 +308,7 @@ export const CollaboratorsView: React.FC = () => {
       {/* ========================================================================= */}
       {/* 3. KEY METRICS STATS SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
+      {/* <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/60">
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {partnerStats.map((stat, i) => (
@@ -331,7 +330,7 @@ export const CollaboratorsView: React.FC = () => {
             ))}
           </div>
         </Container>
-      </section>
+      </section> */}
 
       {/* ========================================================================= */}
       {/* 4. COLLABORATORS / PRINCIPALS GRID WITH COUNTRY FILTERS */}
@@ -493,7 +492,7 @@ export const CollaboratorsView: React.FC = () => {
         <Container>
           <Reveal direction="up">
             <SectionHeading
-              badge="Import Excellence"
+              badge="Import Excellence"            
               title="Why Healthcare Institutions Trust Us"
               subtitle="Ensuring authenticated diagnostics, continuous clinical cold-chain logistics, and reliable technical backup across Pakistan."
               align="center"

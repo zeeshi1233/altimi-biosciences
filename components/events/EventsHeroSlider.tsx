@@ -49,14 +49,14 @@ const sliderImages: SlideData[] = [
     date: "November 2026",
     location: "Marriott Hotel Karachi",
   },
-  {
-    src: "/images/events/randox-opening/photo-4.jpg",
-    badge: "Global Collaboration",
-    title: "International Partnership Felicitation",
-    subtitle: "Honoring long-term distribution partnerships and principal technical support across Pakistan.",
-    date: "November 2026",
-    location: "Marriott Hotel Karachi",
-  },
+    // {
+    //   src: "/images/events/randox-opening/photo-4.jpg",
+    //   badge: "Global Collaboration",
+    //   title: "International Partnership Felicitation",
+    //   subtitle: "Honoring long-term distribution partnerships and principal technical support across Pakistan.",
+    //   date: "November 2026",
+    //   location: "Marriott Hotel Karachi",
+    // },
   {
     src: "/images/events/randox-opening/photo-1.jpg",
     badge: "Clinical Presentation",
@@ -97,14 +97,14 @@ const sliderImages: SlideData[] = [
     date: "November 2026",
     location: "Marriott Hotel Karachi",
   },
-  {
-    src: "/images/events/randox-opening/photo-2.jpg",
-    badge: "Grand Opening",
-    title: "Grand Opening Celebration",
-    subtitle: "Celebrating clinical partnership milestones with distinguished healthcare patrons and honored guests.",
-    date: "November 2026",
-    location: "Marriott Hotel Karachi",
-  },
+  // {
+  //   src: "/images/events/randox-opening/photo-2.jpg",
+  //   badge: "Grand Opening",
+  //   title: "Grand Opening Celebration",
+  //   subtitle: "Celebrating clinical partnership milestones with distinguished healthcare patrons and honored guests.",
+  //   date: "November 2026",
+  //   location: "Marriott Hotel Karachi",
+  // },
 ];
 
 const AUTOPLAY_DURATION = 5500; // 5.5s per slide
@@ -392,8 +392,8 @@ export const EventsHeroSlider: React.FC = () => {
               type="button"
               onClick={() => goToSlide(idx)}
               className={`group/thumb relative w-16 lg:w-20 aspect-video rounded-lg overflow-hidden shrink-0 border-2 transition-all duration-300 ${idx === current
-                  ? "border-sky-400 scale-105 shadow-md shadow-sky-500/40 opacity-100"
-                  : "border-transparent opacity-40 hover:opacity-90 hover:border-white/40"
+                ? "border-sky-400 scale-105 shadow-md shadow-sky-500/40 opacity-100"
+                : "border-transparent opacity-40 hover:opacity-90 hover:border-white/40"
                 }`}
               title={item.title}
               aria-label={`Jump to slide ${idx + 1}: ${item.title}`}
